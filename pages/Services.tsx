@@ -1,0 +1,60 @@
+import React from 'react';
+import { SERVICES } from '../constants';
+import ServiceCard from '../components/ServiceCard';
+
+const Services: React.FC = () => {
+  return (
+    <div className="animate-fade-in services-page">
+      <section className="intro-section px-6 py-16 md:py-24 max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+          <div className="flex-1 space-y-6">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-terracotta">Nuestro Enfoque</span>
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-text-dark">
+              Encuentra Tu <span className="text-primary italic">Refugio Seguro</span>
+            </h1>
+            <p className="text-lg leading-relaxed text-text-muted max-w-xl">
+              Servicios de Neuropsicología y Psicología de la Salud compasivos y adaptados a tu bienestar cognitivo y emocional único. Creemos en la atención basada en la evidencia entregada en un espacio tranquilo y sin prejuicios.
+            </p>
+          </div>
+          <div className="flex-1 w-full">
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-2xl">
+              <div className="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+              <div 
+                className="w-full h-full bg-cover bg-center transition-transform hover:scale-105 duration-700" 
+                style={{backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAZT_fzBGMrPqF51wxuvUx-ar1K84GQkx15zuMCCqK_Q38a4ypASdm0_3AQT46jrBL8j9iUC7D6xmiStPlEpKAyzv-Ko2uYXM99y2jT981jU8AeAocU_kXc8raTHDi_W1-kxsiwmOin8NrkYj4BN1YKCdJg0oCZGLicZfvTKAhfmreFYdy4fya4L1-Dne6BUGuu9oPXshcKjTzMqB9H_UQfLhVC6q_mCVS9Eb-LxqVS-Y6CgY3ypSdpcMri9U5_hCneswgymazO71M')"}}
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Grid - Data Binding with Constants */}
+      <section className="services-grid px-6 py-12 bg-white/50 border-y border-[#edefec]">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
+            {SERVICES.map((service) => (
+              <ServiceCard key={service.id} service={service} variant="detail" />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="philosophy-section px-6 py-24 bg-background-light">
+        <div className="max-w-3xl mx-auto text-center space-y-8">
+          <div className="inline-block p-4 rounded-full bg-terracotta/20 mb-4 animate-pulse">
+            <span className="material-symbols-outlined text-terracotta text-3xl">spa</span>
+          </div>
+          <h3 className="text-2xl font-bold text-text-dark">La Filosofía "Safe Haven"</h3>
+          <p className="text-text-muted leading-loose italic text-xl">
+            "Sanar no se trata solo de corregir déficits; se trata de nutrir tus fortalezas existentes en un espacio donde te sientas verdaderamente escuchado y seguro. Nuestra práctica se basa en la creencia de que todos merecen un ambiente tranquilo para reconectarse con su yo cognitivo y emocional."
+          </p>
+          <div className="pt-6">
+            <div className="w-24 h-1.5 bg-terracotta/40 mx-auto rounded-full"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Services;
