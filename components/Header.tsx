@@ -23,7 +23,7 @@ const Header: React.FC = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
           <div className="flex items-center justify-center transition-transform group-hover:scale-110">
-            <img src="/logo.png" alt="Safe Haven Psychology Logo" className="h-10 w-10 object-contain" />
+            <img src="/logo.png" alt="Logo Safe Haven Psychology" className="h-10 w-10 object-contain" />
           </div>
           <h2 className="text-text-dark text-xl font-bold tracking-tight">
             Safe Haven <span className="font-light">Psychology</span>
