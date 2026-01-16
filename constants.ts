@@ -160,16 +160,7 @@ export const PODCAST_ITEMS: PodcastItem[] = [
     mediaUrl: 'https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4', // Placeholder Video
     downloadUrl: 'https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4'
   },
-  {
-    id: '4',
-    title: 'Relajación Guiada para Dormir Mejor',
-    type: 'audio',
-    duration: '30 min',
-    imageUrl: 'https://images.unsplash.com/photo-1515023697514-6c0800b65640?auto=format&fit=crop&q=80&w=1000',
-    category: 'Sueño',
-    mediaUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3', // Placeholder MP3
-    downloadUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3'
-  },
+
   {
     id: '5',
     title: 'No critiques, aprecia y persuade',
