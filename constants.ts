@@ -169,6 +169,16 @@ export const PODCAST_ITEMS: PodcastItem[] = [
     category: 'Sueño',
     mediaUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3', // Placeholder MP3
     downloadUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3'
+  },
+  {
+    id: '5',
+    title: 'No critiques, aprecia y persuade',
+    type: 'audio',
+    duration: '10 min',
+    imageUrl: 'https://images.unsplash.com/photo-1515023697514-6c0800b65640?auto=format&fit=crop&q=80&w=1000',
+    category: 'Relaciones',
+    mediaUrl: '/audio/No_critiques_aprecia_y_persuade.m4a',
+    downloadUrl: '/audio/No_critiques_aprecia_y_persuade.m4a'
   }
 ];
 
