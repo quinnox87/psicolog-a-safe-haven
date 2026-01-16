@@ -5,10 +5,15 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
   return {
-    base: './',
+    base: './', // Relative paths for root deployment
     server: {
       port: 3000,
       host: '0.0.0.0',
+    },
+    build: {
+      rollupOptions: {
+        input: 'index.dev.html' // Source entry point
+      }
     },
     plugins: [react()],
     define: {
