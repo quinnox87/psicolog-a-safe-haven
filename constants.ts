@@ -2,42 +2,6 @@ import { ManualResource, ServiceItem, QAItem, ExperienceItem, BlogPost, PatientS
 
 export const RESOURCES: ManualResource[] = [
   {
-    id: "1",
-    title: "Técnicas de Anclaje para la Ansiedad",
-    category: "Manejo de la Ansiedad",
-    size: "1.2 MB",
-    pages: 12,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBmkWxyI6Xc1vD9JsBV3N9KqYam2qhDPFoNgQ7IpzdhgnsNPZRXZ5pLvlHyDInCQxn2DVPJfDnz3Pqfx3GMzFNTlNnLZluWwEvcWRFBtDnA-PJc8wGh21Z5gLjrU4jhl40S57tVwU-SP2ybSnWkbifJMYr3mf6xw27bMhQkW2nPvdOSP7cF15o2-bnF6EEUJoUFHy1soiighZjbT2rTv5HvKz7Nlu3fJcUVq2vxJ9B_0lrh2bRY3EPl-MzE50X5wIv7bZ5QrY33RMc",
-    downloadUrl: "#"
-  },
-  {
-    id: "2",
-    title: "Kit de Herramientas para TDAH en Adultos",
-    category: "TDAH y Concentración",
-    size: "2.5 MB",
-    pages: 8,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAZ61G6Sfx2lBQkUKwVth465YsrpYHaECvcC4Saje2k8Os2oTa0YvWXtVrrPNFnRWh-Gz3O14ZJovjEp60EDYltF7zACMidCkWfodtvxDvWbqQzD7DKyULJG614pmxQFsX2C3eVZy8XYejx8vkMFOP7wVpSKuE9lKgZkSJ-W8rYNALdTN351NAp444ZA_QDOCSWtGgWEcymiEK5BsCICKauyxNBKShDDx3QYvUaZrIvYHmQdpjKBkm97Aw61oFxEcBUqfpy8f-wPX8",
-    downloadUrl: "#"
-  },
-  {
-    id: "3",
-    title: "Guía para una Mejor Higiene del Sueño",
-    category: "Higiene del Sueño",
-    size: "0.8 MB",
-    pages: 15,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCbsoehcs7q_NdOO_ztnfp7hFa1xikDkhqRZ7sRm0VxOyy6AeWzo0b-tgh7M37PlJm0h16QjgjmK_SjpUKS7OkuABkO_O6j7CWgKYir_ofqx7bYvzFhwfhz0UxQtPg4NlGeHa8NEiOFdFEvr201VjEF-HXwxcoQ0Kyk1CtBtc_P7WxnLyrhVlNZk538l4Jz_rK75oHS17QJx4F6mnF1lheyFvldwhJOlx-8Ld8XDn_Js0IxkkSUawg3gsZpfEkP2capfEOT--8MRYY",
-    downloadUrl: "#"
-  },
-  {
-    id: "4",
-    title: "Entendiendo la Función Ejecutiva",
-    category: "Neurodivergencia",
-    size: "1.1 MB",
-    pages: 22,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAXVaaiFe1Gtsx3TcvC5f_gwwKNBh88EzIW5wMeGe-ZntGAkn_uwFeLSQM6fXreulRlxISp01znVZthz5jGWGsyEGAMZZ7hxX2SD0rQjwNZksRPq_dwhtUxrouWAFcCnbHRbKlf8JzqQCD34EuVTdr1beV-lVmNm221-ogyLrccIxgeaY_yptzhhf6H4jo24nTjP-Nn0M821zHWbSxQdIML_s-Ex2KiYWcY8qMzo3HVKRlrOMnInMk4UCP5iAfjLsRxgLFfZClOClU",
-    downloadUrl: "#"
-  },
-  {
     id: "5",
     title: "Guía Bupropion para Dejar de Fumar",
     category: "Salud Física y Mental",
