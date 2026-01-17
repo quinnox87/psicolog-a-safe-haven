@@ -103,12 +103,14 @@ const ChatWidget: React.FC = () => {
             {/* Toggle Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-xl flex items-center justify-center transition-all hover:scale-110 ${isOpen ? 'bg-gray-800 rotate-90' : 'bg-primary hover:bg-primary-dark rotate-0'
+                className={`fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-xl flex items-center justify-center transition-all hover:scale-110 ${isOpen ? 'bg-gray-800 rotate-90' : 'bg-[#F2E8CF] hover:bg-white rotate-0' // Changed bg to Sand/Light for better icon contrast if icon is dark
                     }`}
             >
-                <span className="material-symbols-outlined text-white text-3xl">
-                    {isOpen ? 'close' : 'smart_toy'}
-                </span>
+                {isOpen ? (
+                    <span className="material-symbols-outlined text-white text-3xl">close</span>
+                ) : (
+                    <img src="/neuron_icon.png" alt="Chat" className="w-10 h-10 opacity-90" />
+                )}
             </button>
 
             {/* Chat Window */}
