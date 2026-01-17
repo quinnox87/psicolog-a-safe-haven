@@ -21,7 +21,7 @@ const Services: React.FC = () => {
               <div className="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
               <div
                 className="w-full h-full bg-cover bg-center transition-transform hover:scale-105 duration-700"
-                style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAZT_fzBGMrPqF51wxuvUx-ar1K84GQkx15zuMCCqK_Q38a4ypASdm0_3AQT46jrBL8j9iUC7D6xmiStPlEpKAyzv-Ko2uYXM99y2jT981jU8AeAocU_kXc8raTHDi_W1-kxsiwmOin8NrkYj4BN1YKCdJg0oCZGLicZfvTKAhfmreFYdy4fya4L1-Dne6BUGuu9oPXshcKjTzMqB9H_UQfLhVC6q_mCVS9Eb-LxqVS-Y6CgY3ypSdpcMri9U5_hCneswgymazO71M')" }}
+                style={{ backgroundImage: "url('/images/despacho.png')" }}
               ></div>
             </div>
           </div>
