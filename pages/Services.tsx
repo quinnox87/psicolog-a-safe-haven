@@ -1,8 +1,10 @@
 import React from 'react';
 import { SERVICES } from '../constants';
 import ServiceCard from '../components/ServiceCard';
+import { useBooking } from '../context/BookingContext';
 
 const Services: React.FC = () => {
+  const { openModal } = useBooking();
   return (
     <div className="animate-fade-in services-page">
       <section className="intro-section px-6 py-16 md:py-24 max-w-7xl mx-auto">
@@ -15,6 +17,13 @@ const Services: React.FC = () => {
             <p className="text-lg leading-relaxed text-text-muted max-w-xl">
               Servicios de Neuropsicología y Psicología de la Salud compasivos y adaptados a tu bienestar cognitivo y emocional único. Creemos en la atención basada en la evidencia entregada en un espacio tranquilo y sin prejuicios.
             </p>
+            <button
+              onClick={openModal}
+              className="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2 w-fit"
+            >
+              <span className="material-symbols-outlined">calendar_month</span>
+              Programa tu sesión
+            </button>
           </div>
           <div className="flex-1 w-full">
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-2xl">

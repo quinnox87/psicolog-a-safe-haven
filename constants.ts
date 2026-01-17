@@ -1,4 +1,4 @@
-import { ManualResource, ServiceItem, QAItem, ExperienceItem, BlogPost, PatientSession, PodcastItem, StoreItem, PublicationItem, TimelineItem } from "./types";
+import { ManualResource, ServiceItem, QAItem, ExperienceItem, BlogPost, PatientSession, PodcastItem, StoreItem, PublicationItem, TimelineItem, QuestionnaireItem } from "./types";
 
 export const RESOURCES: ManualResource[] = [
   {
