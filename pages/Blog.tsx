@@ -80,7 +80,7 @@ const Blog: React.FC = () => {
                         <div className="animate-fade-in">
                             <button onClick={() => setViewMode('landing')} className="flex items-center gap-2 text-text-muted hover:text-primary mb-8 font-bold text-sm transition-colors">
                                 <span className="material-symbols-outlined">arrow_back</span>
-                                Volver al inicio
+                                Atrás
                             </button>
 
                             <h2 className="text-2xl font-bold text-text-dark mb-8 flex items-center gap-3">
@@ -173,7 +173,7 @@ const Blog: React.FC = () => {
                         <div className="animate-fade-in">
                             <button onClick={() => setViewMode('landing')} className="flex items-center gap-2 text-text-muted hover:text-primary mb-8 font-bold text-sm transition-colors">
                                 <span className="material-symbols-outlined">arrow_back</span>
-                                Volver al inicio
+                                Atrás
                             </button>
 
                             <h2 className="text-2xl font-bold text-text-dark mb-8 flex items-center gap-3">

@@ -91,7 +91,7 @@ const Resources: React.FC = () => {
           <div className="animate-fade-in">
             <button onClick={handleBack} className="flex items-center gap-2 text-text-muted hover:text-primary mb-8 font-bold text-sm transition-colors">
               <span className="material-symbols-outlined">arrow_back</span>
-              Volver al inicio
+              Atrás
             </button>
 
             <h2 className="text-2xl font-bold text-text-dark mb-8 flex items-center gap-3">
@@ -132,7 +132,7 @@ const Resources: React.FC = () => {
           <div className="animate-fade-in">
             <button onClick={handleBack} className="flex items-center gap-2 text-text-muted hover:text-primary mb-8 font-bold text-sm transition-colors">
               <span className="material-symbols-outlined">arrow_back</span>
-              Volver al inicio
+              Atrás
             </button>
 
             <div className="flex flex-col lg:flex-row gap-12">
