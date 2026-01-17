@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { STORE_ITEMS } from '../constants';
 import { useBooking } from '../context/BookingContext';
+import PaymentModal from '../components/PaymentModal';
+import { StoreItem } from '../types';
 
 const Store: React.FC = () => {
     const { openModal } = useBooking();
     const trainingItems = STORE_ITEMS.filter(item => item.category === 'Formación Especializada');
     const materialItems = STORE_ITEMS.filter(item => item.category === 'Materiales (Digitales)');
+
+    // Payment Modal State
+    const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+    const [selectedProduct, setSelectedProduct] = useState<StoreItem | null>(null);
+
+    const handlePurchaseClick = (item: StoreItem) => {
+        setSelectedProduct(item);
+        setIsPaymentModalOpen(true);
+    };
 
     return (
         <div className="animate-fade-in min-h-screen bg-[#f6f7f7] store-page pb-20">
@@ -71,7 +82,10 @@ const Store: React.FC = () => {
                                             <span className="block text-[#afb6ad] text-xs font-bold uppercase tracking-wider">Precio</span>
                                             <span className="text-2xl font-bold text-primary">{item.price.toFixed(2)}€</span>
                                         </div>
-                                        <button className="bg-text-dark text-white px-8 py-3 rounded-xl text-sm font-bold hover:bg-primary transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2">
+                                        <button
+                                            onClick={() => handlePurchaseClick(item)}
+                                            className="bg-text-dark text-white px-8 py-3 rounded-xl text-sm font-bold hover:bg-primary transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2"
+                                        >
                                             {item.ctaLabel || 'Comprar'}
                                             <span className="material-symbols-outlined">arrow_forward</span>
                                         </button>
@@ -116,7 +130,10 @@ const Store: React.FC = () => {
                                     </p>
                                     <div className="flex items-center justify-between mt-auto">
                                         <span className="text-lg font-bold text-primary">{item.price.toFixed(2)}€</span>
-                                        <button className="text-text-dark font-bold text-sm hover:text-primary underline decoration-2 underline-offset-4 transition-colors">
+                                        <button
+                                            onClick={() => handlePurchaseClick(item)}
+                                            className="text-text-dark font-bold text-sm hover:text-primary underline decoration-2 underline-offset-4 transition-colors"
+                                        >
                                             {item.ctaLabel || 'Comprar'}
                                         </button>
                                     </div>
@@ -162,6 +179,12 @@ const Store: React.FC = () => {
                 </div>
 
             </div>
+
+            <PaymentModal
+                isOpen={isPaymentModalOpen}
+                onClose={() => setIsPaymentModalOpen(false)}
+                product={selectedProduct}
+            />
         </div>
     );
 };
