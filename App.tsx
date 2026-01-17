@@ -12,6 +12,7 @@ import PrivateArea from './pages/PrivateArea';
 import CookieBanner from './components/CookieBanner';
 import { BookingProvider } from './context/BookingContext';
 import BookingModal from './components/BookingModal';
+import ChatWidget from './components/ChatWidget';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -59,6 +60,7 @@ const App: React.FC = () => {
             </Routes>
             <CookieBanner />
             <BookingModal />
+            <ChatWidget />
           </Layout>
         </BookingProvider>
       </AuthProvider>
