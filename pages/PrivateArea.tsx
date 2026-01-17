@@ -32,12 +32,21 @@ const PrivateArea: React.FC = () => {
     const handleSaveNotebook = () => {
         if (!notebookContent.trim()) return;
         setIsSaving(true);
-        // Simulate API call
+
+        // Construct mailto link
+        const subject = `Nota Paciente Web - ${user?.name || 'Paciente'}`;
+        const body = encodeURIComponent(notebookContent);
+        const mailtoLink = `mailto:joaquinpavonperez@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+        // Open email client
+        window.location.href = mailtoLink;
+
+        // Simulate success UI
         setTimeout(() => {
             setIsSaving(false);
             setShowSaveSuccess(true);
             setTimeout(() => setShowSaveSuccess(false), 3000);
-        }, 1500);
+        }, 1000);
     };
 
     const handleDownload = (fileName: string, type: string) => {
