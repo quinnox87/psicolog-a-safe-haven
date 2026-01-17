@@ -35,28 +35,34 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 };
 
 import Store from './pages/Store'; // Import Store page
+import PrivacyPolicy from './pages/PrivacyPolicy';
+
+import { AuthProvider } from './context/AuthContext';
 
 const App: React.FC = () => {
   return (
     <Router>
       <ScrollToTop />
-      <BookingProvider>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/resources" element={<Resources />} />
-            <Route path="/experiencia" element={<Experience />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:id" element={<BlogPost />} />
-            <Route path="/tienda" element={<Store />} /> {/* Add Store route */}
-            <Route path="/area-privada" element={<PrivateArea />} />
-          </Routes>
-          <CookieBanner />
-          <BookingModal />
-        </Layout>
-      </BookingProvider>
-    </Router >
+      <AuthProvider>
+        <BookingProvider>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/resources" element={<Resources />} />
+              <Route path="/experiencia" element={<Experience />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:id" element={<BlogPost />} />
+              <Route path="/tienda" element={<Store />} />
+              <Route path="/area-privada" element={<PrivateArea />} />
+              <Route path="/politica-privacidad" element={<PrivacyPolicy />} />
+            </Routes>
+            <CookieBanner />
+            <BookingModal />
+          </Layout>
+        </BookingProvider>
+      </AuthProvider>
+    </Router>
   );
 };
 
