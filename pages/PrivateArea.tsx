@@ -165,24 +165,30 @@ const PrivateArea: React.FC = () => {
                         </div>
                         <div className="space-y-4 max-h-[300px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-200">
                             {MOCK_SESSIONS.map((session) => (
-                                <div key={session.id} className="p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-primary/30 transition-colors">
+                                <div key={session.id} className="p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-primary/30 transition-colors group">
                                     <div className="flex justify-between items-start mb-2">
                                         <span className="text-xs font-bold text-gray-500 flex items-center gap-1">
                                             <span className="material-symbols-outlined text-[14px]">calendar_today</span>
                                             {session.date}
                                         </span>
                                         <div className="flex gap-2">
-                                            {/* Only Download needed for session notes usually, but we can add preview if it was a PDF */}
+                                            <button
+                                                onClick={() => handlePreview({ title: session.summaryTitle, type: 'Evaluación', downloadUrl: session.downloadUrl })}
+                                                className="text-xs text-blue-600 font-bold hover:underline flex items-center gap-1 bg-blue-50 px-2 py-1 rounded-lg"
+                                            >
+                                                <span className="material-symbols-outlined text-[14px]">visibility</span>
+                                                Ver
+                                            </button>
                                             <button
                                                 onClick={() => handleDownload(session.summaryTitle, 'Resumen')}
-                                                className="text-xs text-primary font-bold hover:underline flex items-center gap-1"
+                                                className="text-xs text-primary font-bold hover:underline flex items-center gap-1 bg-primary/5 px-2 py-1 rounded-lg"
                                             >
                                                 <span className="material-symbols-outlined text-[14px]">download</span>
-                                                Resumen
+                                                Descargar
                                             </button>
                                         </div>
                                     </div>
-                                    <h3 className="font-bold text-text-dark text-sm mb-1">{session.summaryTitle}</h3>
+                                    <h3 className="font-bold text-text-dark text-sm mb-1 cursor-pointer hover:text-primary transition-colors" onClick={() => handlePreview({ title: session.summaryTitle, type: 'Evaluación', downloadUrl: session.downloadUrl })}>{session.summaryTitle}</h3>
                                     <p className="text-xs text-text-muted leading-relaxed line-clamp-2">{session.doctorNotes}</p>
                                 </div>
                             ))}
@@ -202,26 +208,26 @@ const PrivateArea: React.FC = () => {
                         {MOCK_REPORTS.length > 0 ? (
                             <div className="space-y-3">
                                 {MOCK_REPORTS.map((report) => (
-                                    <div key={report.id} className="flex items-center justify-between p-3 rounded-xl border border-gray-100 bg-white hover:bg-gray-50 transition-colors group">
+                                    <div key={report.id} className="flex items-center justify-between p-3 rounded-xl border border-gray-100 bg-white hover:bg-gray-50 transition-colors group cursor-pointer" onClick={() => handlePreview(report)}>
                                         <div className="flex items-center gap-3">
                                             <div className="w-10 h-10 rounded-lg bg-terracotta/10 flex items-center justify-center text-terracotta">
                                                 <span className="material-symbols-outlined">article</span>
                                             </div>
                                             <div>
-                                                <h3 className="text-sm font-bold text-text-dark">{report.title}</h3>
+                                                <h3 className="text-sm font-bold text-text-dark group-hover:text-primary transition-colors">{report.title}</h3>
                                                 <p className="text-xs text-gray-400">{report.type} • {report.date}</p>
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-2">
                                             <button
-                                                onClick={() => handlePreview(report)}
-                                                className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-500 hover:bg-blue-100 transition-all font-bold"
-                                                title="Ver Online"
+                                                onClick={(e) => { e.stopPropagation(); handlePreview(report); }}
+                                                className="px-3 py-1.5 rounded-lg bg-blue-50 text-blue-600 font-bold text-xs flex items-center gap-1 hover:bg-blue-100 transition-colors"
                                             >
-                                                <span className="material-symbols-outlined text-sm">visibility</span>
+                                                <span className="material-symbols-outlined text-[16px]">visibility</span>
+                                                Ver
                                             </button>
                                             <button
-                                                onClick={() => handleDownload(report.title, 'Informe')}
+                                                onClick={(e) => { e.stopPropagation(); handleDownload(report.title, 'Informe'); }}
                                                 className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all"
                                                 title="Descargar"
                                             >
@@ -246,7 +252,7 @@ const PrivateArea: React.FC = () => {
                         </h2>
                         <div className="grid grid-cols-1 gap-3">
                             {MOCK_PATIENT_MATERIALS.map((material) => (
-                                <div key={material.id} className="flex gap-4 p-4 rounded-xl bg-orange-50/50 border border-orange-100 hover:border-orange-300 transition-colors">
+                                <div key={material.id} className="flex gap-4 p-4 rounded-xl bg-orange-50/50 border border-orange-100 hover:border-orange-300 transition-colors cursor-pointer group" onClick={() => handlePreview(material)}>
                                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${material.type === 'PDF' ? 'bg-red-50 text-red-500' :
                                         material.type === 'Audio' ? 'bg-purple-50 text-purple-500' : 'bg-blue-50 text-blue-500'
                                         }`}>
@@ -255,7 +261,7 @@ const PrivateArea: React.FC = () => {
                                         </span>
                                     </div>
                                     <div className="flex-grow">
-                                        <h3 className="text-sm font-bold text-text-dark mb-1">{material.title}</h3>
+                                        <h3 className="text-sm font-bold text-text-dark mb-1 group-hover:text-primary transition-colors">{material.title}</h3>
                                         <p className="text-xs text-text-muted mb-2">{material.description}</p>
                                         <div className="flex items-center gap-2">
                                             <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">{material.type}</span>
@@ -265,17 +271,17 @@ const PrivateArea: React.FC = () => {
                                     </div>
                                     <div className="flex flex-col gap-2 shrink-0 self-center">
                                         <button
-                                            onClick={() => handlePreview(material)}
-                                            className="w-8 h-8 rounded-full border border-blue-200 bg-blue-50 flex items-center justify-center text-blue-500 hover:border-blue-300 hover:bg-blue-100 transition-colors"
-                                            title={material.type === 'Audio' ? 'Reproducir' : 'Ver'}
+                                            onClick={(e) => { e.stopPropagation(); handlePreview(material); }}
+                                            className="px-3 py-1.5 rounded-lg bg-blue-50 text-blue-600 font-bold text-xs flex items-center gap-1 hover:bg-blue-100 transition-colors w-full justify-center"
                                         >
-                                            <span className="material-symbols-outlined text-sm">
+                                            <span className="material-symbols-outlined text-[16px]">
                                                 {material.type === 'Audio' || material.type === 'Video' ? 'play_arrow' : 'visibility'}
                                             </span>
+                                            {material.type === 'Audio' ? 'Oír' : 'Ver'}
                                         </button>
                                         <button
-                                            onClick={() => handleDownload(material.title, material.type)}
-                                            className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:border-primary hover:text-primary transition-colors"
+                                            onClick={(e) => { e.stopPropagation(); handleDownload(material.title, material.type); }}
+                                            className="w-full h-8 rounded-lg border border-gray-200 flex items-center justify-center text-gray-400 hover:border-primary hover:text-primary transition-colors"
                                             title="Descargar"
                                         >
                                             <span className="material-symbols-outlined text-sm">download</span>
