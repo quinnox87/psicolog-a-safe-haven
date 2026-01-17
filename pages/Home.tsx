@@ -42,6 +42,28 @@ const Home: React.FC = () => {
                 Conoce a tu Doctor
               </Link>
             </div>
+
+            <div className="mt-10 pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center gap-4">
+              <span className="text-sm font-medium opacity-80 uppercase tracking-widest text-xs">Sígueme en:</span>
+              <div className="flex gap-3">
+                {[
+                  { name: 'Instagram', url: 'https://instagram.com' },
+                  { name: 'Facebook', url: 'https://facebook.com' },
+                  { name: 'LinkedIn', url: 'https://linkedin.com' },
+                  { name: 'iVoox', url: 'https://ivoox.com' },
+                ].map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg text-sm font-bold backdrop-blur-sm transition-all border border-white/10"
+                  >
+                    {social.name}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
