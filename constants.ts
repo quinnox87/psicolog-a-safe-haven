@@ -120,16 +120,6 @@ export const PODCAST_ITEMS: PodcastItem[] = [
     mediaUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', // Placeholder MP3
     downloadUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'
   },
-  {
-    id: '2',
-    title: 'Entendiendo el Daño Cerebral Adquirido',
-    type: 'video',
-    duration: '45 min',
-    imageUrl: 'https://images.unsplash.com/photo-1559757139-3b6598514930?auto=format&fit=crop&q=80&w=1000',
-    category: 'Neuropsicología',
-    mediaUrl: 'https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4', // Placeholder Video
-    downloadUrl: 'https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4'
-  },
 
 
   {
