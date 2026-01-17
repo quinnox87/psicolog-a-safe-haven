@@ -1,4 +1,4 @@
-import { ManualResource, ServiceItem, QAItem, ExperienceItem, BlogPost, PatientSession, PodcastItem, StoreItem, PublicationItem } from "./types";
+import { ManualResource, ServiceItem, QAItem, ExperienceItem, BlogPost, PatientSession, PodcastItem, StoreItem, PublicationItem, TimelineItem } from "./types";
 
 export const RESOURCES: ManualResource[] = [
   {
@@ -265,29 +265,99 @@ export const STORE_ITEMS: StoreItem[] = [
   }
 ];
 
+// Timeline Data
+export const EXPERIENCE_TIMELINE: TimelineItem[] = [
+  {
+    year: '2024',
+    title: 'Ponencia sobre Sexualidad y DCA',
+    institution: 'X Jornadas DCA Granada',
+    description: 'Participación como ponente experto.'
+  },
+  {
+    year: '2020',
+    title: 'Máster en Psicología General Sanitaria',
+    institution: 'UDIMA',
+    description: 'Desarrollo de App de Accesibilidad Cognitiva para monumentos de Granada y publicación de libro con Editorial Panamericana.'
+  },
+  {
+    year: '2017 - 2018',
+    title: 'Responsable del proyecto Mefacilyta',
+    institution: 'FEDACE y Fundación Vodafone',
+    description: 'Investigación y desarrollo sobre accesibilidad cognitiva y entornos virtuales.'
+  },
+  {
+    year: '2016',
+    title: 'Tutor de prácticas del Máster en Neurociencia Cognitiva',
+    institution: 'Universidad de Granada (UGR)',
+    description: 'Inicio de labor docente y supervisión de alumnos.'
+  },
+  {
+    year: '2015',
+    title: 'Máster en Neurociencia Cognitiva y del Comportamiento',
+    institution: 'Universidad de Granada (UGR)'
+  },
+  {
+    year: '2014',
+    title: 'Licenciatura en Psicología',
+    institution: 'Universidad de Granada (UGR)',
+    description: 'Inicio como Neuropsicólogo Clínico en AGREDACE (hasta la actualidad).'
+  }
+];
+
 export const PUBLICATIONS: PublicationItem[] = [
   {
     id: '1',
-    title: 'Rehabilitación neuropsicológica y nuevas tecnologías en Neuropsicología a través de casos clínicos',
-    type: 'Libro - Coautor',
-    date: '2020',
-    conference: 'Editorial Panamericana',
+    title: '¿Ayuda el movimiento? Influencia del formato visual en la denominación de verbos',
+    type: 'Póster',
+    date: '2025',
     url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
   },
   {
     id: '2',
-    title: '¿Ayuda el movimiento? Influencia del formato visual en la denominación de verbos en adultos con y sin afasia',
-    type: 'Investigación',
-    date: 'Octubre 2025',
-    conference: 'XXI Congreso Andaluz de Neuropsicología',
+    title: 'Diferencias del impacto de la Realidad Virtual inmersiva vs. semi-inmersiva en la Fluidez Verbal y la Memoria en DCA',
+    type: 'Póster',
+    date: '2025',
+    doi: '10.13140/RG.2.2.36135.46242',
     url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
   },
   {
     id: '3',
-    title: 'Impacto de la Realidad Virtual inmersiva vs. semi-inmersiva en fluidez verbal y memoria en DCA',
-    type: 'Investigación',
-    date: '2025',
-    doi: '10.13140/RG.2.2.36135.46242',
-    url: 'https://www.researchgate.net/publication/361354624' // Assuming this or general profile if specific URL unknown, but keeping general for safety unless user provided specific. User provided title and DOI. Link to profile is safer if specific URL not known, but DOI suggests RG link exists. I will use profile for now or construct RG search link? User just said "Ver DOI / ResearchGate".
+    title: 'Conversational Speech and Motor Action Therapy with tDCS in global aphasia post stroke',
+    type: 'Póster',
+    date: '2023',
+    doi: '10.13140/RG.2.2.10343.21921',
+    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
+  },
+  {
+    id: '4',
+    title: 'A Virtual Reality Intervention on Chronic Spatial Hemineglect, Impulsivity and Working Memory Deficits',
+    type: 'Póster',
+    date: '2021',
+    doi: '10.13140/RG.2.2.33771.05929',
+    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
+  },
+  {
+    id: '5',
+    title: 'Long term effects of a neuropsychological intervention with tDCS in anomic aphasia',
+    type: 'Póster',
+    date: '2019',
+    doi: '10.13140/RG.2.2.27786.31688',
+    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
+  },
+  {
+    id: '6',
+    title: 'Protocolo de intervención neuropsicológica mediante neuromodulación (tDCS) en afasia anómica',
+    type: 'Póster',
+    date: '2018',
+    doi: '10.13140/RG.2.2.29303.88481',
+    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
+  },
+  {
+    id: '7',
+    title: 'Proyecto de Rehabilitación Multisensorial en el Síndrome de Heminegligencia',
+    type: 'Póster',
+    date: '2016',
+    doi: '10.13140/RG.2.2.32412.49281',
+    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
   }
 ];

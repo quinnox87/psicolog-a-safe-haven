@@ -61,6 +61,13 @@ export interface PatientSession {
   downloadUrl: string;
 }
 
+export interface TimelineItem {
+  year: string;
+  title: string;
+  institution?: string;
+  description?: string;
+}
+
 export interface StoreItem {
   id: string;
   title: string;
