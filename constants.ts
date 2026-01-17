@@ -1,4 +1,4 @@
-import { ManualResource, ServiceItem, QAItem, ExperienceItem, BlogPost, PatientSession, PodcastItem, StoreItem } from "./types";
+import { ManualResource, ServiceItem, QAItem, ExperienceItem, BlogPost, PatientSession, PodcastItem, StoreItem, PublicationItem } from "./types";
 
 export const RESOURCES: ManualResource[] = [
   {
@@ -262,5 +262,36 @@ export const STORE_ITEMS: StoreItem[] = [
     price: 0.99,
     imageUrl: 'https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&q=80&w=1000',
     category: 'Material de Actividades'
+  }
+];
+
+export const PUBLICATIONS: PublicationItem[] = [
+  {
+    id: '1',
+    title: 'Rehabilitación neuropsicológica y nuevas tecnologías en Neuropsicología a través de casos clínicos',
+    journal: 'Editorial Panamericana',
+    year: '2020',
+    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
+  },
+  {
+    id: '2',
+    title: 'Efectividad de la tDCS en la rehabilitación de la afasia post-ictus',
+    journal: 'Revista de Neurología',
+    year: '2019',
+    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
+  },
+  {
+    id: '3',
+    title: 'Realidad Virtual para la rehabilitación de la negligencia espacial unilateral',
+    journal: 'Congreso FANPSE',
+    year: '2018',
+    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11/research'
+  },
+  {
+    id: '4',
+    title: 'Intervención en memoria de trabajo mediante realidad virtual no inmersiva',
+    journal: 'NR-SIG-WFNR',
+    year: '2017',
+    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11/research'
   }
 ];

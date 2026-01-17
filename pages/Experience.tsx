@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { PUBLICATIONS } from '../constants';
+import ResearchCarousel from '../components/ResearchCarousel';
+
 const Experience: React.FC = () => {
   return (
     <div className="animate-fade-in min-h-screen pb-20">
@@ -69,33 +72,28 @@ const Experience: React.FC = () => {
 
         {/* 3. Actividad Investigadora y Publicaciones */}
         <section className="bg-[#f8f9f8] p-8 rounded-2xl border border-primary/10">
-          <h2 className="text-2xl font-bold text-text-dark mb-6 flex items-center gap-3">
-            <span className="material-symbols-outlined text-primary">science</span>
-            Investigación y Publicaciones
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
             <div>
-              <h3 className="font-bold text-text-dark mb-3">Áreas de Especialización</h3>
-              <div className="flex flex-wrap gap-2">
-                {['Afasia', 'Negligencia Espacial', 'Funciones Ejecutivas', 'Memoria', 'Apatía', 'Conciencia de Déficit'].map(tag => (
-                  <span key={tag} className="bg-white px-3 py-1 rounded-lg text-sm text-text-muted border border-[#edefec] shadow-sm">{tag}</span>
-                ))}
-              </div>
+              <h2 className="text-2xl font-bold text-text-dark mb-2 flex items-center gap-3">
+                <span className="material-symbols-outlined text-primary">science</span>
+                Investigación y Publicaciones
+              </h2>
+              <p className="text-text-muted text-lg">Contribuciones científicas y divulgación.</p>
             </div>
-
-            <div>
-              <h3 className="font-bold text-text-dark mb-3">Publicación Destacada</h3>
-              <div className="bg-white p-4 rounded-xl border-l-4 border-primary shadow-sm">
-                <p className="text-sm text-text-dark font-medium leading-relaxed">
-                  Coautor de "Rehabilitación neuropsicológica y nuevas tecnologías en Neuropsicología a través de casos clínicos".
-                </p>
-                <p className="text-xs text-text-muted mt-2">Editorial Panamericana, 2020</p>
-              </div>
-            </div>
+            <a
+              href="https://www.researchgate.net/profile/Joaquin-Perez-11/research"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-primary font-bold hover:text-primary-dark transition-colors bg-white px-4 py-2 rounded-lg border border-primary/20 shadow-sm"
+            >
+              <span>Ver Perfil Completo en ResearchGate</span>
+              <span className="material-symbols-outlined text-sm">open_in_new</span>
+            </a>
           </div>
 
-          <div className="mt-8 space-y-4">
+          <ResearchCarousel items={PUBLICATIONS} />
+
+          <div className="mt-8 space-y-4 border-t border-primary/10 pt-8">
             <div>
               <h3 className="font-bold text-text-dark mb-2">Proyectos</h3>
               <p className="text-text-muted text-sm">Colaborador en el Plan Nacional sobre mecanismos cognitivos de la anosognosia en la Universidad de Granada (IP: M. J. Funes).</p>

@@ -71,3 +71,11 @@ export interface StoreItem {
   // In a real app, this might link to a checkout flow
   purchaseUrl?: string;
 }
+
+export interface PublicationItem {
+  id: string;
+  title: string;
+  journal?: string;
+  year: string;
+  url: string;
+}
