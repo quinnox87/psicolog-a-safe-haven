@@ -79,5 +79,6 @@ export interface PublicationItem {
   date: string;
   conference?: string;
   url: string;
+  doi?: string; // Optional DOI field
   downloadUrl?: string; // Placeholder for PDF upload
 }

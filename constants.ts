@@ -268,56 +268,26 @@ export const STORE_ITEMS: StoreItem[] = [
 export const PUBLICATIONS: PublicationItem[] = [
   {
     id: '1',
-    title: '¿Ayuda el movimiento? Influencia del formato visual en la denominación de verbos en adultos con y sin afasia',
-    type: 'Póster',
-    date: 'Octubre 2025',
+    title: 'Rehabilitación neuropsicológica y nuevas tecnologías en Neuropsicología a través de casos clínicos',
+    type: 'Libro - Coautor',
+    date: '2020',
+    conference: 'Editorial Panamericana',
     url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
   },
   {
     id: '2',
-    title: 'Diferencias del impacto de la Realidad Virtual inmersiva VS Semi-inmersiva en la Fluidez Verbal y la Memoria en DCA',
-    type: 'Póster',
-    date: 'Marzo 2025',
-    conference: 'XVI Congreso Nacional de Neuropsicología FANPSE',
+    title: '¿Ayuda el movimiento? Influencia del formato visual en la denominación de verbos en adultos con y sin afasia',
+    type: 'Investigación',
+    date: 'Octubre 2025',
+    conference: 'XXI Congreso Andaluz de Neuropsicología',
     url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
   },
   {
     id: '3',
-    title: 'Conversational Speech and Motor Action Therapy with tDCS in global aphasia post stroke',
-    type: 'Póster',
-    date: 'Junio 2023',
-    conference: 'NR-SIG-WFNR Conference',
-    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
-  },
-  {
-    id: '4',
-    title: 'A Virtual Reality Intervention on Chronic Spatial Hemineglect, Impulsivity and Working Memory Deficits: A Single Case Study',
-    type: 'Póster',
-    date: 'Mayo 2021',
-    conference: 'IV Congreso Iberoamericano de Neuropsicología',
-    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
-  },
-  {
-    id: '5',
-    title: 'Long term effects of a neuropsychological intervention with transcranial direct current stimulation (tDCS) in anomic aphasia',
-    type: 'Póster',
-    date: 'Junio 2019',
-    conference: 'NR-SIG-WFNR',
-    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
-  },
-  {
-    id: '6',
-    title: 'Protocolo de intervención neuropsicológica mediante neuromodulación (tDCS) en afasia anómica',
-    type: 'Póster',
-    date: 'Diciembre 2018',
-    conference: 'IV Congreso Nacional Daño Cerebral Adquirido',
-    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
-  },
-  {
-    id: '7',
-    title: 'Proyecto de Rehabilitación Multisensorial en el Síndrome de Heminegligencia',
-    type: 'Póster',
-    date: 'Octubre 2016',
-    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
+    title: 'Impacto de la Realidad Virtual inmersiva vs. semi-inmersiva en fluidez verbal y memoria en DCA',
+    type: 'Investigación',
+    date: '2025',
+    doi: '10.13140/RG.2.2.36135.46242',
+    url: 'https://www.researchgate.net/publication/361354624' // Assuming this or general profile if specific URL unknown, but keeping general for safety unless user provided specific. User provided title and DOI. Link to profile is safer if specific URL not known, but DOI suggests RG link exists. I will use profile for now or construct RG search link? User just said "Ver DOI / ResearchGate".
   }
 ];

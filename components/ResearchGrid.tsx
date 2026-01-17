@@ -60,7 +60,7 @@ const ResearchGrid: React.FC<ResearchGridProps> = ({ items }) => {
                             rel="noopener noreferrer"
                             className="flex items-center justify-center gap-2 border border-primary text-primary text-xs font-bold px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-colors"
                         >
-                            <span>ResearchGate</span>
+                            <span>{pub.doi ? 'Ver DOI / ResearchGate' : 'ResearchGate'}</span>
                             <span className="material-symbols-outlined text-sm">open_in_new</span>
                         </a>
                     </div>
