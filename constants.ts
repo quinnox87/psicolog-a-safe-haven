@@ -1,4 +1,4 @@
-import { ManualResource, ServiceItem, QAItem, ExperienceItem, BlogPost, PatientSession, PodcastItem } from "./types";
+import { ManualResource, ServiceItem, QAItem, ExperienceItem, BlogPost, PatientSession, PodcastItem, StoreItem } from "./types";
 
 export const RESOURCES: ManualResource[] = [
   {
@@ -235,5 +235,32 @@ export const MOCK_SESSIONS: PatientSession[] = [
     summaryTitle: "Sesión 3: Reestructuración Cognitiva",
     doctorNotes: "Trabajo sobre distorsiones cognitivas identificadas. Planificación de exposición gradual.",
     downloadUrl: "#"
+  }
+];
+
+export const STORE_ITEMS: StoreItem[] = [
+  {
+    id: '1',
+    title: 'Cuaderno de Ejercicios de Ansiedad',
+    description: 'Guía práctica con ejercicios cognitivo-conductuales para manejar la ansiedad en el día a día.',
+    price: 0.99,
+    imageUrl: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=1000',
+    category: 'Cuadernos'
+  },
+  {
+    id: '2',
+    title: 'Kit de Mindfulness para Principiantes',
+    description: 'Recopilación de audios y fichas prácticas para iniciarte en la atención plena.',
+    price: 0.99,
+    imageUrl: 'https://images.unsplash.com/photo-1515023697514-6c0800b65640?auto=format&fit=crop&q=80&w=1000',
+    category: 'Recursos'
+  },
+  {
+    id: '3',
+    title: 'Plantillas de Registro Emocional',
+    description: 'Herramientas visuales para monitorizar tu estado de ánimo y detectar patrones.',
+    price: 0.99,
+    imageUrl: 'https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&q=80&w=1000',
+    category: 'Material de Actividades'
   }
 ];

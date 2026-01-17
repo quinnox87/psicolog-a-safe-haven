@@ -34,6 +34,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   );
 };
 
+import Store from './pages/Store'; // Import Store page
+
 const App: React.FC = () => {
   return (
     <Router>
@@ -47,6 +49,7 @@ const App: React.FC = () => {
             <Route path="/experiencia" element={<Experience />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />
+            <Route path="/tienda" element={<Store />} /> {/* Add Store route */}
             <Route path="/area-privada" element={<PrivateArea />} />
           </Routes>
           <CookieBanner />

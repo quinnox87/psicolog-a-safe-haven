@@ -60,3 +60,14 @@ export interface PatientSession {
   doctorNotes: string;
   downloadUrl: string;
 }
+
+export interface StoreItem {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  imageUrl: string;
+  category: string;
+  // In a real app, this might link to a checkout flow
+  purchaseUrl?: string;
+}
