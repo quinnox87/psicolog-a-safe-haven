@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { SERVICES, QA_ITEMS, RESOURCES } from '../constants';
+import { SERVICES, QA_ITEMS, RESOURCES, STORE_ITEMS } from '../constants';
 import ServiceCard from '../components/ServiceCard';
 import ResourceCard from '../components/ResourceCard';
+import StoreCard from '../components/StoreCard';
+import PaymentModal from '../components/PaymentModal';
 import QACarousel from '../components/QACarousel';
 import BookingSection from '../components/BookingSection';
 import ContactForm from '../components/ContactForm';
 import { useBooking } from '../context/BookingContext';
+import { StoreItem } from '../types';
 
 const Home: React.FC = () => {
   const { openModal } = useBooking();
+  // Payment Modal State
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<StoreItem | null>(null);
+
+  const handlePurchaseClick = (item: StoreItem) => {
+    setSelectedProduct(item);
+    setIsPaymentModalOpen(true);
+  };
 
   return (
     <div className="animate-fade-in home-page">
@@ -117,10 +128,42 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Featured Store Items */}
+      <section className="featured-store py-20 px-6 bg-[#f9faf9] border-y border-[#edefec]">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col items-center text-center mb-16">
+            <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-3">Tienda Online</span>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text-dark">Formación y Materiales</h2>
+            <p className="mt-4 text-text-muted">Recursos especializados para profesionales y pacientes.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {STORE_ITEMS.slice(0, 3).map((item) => (
+              <div key={item.id} className="h-full">
+                <StoreCard item={item} onPurchase={handlePurchaseClick} compact={true} />
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link to="/tienda" className="inline-flex items-center gap-2 text-sm font-bold text-text-dark border-b-2 border-primary pb-0.5 hover:text-primary transition-colors">
+              Ir a la Tienda <span className="material-symbols-outlined text-sm">store</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+
       {/* Contact Form */}
       <div className="bg-[#fcfcfb] border-t border-[#edefec]">
         <ContactForm />
       </div>
+
+      <PaymentModal
+        isOpen={isPaymentModalOpen}
+        onClose={() => setIsPaymentModalOpen(false)}
+        product={selectedProduct}
+      />
     </div>
   );
 };

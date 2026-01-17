@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { STORE_ITEMS } from '../constants';
 import { useBooking } from '../context/BookingContext';
 import PaymentModal from '../components/PaymentModal';
+import StoreCard from '../components/StoreCard';
 import { StoreItem } from '../types';
 
 const Store: React.FC = () => {
@@ -54,49 +55,12 @@ const Store: React.FC = () => {
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {trainingItems.map((item) => (
-                            <div key={item.id} className="group bg-white rounded-2xl overflow-hidden border border-[#edefec] hover:border-primary/30 transition-all hover:shadow-xl flex flex-col h-full">
-                                <div className="aspect-[16/9] overflow-hidden bg-gray-100 relative">
-                                    <img
-                                        src={item.imageUrl}
-                                        alt={item.imageAlt || item.title}
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                                    <div className="absolute bottom-4 left-4 flex flex-wrap gap-2">
-                                        {item.tags?.map((tag, idx) => (
-                                            <span key={idx} className="bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-text-dark shadow-sm uppercase tracking-wide">
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className="p-8 flex flex-col flex-grow">
-                                    <h3 className="text-2xl font-bold text-text-dark mb-3 group-hover:text-primary transition-colors leading-tight">
-                                        {item.title}
-                                    </h3>
-                                    <p className="text-text-muted text-base leading-relaxed mb-6 flex-grow">
-                                        {item.description}
-                                    </p>
-                                    <div className="pt-6 border-t border-[#edefec] flex items-center justify-between">
-                                        <div>
-                                            <span className="block text-[#afb6ad] text-xs font-bold uppercase tracking-wider">Precio</span>
-                                            <span className="text-2xl font-bold text-primary">{item.price.toFixed(2)}€</span>
-                                        </div>
-                                        <button
-                                            onClick={() => handlePurchaseClick(item)}
-                                            className="bg-text-dark text-white px-8 py-3 rounded-xl text-sm font-bold hover:bg-primary transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2"
-                                        >
-                                            {item.ctaLabel || 'Comprar'}
-                                            <span className="material-symbols-outlined">arrow_forward</span>
-                                        </button>
-                                    </div>
-                                </div>
+                            <div key={item.id} className="h-full">
+                                <StoreCard item={item} onPurchase={handlePurchaseClick} />
                             </div>
                         ))}
                     </div>
                 </section>
-
-
 
                 {/* Materials Section */}
                 <section>
