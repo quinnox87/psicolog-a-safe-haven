@@ -131,38 +131,6 @@ const Store: React.FC = () => {
                     </Link>
                 </div>
 
-                {/* Online Questionnaires Section */}
-                <section>
-                    <h2 className="text-2xl font-bold text-text-dark mb-8 flex items-center gap-3">
-                        <span className="material-symbols-outlined text-primary">quiz</span>
-                        Cuestionarios Online
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {ONLINE_QUESTIONNAIRES.map((item) => (
-                            <a
-                                key={item.id}
-                                href={item.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="bg-white p-6 rounded-2xl border border-[#edefec] hover:border-primary/30 transition-all hover:shadow-lg group"
-                            >
-                                <div className="flex items-center gap-3 mb-3">
-                                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                                        <span className="material-symbols-outlined">assignment</span>
-                                    </div>
-                                    <span className="text-xs font-bold uppercase tracking-wider text-gray-400">{item.category}</span>
-                                </div>
-                                <h3 className="text-lg font-bold text-text-dark mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
-                                <p className="text-sm text-text-muted leading-relaxed mb-4">{item.description}</p>
-                                <div className="flex items-center gap-2 text-primary font-bold text-sm">
-                                    <span>Realizar Test</span>
-                                    <span className="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                                </div>
-                            </a>
-                        ))}
-                    </div>
-                </section>
-
                 {/* FAQ / Info */}
                 <div className="grid md:grid-cols-3 gap-6 pt-12 border-t border-[#edefec]">
                     <div className="text-center">
