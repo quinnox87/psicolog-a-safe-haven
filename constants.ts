@@ -239,29 +239,47 @@ export const MOCK_SESSIONS: PatientSession[] = [
 ];
 
 export const STORE_ITEMS: StoreItem[] = [
+  // Categoría: Formación Especializada
   {
     id: '1',
-    title: 'Cuaderno de Ejercicios de Ansiedad',
-    description: 'Guía práctica con ejercicios cognitivo-conductuales para manejar la ansiedad en el día a día.',
-    price: 0.99,
-    imageUrl: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=1000',
-    category: 'Cuadernos'
+    title: 'Webinar: Integración de tDCS en la rehabilitación del lenguaje',
+    description: 'Aprende los fundamentos y protocolos prácticos para aplicar tDCS en pacientes con trastornos del lenguaje.',
+    price: 45.00,
+    imageUrl: 'https://images.unsplash.com/photo-1576091160550-217358c7c814?auto=format&fit=crop&q=80&w=1000',
+    category: 'Formación Especializada',
+    tags: ['Basado en Evidencia', 'Metodología UGR'],
+    ctaLabel: 'Inscribirse'
   },
   {
     id: '2',
-    title: 'Kit de Mindfulness para Principiantes',
-    description: 'Recopilación de audios y fichas prácticas para iniciarte en la atención plena.',
-    price: 0.99,
-    imageUrl: 'https://images.unsplash.com/photo-1515023697514-6c0800b65640?auto=format&fit=crop&q=80&w=1000',
-    category: 'Recursos'
+    title: 'Curso: Realidad Virtual Inmersiva en Daño Cerebral',
+    description: 'Formación completa sobre sistemas inmersivos vs semi-inmersivos y su aplicación clínica en DCA.',
+    price: 120.00,
+    imageUrl: 'https://images.unsplash.com/photo-1622979135225-d2ba269fb1ac?auto=format&fit=crop&q=80&w=1000',
+    category: 'Formación Especializada',
+    tags: ['9 años de Experiencia Clínica', 'Certificado'],
+    ctaLabel: 'Inscribirse'
   },
+  // Categoría: Materiales (Digitales)
   {
     id: '3',
-    title: 'Plantillas de Registro Emocional',
-    description: 'Herramientas visuales para monitorizar tu estado de ánimo y detectar patrones.',
-    price: 0.99,
-    imageUrl: 'https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&q=80&w=1000',
-    category: 'Material de Actividades'
+    title: 'Protocolo de Evaluación de Heminegligencia Espacial',
+    description: 'Batería de pruebas y plantilla de corrección automatizada para la detección precisa de negligencia.',
+    price: 15.00,
+    imageUrl: 'https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&q=80&w=1000',
+    category: 'Materiales (Digitales)',
+    tags: ['Recurso Clínico', 'Descarga Inmediata'],
+    ctaLabel: 'Comprar'
+  },
+  {
+    id: '4',
+    title: 'Guía de Implementación Tecnológica para Clínicas',
+    description: 'Manual paso a paso para integrar VR y tDCS: seguridad, dosimetría y aspectos legales.',
+    price: 29.99,
+    imageUrl: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=1000',
+    category: 'Materiales (Digitales)',
+    tags: ['Gestión Clínica', 'PDF'],
+    ctaLabel: 'Comprar'
   }
 ];
 

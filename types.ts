@@ -75,6 +75,8 @@ export interface StoreItem {
   price: number;
   imageUrl: string;
   category: string;
+  tags?: string[];
+  ctaLabel?: string;
   // In a real app, this might link to a checkout flow
   purchaseUrl?: string;
 }
