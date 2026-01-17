@@ -137,9 +137,9 @@ const Home: React.FC = () => {
             <p className="mt-3 md:mt-4 text-text-muted text-sm md:text-base">Recursos especializados para profesionales y pacientes.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {STORE_ITEMS.slice(0, 3).map((item) => (
-              <div key={item.id} className="h-full">
+          <div className="flex overflow-x-auto pb-8 gap-4 md:gap-8 snap-x snap-mandatory px-4 -mx-4 md:mx-0 md:px-0 scrollbar-hide">
+            {STORE_ITEMS.slice(0, 4).map((item) => (
+              <div key={item.id} className="min-w-[85%] md:min-w-[350px] snap-center h-full">
                 <StoreCard item={item} onPurchase={handlePurchaseClick} compact={true} />
               </div>
             ))}
