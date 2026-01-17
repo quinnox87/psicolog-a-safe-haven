@@ -36,7 +36,7 @@ const Store: React.FC = () => {
                                 <div className="aspect-[16/9] overflow-hidden bg-gray-100 relative">
                                     <img
                                         src={item.imageUrl}
-                                        alt={item.title}
+                                        alt={item.imageAlt || item.title}
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
@@ -85,7 +85,7 @@ const Store: React.FC = () => {
                                 <div className="w-full md:w-48 aspect-[4/3] rounded-xl overflow-hidden bg-gray-100 shrink-0 relative group">
                                     <img
                                         src={item.imageUrl}
-                                        alt={item.title}
+                                        alt={item.imageAlt || item.title}
                                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                     />
                                 </div>

@@ -23,13 +23,13 @@ const Home: React.FC = () => {
         >
           <div className="relative z-10 px-8 md:px-16 max-w-3xl text-white">
             <span className="inline-block py-1 px-3 rounded-full bg-white/20 backdrop-blur-md text-xs font-bold uppercase tracking-widest mb-6 border border-white/30">
-              Psicología Clínica y Neuropsicología
+              Psicología Joaquín Pavón
             </span>
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 tracking-tight drop-shadow-sm">
-              Bienvenido a tu Refugio Seguro en Granada.
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 tracking-tight drop-shadow-sm">
+              Neuropsicólogo Clínico en Granada <br /> <span className="text-2xl md:text-4xl block mt-2 font-normal">Rehabilitación de Daño Cerebral y Terapia Basada en Evidencia</span>
             </h1>
             <p className="text-lg md:text-xl font-light leading-relaxed mb-10 opacity-95 text-gray-100 max-w-xl">
-              Soy neuropsicólogo con 38 años y te ayudo a recuperar tu bienestar.
+              Más de 9 años de experiencia en la recuperación tras Ictus o TCE, y apoyo psicológico especializado. Tu bienestar en manos profesionales.
             </p>
 
 
@@ -61,8 +61,8 @@ const Home: React.FC = () => {
       {/* Specialties Preview */}
       <section className="specialties-section py-20 px-6 max-w-7xl mx-auto">
         <div className="flex flex-col items-center text-center mb-16">
-          <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-3">Experiencia</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-text-dark tracking-tight">Especialidades Clínicas</h2>
+          <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-3">Servicios Especializados</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-text-dark tracking-tight">Especialista en DCA y Neuropsicología</h2>
           <div className="w-12 h-1 bg-primary/30 mt-4 rounded-full"></div>
         </div>
 

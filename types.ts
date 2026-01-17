@@ -77,6 +77,7 @@ export interface StoreItem {
   category: string;
   tags?: string[];
   ctaLabel?: string;
+  imageAlt?: string; // SEO optimization
   // In a real app, this might link to a checkout flow
   purchaseUrl?: string;
 }

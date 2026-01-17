@@ -34,7 +34,7 @@ const Experience: React.FC = () => {
           <div className="bg-white p-8 rounded-2xl shadow-sm border border-[#edefec] mb-12">
             <h2 className="text-2xl font-bold text-text-dark mb-8 flex items-center gap-3">
               <span className="material-symbols-outlined text-primary">history</span>
-              Trayectoria Profesional y Académica
+              Experiencia en Rehabilitación de Daño Cerebral Adquirido (DCA)
             </h2>
             <Timeline items={EXPERIENCE_TIMELINE} />
           </div>
@@ -46,9 +46,9 @@ const Experience: React.FC = () => {
             <div>
               <h2 className="text-2xl font-bold text-text-dark mb-2 flex items-center gap-3">
                 <span className="material-symbols-outlined text-primary">science</span>
-                Investigación y Publicaciones
+                Investigación en tDCS y Realidad Virtual
               </h2>
-              <p className="text-text-muted text-lg">Repositorio científico y contribuciones académicas.</p>
+              <p className="text-text-muted text-lg">Publicaciones científicas y contribuciones al campo de la neurotecnología.</p>
             </div>
           </div>
 
