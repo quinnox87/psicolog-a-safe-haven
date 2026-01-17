@@ -3,8 +3,10 @@ import React from 'react';
 import { EXPERIENCE_TIMELINE, PUBLICATIONS } from '../constants';
 import ResearchGrid from '../components/ResearchGrid';
 import Timeline from '../components/Timeline';
+import { useBooking } from '../context/BookingContext';
 
 const Experience: React.FC = () => {
+  const { openModal } = useBooking();
   return (
     <div className="animate-fade-in min-h-screen pb-20">
       {/* Header Section */}
@@ -12,9 +14,16 @@ const Experience: React.FC = () => {
         <div className="max-w-4xl mx-auto text-center">
           <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Trayectoria y Publicaciones</span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-text-dark mb-6">Joaquín Pavón Pérez</h1>
-          <p className="text-lg text-text-muted leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg text-text-muted leading-relaxed max-w-2xl mx-auto mb-8">
             Neuropsicólogo Clínico | Especialista en DCA, Realidad Virtual y Neuromodulación
           </p>
+          <button
+            onClick={openModal}
+            className="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2 mx-auto"
+          >
+            <span className="material-symbols-outlined">calendar_month</span>
+            Programa tu sesión
+          </button>
         </div>
       </section>
 
