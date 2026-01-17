@@ -100,10 +100,9 @@ const ChatWidget: React.FC = () => {
 
     return (
         <>
-            {/* Toggle Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-xl flex items-center justify-center transition-all hover:scale-110 ${isOpen ? 'bg-gray-800 rotate-90' : 'bg-[#F2E8CF] hover:bg-white rotate-0' // Changed bg to Sand/Light for better icon contrast if icon is dark
+                className={`fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center transition-all hover:scale-110 border-2 border-primary shadow-[0_4px_12px_rgba(58,90,64,0.4)] hover:shadow-[0_8px_16px_rgba(58,90,64,0.5)] ${isOpen ? 'bg-gray-800 rotate-90' : 'bg-[#F2E8CF] hover:bg-white rotate-0' // Changed bg to Sand/Light for better icon contrast if icon is dark
                     }`}
             >
                 {isOpen ? (
