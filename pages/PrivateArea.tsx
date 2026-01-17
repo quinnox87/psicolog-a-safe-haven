@@ -16,6 +16,9 @@ const PrivateArea: React.FC = () => {
     const [isSaving, setIsSaving] = useState(false);
     const [showSaveSuccess, setShowSaveSuccess] = useState(false);
 
+    // Preview State
+    const [previewFile, setPreviewFile] = useState<{ url: string; type: string; title: string } | null>(null);
+
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
         if (!acceptedTerms) {
@@ -41,6 +44,21 @@ const PrivateArea: React.FC = () => {
         // In a real app, this would use the downloadUrl.
         // For now, we simulate a secure download start.
         alert(`Iniciando descarga segura de: ${fileName} (${type})\n\nEste archivo está cifrado para tu uso personal.`);
+    };
+
+    const handlePreview = (file: { title: string; type: string; downloadUrl: string }) => {
+        // For mock purposes, if url is '#', we use a corresponding placeholder
+        let url = file.downloadUrl;
+        if (url === '#' || !url) {
+            if (file.type === 'PDF' || file.type === 'Evaluación' || file.type === 'Seguimiento') {
+                url = '/modelo-informe.pdf'; // Use a local PDF for demo
+            } else if (file.type === 'Audio') {
+                url = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
+            } else if (file.type === 'Image') {
+                url = 'https://via.placeholder.com/800x600';
+            }
+        }
+        setPreviewFile({ url, type: file.type, title: file.title });
     };
 
     if (!user) {
@@ -105,7 +123,7 @@ const PrivateArea: React.FC = () => {
     }
 
     return (
-        <div className="min-h-screen bg-[#fcfcfb] animate-fade-in">
+        <div className="min-h-screen bg-[#fcfcfb] animate-fade-in relative">
             <header className="bg-white border-b border-[#edefec] py-4 px-6 sticky top-0 z-20 shadow-sm">
                 <div className="max-w-7xl mx-auto flex justify-between items-center">
                     <div className="flex items-center gap-4">
@@ -153,13 +171,16 @@ const PrivateArea: React.FC = () => {
                                             <span className="material-symbols-outlined text-[14px]">calendar_today</span>
                                             {session.date}
                                         </span>
-                                        <button
-                                            onClick={() => handleDownload(session.summaryTitle, 'Resumen')}
-                                            className="text-xs text-primary font-bold hover:underline flex items-center gap-1"
-                                        >
-                                            <span className="material-symbols-outlined text-[14px]">download</span>
-                                            Resumen
-                                        </button>
+                                        <div className="flex gap-2">
+                                            {/* Only Download needed for session notes usually, but we can add preview if it was a PDF */}
+                                            <button
+                                                onClick={() => handleDownload(session.summaryTitle, 'Resumen')}
+                                                className="text-xs text-primary font-bold hover:underline flex items-center gap-1"
+                                            >
+                                                <span className="material-symbols-outlined text-[14px]">download</span>
+                                                Resumen
+                                            </button>
+                                        </div>
                                     </div>
                                     <h3 className="font-bold text-text-dark text-sm mb-1">{session.summaryTitle}</h3>
                                     <p className="text-xs text-text-muted leading-relaxed line-clamp-2">{session.doctorNotes}</p>
@@ -191,12 +212,22 @@ const PrivateArea: React.FC = () => {
                                                 <p className="text-xs text-gray-400">{report.type} • {report.date}</p>
                                             </div>
                                         </div>
-                                        <button
-                                            onClick={() => handleDownload(report.title, 'Informe')}
-                                            className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all"
-                                        >
-                                            <span className="material-symbols-outlined text-sm">download</span>
-                                        </button>
+                                        <div className="flex items-center gap-2">
+                                            <button
+                                                onClick={() => handlePreview(report)}
+                                                className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-500 hover:bg-blue-100 transition-all font-bold"
+                                                title="Ver Online"
+                                            >
+                                                <span className="material-symbols-outlined text-sm">visibility</span>
+                                            </button>
+                                            <button
+                                                onClick={() => handleDownload(report.title, 'Informe')}
+                                                className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all"
+                                                title="Descargar"
+                                            >
+                                                <span className="material-symbols-outlined text-sm">download</span>
+                                            </button>
+                                        </div>
                                     </div>
                                 ))}
                             </div>
@@ -214,7 +245,6 @@ const PrivateArea: React.FC = () => {
                             Materiales de Rehabilitación
                         </h2>
                         <div className="grid grid-cols-1 gap-3">
-                            {/* Download Success/Loading Feedback for Materials specifically if needed, but handled globally for now */}
                             {MOCK_PATIENT_MATERIALS.map((material) => (
                                 <div key={material.id} className="flex gap-4 p-4 rounded-xl bg-orange-50/50 border border-orange-100 hover:border-orange-300 transition-colors">
                                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${material.type === 'PDF' ? 'bg-red-50 text-red-500' :
@@ -233,12 +263,24 @@ const PrivateArea: React.FC = () => {
                                             <span className="text-[10px] text-gray-400">Asignado: {material.assignedDate}</span>
                                         </div>
                                     </div>
-                                    <button
-                                        onClick={() => handleDownload(material.title, material.type)}
-                                        className="shrink-0 self-center w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:border-primary hover:text-primary transition-colors"
-                                    >
-                                        <span className="material-symbols-outlined">download</span>
-                                    </button>
+                                    <div className="flex flex-col gap-2 shrink-0 self-center">
+                                        <button
+                                            onClick={() => handlePreview(material)}
+                                            className="w-8 h-8 rounded-full border border-blue-200 bg-blue-50 flex items-center justify-center text-blue-500 hover:border-blue-300 hover:bg-blue-100 transition-colors"
+                                            title={material.type === 'Audio' ? 'Reproducir' : 'Ver'}
+                                        >
+                                            <span className="material-symbols-outlined text-sm">
+                                                {material.type === 'Audio' || material.type === 'Video' ? 'play_arrow' : 'visibility'}
+                                            </span>
+                                        </button>
+                                        <button
+                                            onClick={() => handleDownload(material.title, material.type)}
+                                            className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:border-primary hover:text-primary transition-colors"
+                                            title="Descargar"
+                                        >
+                                            <span className="material-symbols-outlined text-sm">download</span>
+                                        </button>
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -290,6 +332,52 @@ const PrivateArea: React.FC = () => {
 
                 </div>
             </main>
+
+            {/* PREVIEW MODAL */}
+            {previewFile && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
+                    <div className="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl relative">
+                        {/* Modal Header */}
+                        <div className="flex items-center justify-between p-4 border-b border-gray-100 bg-gray-50/50">
+                            <div className="flex items-center gap-3">
+                                <span className="material-symbols-outlined text-primary">
+                                    {previewFile.type === 'Audio' ? 'headphones' : previewFile.type === 'Image' ? 'image' : 'description'}
+                                </span>
+                                <h3 className="font-bold text-text-dark">{previewFile.title}</h3>
+                            </div>
+                            <button
+                                onClick={() => setPreviewFile(null)}
+                                className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-red-50 hover:text-red-500 hover:border-red-100 transition-all"
+                            >
+                                <span className="material-symbols-outlined text-lg">close</span>
+                            </button>
+                        </div>
+
+                        {/* Modal Content */}
+                        <div className="flex-1 bg-gray-100 p-2 overflow-auto flex items-center justify-center min-h-[400px]">
+                            {(previewFile.type === 'PDF' || previewFile.type === 'Evaluación' || previewFile.type === 'Seguimiento') && (
+                                <iframe src={previewFile.url} className="w-full h-full min-h-[600px] rounded-lg bg-white shadow-inner" title={previewFile.title}></iframe>
+                            )}
+                            {previewFile.type === 'Audio' && (
+                                <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-center">
+                                    <div className="w-24 h-24 mx-auto bg-purple-50 rounded-full flex items-center justify-center text-purple-500 mb-6">
+                                        <span className="material-symbols-outlined text-6xl">graphic_eq</span>
+                                    </div>
+                                    <h4 className="text-xl font-bold text-text-dark mb-2">{previewFile.title}</h4>
+                                    <p className="text-sm text-text-muted mb-8">Reproducción segura de archivo de audio</p>
+                                    <audio controls src={previewFile.url} className="w-full" />
+                                </div>
+                            )}
+                            {previewFile.type === 'Image' && (
+                                <img src={previewFile.url} alt={previewFile.title} className="max-w-full max-h-full rounded-lg shadow-lg" />
+                            )}
+                            {previewFile.type === 'Video' && (
+                                <video controls src={previewFile.url} className="max-w-full max-h-full rounded-lg shadow-lg" />
+                            )}
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
