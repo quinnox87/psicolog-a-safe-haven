@@ -130,16 +130,7 @@ export const PODCAST_ITEMS: PodcastItem[] = [
     mediaUrl: 'https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4', // Placeholder Video
     downloadUrl: 'https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4'
   },
-  {
-    id: '3',
-    title: 'Estrategias de Regulación Emocional',
-    type: 'video',
-    duration: '20 min',
-    imageUrl: 'https://images.unsplash.com/photo-1499209974431-2761387a29cd?auto=format&fit=crop&q=80&w=1000',
-    category: 'Psicología Clínica',
-    mediaUrl: 'https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4', // Placeholder Video
-    downloadUrl: 'https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4'
-  },
+
 
   {
     id: '5',
