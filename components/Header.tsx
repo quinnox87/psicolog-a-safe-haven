@@ -77,14 +77,14 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full bg-background-light border-b border-[#edefec] py-6 px-6 flex flex-col gap-6 shadow-lg h-screen overflow-y-auto pb-20">
+        <div className="lg:hidden fixed top-[73px] left-0 w-full h-[calc(100vh-73px)] bg-background-light/95 backdrop-blur-xl border-t border-[#edefec] py-6 px-6 flex flex-col gap-6 shadow-lg overflow-y-auto pb-32 animate-fade-in z-40">
           <nav className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-xl font-medium text-text-dark hover:text-primary"
+                className="text-2xl font-bold text-text-dark hover:text-primary transition-colors py-2 border-b border-gray-100/50"
               >
                 {link.name}
               </Link>
@@ -92,9 +92,9 @@ const Header: React.FC = () => {
             <Link
               to="/area-privada"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-xl font-medium text-text-muted hover:text-primary flex items-center gap-2"
+              className="text-2xl font-bold text-text-muted hover:text-primary flex items-center gap-3 py-2 border-b border-gray-100/50"
             >
-              <span className="material-symbols-outlined">lock</span>
+              <span className="material-symbols-outlined text-2xl">lock</span>
               Área Privada
             </Link>
           </nav>
@@ -103,7 +103,7 @@ const Header: React.FC = () => {
               setMobileMenuOpen(false);
               openModal();
             }}
-            className="w-full h-14 rounded-xl bg-primary text-white font-bold text-lg mt-4 shadow-md"
+            className="w-full h-14 rounded-2xl bg-primary text-white font-bold text-lg mt-auto shadow-xl hover:shadow-2xl transition-all active:scale-95"
           >
             Pedir Cita
           </button>
