@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BLOG_POSTS, PODCAST_ITEMS } from '../constants';
 import { useBooking } from '../context/BookingContext';
+import AudioPlayer from '../components/AudioPlayer';
 
 const Blog: React.FC = () => {
     const { openModal } = useBooking();
@@ -90,77 +91,72 @@ const Blog: React.FC = () => {
                                 Podcast y Multimedia
                             </h2>
 
-                            <div className="grid md:grid-cols-2 gap-8">
+                            <div className="flex flex-col gap-8 max-w-4xl mx-auto">
                                 {PODCAST_ITEMS.map((item) => (
-                                    <div key={item.id} className="bg-white rounded-2xl overflow-hidden border border-[#edefec] shadow-sm hover:shadow-lg transition-all group">
-                                        <div className="relative">
-                                            {/* Media Player Overlay */}
-                                            {playingId === item.id ? (
-                                                <div className="w-full h-64 bg-black flex items-center justify-center">
-                                                    {item.type === 'video' ? (
-                                                        <video
-                                                            src={item.mediaUrl}
-                                                            controls
-                                                            autoPlay
-                                                            className="w-full h-full"
-                                                        />
-                                                    ) : (
-                                                        <div className="w-full h-full flex flex-col items-center justify-center bg-[#f4f3f0] p-6">
-                                                            <span className="material-symbols-outlined text-6xl text-primary mb-4">graphic_eq</span>
-                                                            <audio src={item.mediaUrl} controls autoPlay className="w-full" />
-                                                        </div>
-                                                    )}
-                                                </div>
-                                            ) : (
-                                                <div className="h-64 relative bg-gray-900 group-hover:opacity-95 transition-opacity cursor-pointer" onClick={() => handlePlay(item.id)}>
-                                                    <img
-                                                        src={item.imageUrl}
-                                                        alt={item.title}
-                                                        className="w-full h-full object-cover opacity-60"
-                                                    />
-                                                    <div className="absolute inset-0 flex items-center justify-center">
-                                                        <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center transition-transform group-hover:scale-110">
-                                                            <span className="material-symbols-outlined text-4xl text-white">play_arrow</span>
-                                                        </div>
-                                                    </div>
-                                                    <div className="absolute top-4 left-4 bg-primary/90 text-white px-3 py-1 rounded-lg text-xs font-bold uppercase">
-                                                        {item.type === 'video' ? 'Video' : 'Audio'}
-                                                    </div>
-                                                </div>
-                                            )}
+                                    <div key={item.id} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-[#edefec] flex flex-col md:flex-row">
+                                        {/* Image Section - Zen Filter */}
+                                        <div className="md:w-1/3 h-48 md:h-auto relative overflow-hidden group">
+                                            <div className="absolute inset-0 bg-[#3A5A40]/20 mix-blend-multiply z-10 transition-opacity group-hover:opacity-0"></div>
+                                            <img
+                                                src={item.imageUrl}
+                                                alt={item.title}
+                                                className="w-full h-full object-cover filter sepia-[.3] hue-rotate-[50deg] grayscale-[0.2] transition-all duration-700 group-hover:scale-105 group-hover:filter-none"
+                                            />
+                                            <div className="absolute top-4 left-4 z-20 bg-[#F2E8CF]/90 backdrop-blur-sm text-[#3A5A40] px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-widest border border-[#3A5A40]/10">
+                                                {item.type === 'video' ? 'Video' : 'Audio'}
+                                            </div>
                                         </div>
 
-                                        <div className="p-6">
-                                            <div className="flex items-center gap-2 text-xs text-text-muted mb-3 font-medium">
-                                                <span className="uppercase tracking-wide">{item.category}</span>
+                                        {/* Content Section */}
+                                        <div className="p-8 md:w-2/3 flex flex-col justify-center">
+                                            <div className="flex items-center gap-2 text-xs text-[#3A5A40]/60 mb-3 font-bold tracking-wider uppercase">
+                                                <span>{item.category}</span>
                                                 <span>•</span>
                                                 <span>{item.duration}</span>
                                             </div>
-                                            <h3 className="text-xl font-bold text-text-dark mb-4 group-hover:text-primary transition-colors">{item.title}</h3>
 
-                                            {/* Actions */}
-                                            <div className="flex items-center gap-4 pt-4 border-t border-[#f4f3f0]">
-                                                <button
-                                                    onClick={() => handlePlay(item.id)}
-                                                    className="flex items-center gap-2 text-sm font-bold text-primary hover:text-primary-dark transition-colors"
-                                                >
-                                                    <span className="material-symbols-outlined text-lg">
-                                                        {playingId === item.id ? 'pause' : 'play_arrow'}
-                                                    </span>
-                                                    {playingId === item.id ? 'Pausar' : 'Reproducir'}
-                                                </button>
+                                            <h3 className="text-2xl font-bold text-[#1B261E] mb-2 leading-tight">
+                                                {item.title}
+                                            </h3>
 
-                                                {item.downloadUrl && (
+                                            <p className="text-[#3A5A40]/70 text-sm leading-relaxed mb-6 font-medium">
+                                                Escucha este episodio para explorar técnicas de bienestar y neurociencia aplicada.
+                                            </p>
+
+                                            {/* Audio Player Integration */}
+                                            {item.type === 'audio' ? (
+                                                <AudioPlayer
+                                                    src={item.mediaUrl}
+                                                    title={item.title}
+                                                    isPlaying={playingId === item.id}
+                                                    onTogglePlay={() => handlePlay(item.id)}
+                                                />
+                                            ) : (
+                                                <div className="mt-2">
+                                                    <a
+                                                        href={item.mediaUrl}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="inline-flex items-center gap-2 bg-[#3A5A40] text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-[#2C4A33] transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                                                    >
+                                                        <span className="material-symbols-outlined">play_circle</span>
+                                                        Ver Video
+                                                    </a>
+                                                </div>
+                                            )}
+
+                                            {item.downloadUrl && item.type === 'audio' && (
+                                                <div className="mt-4 flex justify-end">
                                                     <a
                                                         href={item.downloadUrl}
                                                         download
-                                                        className="flex items-center gap-2 text-sm font-bold text-text-muted hover:text-text-dark transition-colors ml-auto"
+                                                        className="flex items-center gap-1 text-[10px] font-bold text-[#3A5A40]/50 hover:text-[#3A5A40] transition-colors uppercase tracking-widest"
                                                     >
-                                                        <span className="material-symbols-outlined text-lg">download</span>
+                                                        <span className="material-symbols-outlined text-sm">download</span>
                                                         Descargar
                                                     </a>
-                                                )}
-                                            </div>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                 ))}
