@@ -60,7 +60,7 @@ const PrivateArea: React.FC = () => {
         let url = file.downloadUrl;
         if (url === '#' || !url) {
             if (file.type === 'PDF' || file.type === 'Evaluación' || file.type === 'Seguimiento') {
-                url = '/modelo-informe.pdf'; // Use a local PDF for demo
+                url = '/area-privada/modelo-informe.pdf'; // Use a local PDF for demo
             } else if (file.type === 'Audio') {
                 url = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
             } else if (file.type === 'Image') {

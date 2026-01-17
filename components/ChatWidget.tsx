@@ -108,7 +108,7 @@ const ChatWidget: React.FC = () => {
                 {isOpen ? (
                     <span className="material-symbols-outlined text-white text-3xl">close</span>
                 ) : (
-                    <img src="/neuron_button.svg" alt="Chat" className="w-full h-full object-contain drop-shadow-sm" />
+                    <img src="/assets/images/neuron_button.svg" alt="Chat" className="w-full h-full object-contain drop-shadow-sm" />
                 )}
             </button>
 
