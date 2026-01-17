@@ -55,7 +55,7 @@ const Home: React.FC = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {SERVICES.map((service) => (
+          {SERVICES.filter(s => s.id !== 'reports').map((service) => (
             <ServiceCard key={service.id} service={service} variant="preview" />
           ))}
         </div>
