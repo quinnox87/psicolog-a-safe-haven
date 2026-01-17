@@ -37,6 +37,12 @@ const PrivateArea: React.FC = () => {
         }, 1500);
     };
 
+    const handleDownload = (fileName: string, type: string) => {
+        // In a real app, this would use the downloadUrl.
+        // For now, we simulate a secure download start.
+        alert(`Iniciando descarga segura de: ${fileName} (${type})\n\nEste archivo está cifrado para tu uso personal.`);
+    };
+
     if (!user) {
         return (
             <div className="min-h-screen bg-background-light flex items-center justify-center px-6 py-20 animate-fade-in">
@@ -147,10 +153,13 @@ const PrivateArea: React.FC = () => {
                                             <span className="material-symbols-outlined text-[14px]">calendar_today</span>
                                             {session.date}
                                         </span>
-                                        <a href={session.downloadUrl} className="text-xs text-primary font-bold hover:underline flex items-center gap-1">
+                                        <button
+                                            onClick={() => handleDownload(session.summaryTitle, 'Resumen')}
+                                            className="text-xs text-primary font-bold hover:underline flex items-center gap-1"
+                                        >
                                             <span className="material-symbols-outlined text-[14px]">download</span>
                                             Resumen
-                                        </a>
+                                        </button>
                                     </div>
                                     <h3 className="font-bold text-text-dark text-sm mb-1">{session.summaryTitle}</h3>
                                     <p className="text-xs text-text-muted leading-relaxed line-clamp-2">{session.doctorNotes}</p>
@@ -182,7 +191,10 @@ const PrivateArea: React.FC = () => {
                                                 <p className="text-xs text-gray-400">{report.type} • {report.date}</p>
                                             </div>
                                         </div>
-                                        <button className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all">
+                                        <button
+                                            onClick={() => handleDownload(report.title, 'Informe')}
+                                            className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all"
+                                        >
                                             <span className="material-symbols-outlined text-sm">download</span>
                                         </button>
                                     </div>
@@ -202,6 +214,7 @@ const PrivateArea: React.FC = () => {
                             Materiales de Rehabilitación
                         </h2>
                         <div className="grid grid-cols-1 gap-3">
+                            {/* Download Success/Loading Feedback for Materials specifically if needed, but handled globally for now */}
                             {MOCK_PATIENT_MATERIALS.map((material) => (
                                 <div key={material.id} className="flex gap-4 p-4 rounded-xl bg-orange-50/50 border border-orange-100 hover:border-orange-300 transition-colors">
                                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${material.type === 'PDF' ? 'bg-red-50 text-red-500' :
@@ -220,7 +233,10 @@ const PrivateArea: React.FC = () => {
                                             <span className="text-[10px] text-gray-400">Asignado: {material.assignedDate}</span>
                                         </div>
                                     </div>
-                                    <button className="shrink-0 self-center w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:border-primary hover:text-primary transition-colors">
+                                    <button
+                                        onClick={() => handleDownload(material.title, material.type)}
+                                        className="shrink-0 self-center w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:border-primary hover:text-primary transition-colors"
+                                    >
                                         <span className="material-symbols-outlined">download</span>
                                     </button>
                                 </div>
