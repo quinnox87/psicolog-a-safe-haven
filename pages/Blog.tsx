@@ -89,6 +89,15 @@ const Blog: React.FC = () => {
                                     <span className="material-symbols-outlined">headphones</span>
                                 </span>
                                 Podcast y Multimedia
+                                <a
+                                    href="#"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="ml-auto flex items-center gap-2 bg-[#E8DFCA] text-[#3A5A40] px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#3A5A40] hover:text-[#F2E8CF] transition-colors shadow-sm"
+                                >
+                                    <span className="material-symbols-outlined text-sm">podcasts</span>
+                                    Escuchar en Ivoox
+                                </a>
                             </h2>
 
                             <div className="flex flex-col gap-8 max-w-4xl mx-auto">
