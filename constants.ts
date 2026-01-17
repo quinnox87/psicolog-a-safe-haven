@@ -150,6 +150,16 @@ export const PODCAST_ITEMS: PodcastItem[] = [
     category: 'Relaciones',
     mediaUrl: '/audio/No_critiques_aprecia_y_persuade.m4a',
     downloadUrl: '/audio/No_critiques_aprecia_y_persuade.m4a'
+  },
+  {
+    id: '6',
+    title: 'La Importancia de los Hábitos',
+    type: 'audio',
+    duration: '10 min',
+    imageUrl: '/images/pod1.png',
+    category: 'Desarrollo Personal',
+    mediaUrl: '/audio/pod1.m4a',
+    downloadUrl: '/audio/pod1.m4a'
   }
 ];
 
