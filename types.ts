@@ -75,7 +75,9 @@ export interface StoreItem {
 export interface PublicationItem {
   id: string;
   title: string;
-  journal?: string;
-  year: string;
+  type: string;
+  date: string;
+  conference?: string;
   url: string;
+  downloadUrl?: string; // Placeholder for PDF upload
 }

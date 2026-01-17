@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { PUBLICATIONS } from '../constants';
-import ResearchCarousel from '../components/ResearchCarousel';
+import ResearchGrid from '../components/ResearchGrid';
 
 const Experience: React.FC = () => {
   return (
@@ -80,18 +80,21 @@ const Experience: React.FC = () => {
               </h2>
               <p className="text-text-muted text-lg">Contribuciones científicas y divulgación.</p>
             </div>
+          </div>
+
+          <ResearchGrid items={PUBLICATIONS} />
+
+          <div className="mt-8 flex justify-center">
             <a
               href="https://www.researchgate.net/profile/Joaquin-Perez-11/research"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-primary font-bold hover:text-primary-dark transition-colors bg-white px-4 py-2 rounded-lg border border-primary/20 shadow-sm"
+              className="flex items-center gap-2 text-primary font-bold hover:text-primary-dark transition-colors px-4 py-2"
             >
               <span>Ver Perfil Completo en ResearchGate</span>
-              <span className="material-symbols-outlined text-sm">open_in_new</span>
+              <span className="material-symbols-outlined text-sm">arrow_forward</span>
             </a>
           </div>
-
-          <ResearchCarousel items={PUBLICATIONS} />
 
           <div className="mt-8 space-y-4 border-t border-primary/10 pt-8">
             <div>

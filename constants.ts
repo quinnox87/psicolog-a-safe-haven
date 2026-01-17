@@ -268,30 +268,56 @@ export const STORE_ITEMS: StoreItem[] = [
 export const PUBLICATIONS: PublicationItem[] = [
   {
     id: '1',
-    title: 'Rehabilitación neuropsicológica y nuevas tecnologías en Neuropsicología a través de casos clínicos',
-    journal: 'Editorial Panamericana',
-    year: '2020',
+    title: '¿Ayuda el movimiento? Influencia del formato visual en la denominación de verbos en adultos con y sin afasia',
+    type: 'Póster',
+    date: 'Octubre 2025',
     url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
   },
   {
     id: '2',
-    title: 'Efectividad de la tDCS en la rehabilitación de la afasia post-ictus',
-    journal: 'Revista de Neurología',
-    year: '2019',
+    title: 'Diferencias del impacto de la Realidad Virtual inmersiva VS Semi-inmersiva en la Fluidez Verbal y la Memoria en DCA',
+    type: 'Póster',
+    date: 'Marzo 2025',
+    conference: 'XVI Congreso Nacional de Neuropsicología FANPSE',
     url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
   },
   {
     id: '3',
-    title: 'Realidad Virtual para la rehabilitación de la negligencia espacial unilateral',
-    journal: 'Congreso FANPSE',
-    year: '2018',
-    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11/research'
+    title: 'Conversational Speech and Motor Action Therapy with tDCS in global aphasia post stroke',
+    type: 'Póster',
+    date: 'Junio 2023',
+    conference: 'NR-SIG-WFNR Conference',
+    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
   },
   {
     id: '4',
-    title: 'Intervención en memoria de trabajo mediante realidad virtual no inmersiva',
-    journal: 'NR-SIG-WFNR',
-    year: '2017',
-    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11/research'
+    title: 'A Virtual Reality Intervention on Chronic Spatial Hemineglect, Impulsivity and Working Memory Deficits: A Single Case Study',
+    type: 'Póster',
+    date: 'Mayo 2021',
+    conference: 'IV Congreso Iberoamericano de Neuropsicología',
+    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
+  },
+  {
+    id: '5',
+    title: 'Long term effects of a neuropsychological intervention with transcranial direct current stimulation (tDCS) in anomic aphasia',
+    type: 'Póster',
+    date: 'Junio 2019',
+    conference: 'NR-SIG-WFNR',
+    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
+  },
+  {
+    id: '6',
+    title: 'Protocolo de intervención neuropsicológica mediante neuromodulación (tDCS) en afasia anómica',
+    type: 'Póster',
+    date: 'Diciembre 2018',
+    conference: 'IV Congreso Nacional Daño Cerebral Adquirido',
+    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
+  },
+  {
+    id: '7',
+    title: 'Proyecto de Rehabilitación Multisensorial en el Síndrome de Heminegligencia',
+    type: 'Póster',
+    date: 'Octubre 2016',
+    url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
   }
 ];
