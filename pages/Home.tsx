@@ -31,17 +31,7 @@ const Home: React.FC = () => {
             <p className="text-lg md:text-xl font-light leading-relaxed mb-10 opacity-95 text-gray-100 max-w-xl">
               Soy neuropsicólogo con 38 años y te ayudo a recuperar tu bienestar.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <button
-                onClick={openModal}
-                className="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl"
-              >
-                Comienza tu Viaje
-              </button>
-              <Link to="/experiencia" className="bg-white/10 backdrop-blur-md text-white border border-white/40 px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all">
-                Conoce a tu Doctor
-              </Link>
-            </div>
+
 
             <div className="mt-10 pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center gap-4">
               <span className="text-sm font-medium opacity-80 uppercase tracking-widest text-xs">Sígueme en:</span>
