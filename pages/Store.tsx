@@ -115,6 +115,22 @@ const Store: React.FC = () => {
                     </div>
                 </section>
 
+                {/* Cross-Link Banner */}
+                <div className="bg-gradient-to-r from-primary/5 to-primary/10 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 border border-primary/20 mb-12">
+                    <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm shrink-0">
+                            <span className="material-symbols-outlined">folder_open</span>
+                        </div>
+                        <div>
+                            <h3 className="text-lg font-bold text-text-dark">¿Buscas recursos públicos?</h3>
+                            <p className="text-sm text-text-muted">Accede a guías y materiales gratuitos de administraciones y asociaciones.</p>
+                        </div>
+                    </div>
+                    <Link to="/resources" className="bg-white text-primary px-6 py-3 rounded-xl text-sm font-bold hover:bg-primary hover:text-white transition-all shadow-sm whitespace-nowrap border border-primary/20">
+                        Visita Recursos Gratuitos
+                    </Link>
+                </div>
+
                 {/* FAQ / Info */}
                 <div className="grid md:grid-cols-3 gap-6 pt-12 border-t border-[#edefec]">
                     <div className="text-center">
