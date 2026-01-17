@@ -407,3 +407,47 @@ export const ONLINE_QUESTIONNAIRES: QuestionnaireItem[] = [
     category: 'Estrés'
   }
 ];
+
+export const MOCK_REPORTS: import("./types").ClinicalReport[] = [
+  {
+    id: 'r1',
+    date: '10 Nov 2023',
+    title: 'Informe Neuropsicológico Completo',
+    type: 'Evaluación',
+    downloadUrl: '#'
+  },
+  {
+    id: 'r2',
+    date: '25 Oct 2023',
+    title: 'Informe de Evolución Trimestral',
+    type: 'Seguimiento',
+    downloadUrl: '#'
+  }
+];
+
+export const MOCK_PATIENT_MATERIALS: import("./types").PatientMaterial[] = [
+  {
+    id: 'm1',
+    title: 'Ejercicios de Estimulación de Memoria de Trabajo',
+    type: 'PDF',
+    description: 'Cuaderno de actividades para realizar en casa (20 min/día).',
+    downloadUrl: '#',
+    assignedDate: '15 Nov 2023'
+  },
+  {
+    id: 'm2',
+    title: 'Pautas de Higiene del Sueño',
+    type: 'PDF',
+    description: 'Guía práctica para mejorar la calidad del descanso.',
+    downloadUrl: '#',
+    assignedDate: '01 Nov 2023'
+  },
+  {
+    id: 'm3',
+    title: 'Técnica de Relajación Progresiva',
+    type: 'Audio',
+    description: 'Audio guía para crisis de ansiedad.',
+    downloadUrl: '#',
+    assignedDate: '28 Oct 2023'
+  }
+];

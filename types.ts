@@ -100,3 +100,20 @@ export interface QuestionnaireItem {
   url: string;
   category: string;
 }
+
+export interface ClinicalReport {
+  id: string;
+  date: string;
+  title: string;
+  type: 'Evaluación' | 'Seguimiento' | 'Alta';
+  downloadUrl: string;
+}
+
+export interface PatientMaterial {
+  id: string;
+  title: string;
+  type: 'PDF' | 'Video' | 'Audio';
+  description: string;
+  downloadUrl: string;
+  assignedDate: string;
+}
