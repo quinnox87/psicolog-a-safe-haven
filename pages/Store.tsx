@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { STORE_ITEMS } from '../constants';
+import { useBooking } from '../context/BookingContext';
 
 const Store: React.FC = () => {
+    const { openModal } = useBooking();
     const trainingItems = STORE_ITEMS.filter(item => item.category === 'Formación Especializada');
     const materialItems = STORE_ITEMS.filter(item => item.category === 'Materiales (Digitales)');
 
@@ -18,6 +20,15 @@ const Store: React.FC = () => {
                     <p className="text-lg text-text-muted max-w-2xl mx-auto">
                         Herramientas clínicas y formación especializada basada en 9 años de experiencia y evidencia científica.
                     </p>
+                    <div className="pt-6">
+                        <button
+                            onClick={openModal}
+                            className="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2 mx-auto"
+                        >
+                            <span className="material-symbols-outlined">calendar_month</span>
+                            Programa tu sesión
+                        </button>
+                    </div>
                 </div>
             </div>
 

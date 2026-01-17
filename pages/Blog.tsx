@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BLOG_POSTS, PODCAST_ITEMS } from '../constants';
+import { useBooking } from '../context/BookingContext';
 
 const Blog: React.FC = () => {
+    const { openModal } = useBooking();
     const [activeTab, setActiveTab] = useState<'podcast' | 'readings'>('podcast');
     const [playingId, setPlayingId] = useState<string | null>(null);
 
@@ -18,13 +20,21 @@ const Blog: React.FC = () => {
                     <h1 className="text-4xl font-extrabold text-text-dark mb-4">Neurociencia y Bienestar</h1>
                     <p className="text-text-muted max-w-xl mx-auto mb-10">Explora contenido diseñado para tu bienestar mental, en el formato que prefieras.</p>
 
+                    <button
+                        onClick={openModal}
+                        className="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2 mx-auto mb-12"
+                    >
+                        <span className="material-symbols-outlined">calendar_month</span>
+                        Programa tu sesión
+                    </button>
+
                     {/* Tabs */}
                     <div className="inline-flex bg-[#f4f3f0] p-1.5 rounded-2xl">
                         <button
                             onClick={() => setActiveTab('podcast')}
                             className={`px-8 py-3 rounded-xl text-sm font-bold transition-all duration-300 flex items-center gap-2 ${activeTab === 'podcast'
-                                    ? 'bg-primary text-white shadow-md'
-                                    : 'text-text-muted hover:bg-[#e8e6e1] hover:text-text-dark'
+                                ? 'bg-primary text-white shadow-md'
+                                : 'text-text-muted hover:bg-[#e8e6e1] hover:text-text-dark'
                                 }`}
                         >
                             <span className="material-symbols-outlined">headphones</span>
@@ -33,8 +43,8 @@ const Blog: React.FC = () => {
                         <button
                             onClick={() => setActiveTab('readings')}
                             className={`px-8 py-3 rounded-xl text-sm font-bold transition-all duration-300 flex items-center gap-2 ${activeTab === 'readings'
-                                    ? 'bg-primary text-white shadow-md'
-                                    : 'text-text-muted hover:bg-[#e8e6e1] hover:text-text-dark'
+                                ? 'bg-primary text-white shadow-md'
+                                : 'text-text-muted hover:bg-[#e8e6e1] hover:text-text-dark'
                                 }`}
                         >
                             <span className="material-symbols-outlined">article</span>
