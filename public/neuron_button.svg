@@ -1,0 +1,32 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Main Button Circle with Background and Border -->
+    <circle cx="100" cy="100" r="98.5" fill="#F2E8CF" stroke="#3A5A40" stroke-width="3"/>
+    
+    <!-- Minimalist Constellation Neuron Icon -->
+    <g transform="translate(50, 50) scale(0.5)">
+        <!-- Soma (Body) -->
+        <circle cx="100" cy="100" r="20" stroke="#3A5A40" stroke-width="4" fill="none"/>
+        
+        <!-- Dendrites (Branches) -->
+        <path d="M100 80L100 0" stroke="#3A5A40" stroke-width="4" stroke-linecap="round"/>
+        <path d="M100 120L100 200" stroke="#3A5A40" stroke-width="4" stroke-linecap="round"/>
+        <path d="M80 100L0 100" stroke="#3A5A40" stroke-width="4" stroke-linecap="round"/>
+        <path d="M120 100L200 100" stroke="#3A5A40" stroke-width="4" stroke-linecap="round"/>
+        
+        <!-- Diagonal Branches -->
+        <path d="M85.86 85.86L29.29 29.29" stroke="#3A5A40" stroke-width="4" stroke-linecap="round"/>
+        <path d="M114.14 85.86L170.71 29.29" stroke="#3A5A40" stroke-width="4" stroke-linecap="round"/>
+        <path d="M85.86 114.14L29.29 170.71" stroke="#3A5A40" stroke-width="4" stroke-linecap="round"/>
+        <path d="M114.14 114.14L170.71 170.71" stroke="#3A5A40" stroke-width="4" stroke-linecap="round"/>
+        
+        <!-- Nodes (Connection Points) -->
+        <circle cx="100" cy="0" r="6" fill="#3A5A40"/>
+        <circle cx="100" cy="200" r="6" fill="#3A5A40"/>
+        <circle cx="0" cy="100" r="6" fill="#3A5A40"/>
+        <circle cx="200" cy="100" r="6" fill="#3A5A40"/>
+        <circle cx="29.29" cy="29.29" r="6" fill="#3A5A40"/>
+        <circle cx="170.71" cy="29.29" r="6" fill="#3A5A40"/>
+        <circle cx="29.29" cy="170.71" r="6" fill="#3A5A40"/>
+        <circle cx="170.71" cy="170.71" r="6" fill="#3A5A40"/>
+    </g>
+</svg>

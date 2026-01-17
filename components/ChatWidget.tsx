@@ -102,13 +102,13 @@ const ChatWidget: React.FC = () => {
         <>
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center transition-all hover:scale-110 border-2 border-primary shadow-[0_4px_12px_rgba(58,90,64,0.4)] hover:shadow-[0_8px_16px_rgba(58,90,64,0.5)] overflow-hidden ${isOpen ? 'bg-gray-800 rotate-90' : 'bg-[#F2E8CF] hover:bg-white rotate-0' // Changed bg to Sand/Light for better icon contrast if icon is dark
+                className={`fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full flex items-center justify-center transition-all hover:scale-105 shadow-[0_8px_20px_rgba(58,90,64,0.3)] hover:shadow-[0_12px_24px_rgba(58,90,64,0.4)] ${isOpen ? 'bg-gray-800 rotate-90' : 'bg-transparent rotate-0'
                     }`}
             >
                 {isOpen ? (
                     <span className="material-symbols-outlined text-white text-3xl">close</span>
                 ) : (
-                    <img src="/neuron_icon.png" alt="Chat" className="w-10 h-10 opacity-90" />
+                    <img src="/neuron_button.svg" alt="Chat" className="w-full h-full object-contain drop-shadow-sm" />
                 )}
             </button>
 
