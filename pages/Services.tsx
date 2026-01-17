@@ -19,9 +19,9 @@ const Services: React.FC = () => {
           <div className="flex-1 w-full">
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-2xl">
               <div className="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
-              <div 
-                className="w-full h-full bg-cover bg-center transition-transform hover:scale-105 duration-700" 
-                style={{backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAZT_fzBGMrPqF51wxuvUx-ar1K84GQkx15zuMCCqK_Q38a4ypASdm0_3AQT46jrBL8j9iUC7D6xmiStPlEpKAyzv-Ko2uYXM99y2jT981jU8AeAocU_kXc8raTHDi_W1-kxsiwmOin8NrkYj4BN1YKCdJg0oCZGLicZfvTKAhfmreFYdy4fya4L1-Dne6BUGuu9oPXshcKjTzMqB9H_UQfLhVC6q_mCVS9Eb-LxqVS-Y6CgY3ypSdpcMri9U5_hCneswgymazO71M')"}}
+              <div
+                className="w-full h-full bg-cover bg-center transition-transform hover:scale-105 duration-700"
+                style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAZT_fzBGMrPqF51wxuvUx-ar1K84GQkx15zuMCCqK_Q38a4ypASdm0_3AQT46jrBL8j9iUC7D6xmiStPlEpKAyzv-Ko2uYXM99y2jT981jU8AeAocU_kXc8raTHDi_W1-kxsiwmOin8NrkYj4BN1YKCdJg0oCZGLicZfvTKAhfmreFYdy4fya4L1-Dne6BUGuu9oPXshcKjTzMqB9H_UQfLhVC6q_mCVS9Eb-LxqVS-Y6CgY3ypSdpcMri9U5_hCneswgymazO71M')" }}
               ></div>
             </div>
           </div>
@@ -44,7 +44,7 @@ const Services: React.FC = () => {
           <div className="inline-block p-4 rounded-full bg-terracotta/20 mb-4 animate-pulse">
             <span className="material-symbols-outlined text-terracotta text-3xl">spa</span>
           </div>
-          <h3 className="text-2xl font-bold text-text-dark">La Filosofía "Safe Haven"</h3>
+          <h3 className="text-2xl font-bold text-text-dark">Filosofía de Psicología Joaquín Pavón</h3>
           <p className="text-text-muted leading-loose italic text-xl">
             "Sanar no se trata solo de corregir déficits; se trata de nutrir tus fortalezas existentes en un espacio donde te sientas verdaderamente escuchado y seguro. Nuestra práctica se basa en la creencia de que todos merecen un ambiente tranquilo para reconectarse con su yo cognitivo y emocional."
           </p>

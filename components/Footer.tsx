@@ -4,7 +4,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-[#eeefed] border-t border-[#daded8] pt-16 pb-8 px-6">
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
-        
+
         {/* Brand Column */}
         <div className="col-span-1 md:col-span-2">
           <div className="flex items-center gap-2 mb-6">
@@ -48,7 +48,9 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto pt-12 mt-12 border-t border-[#e0e2df] flex flex-col md:flex-row justify-between items-center gap-6">
-        <p className="text-xs text-text-muted">© 2024 Safe Haven Psychology. Servicios clínicos profesionales.</p>
+        <p className="text-sm text-text-muted">
+          &copy; {new Date().getFullYear()} Psicología Joaquín Pavón. Todos los derechos reservados.
+        </p>
         <div className="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-text-muted">
           <a href="#" className="hover:text-primary">Política de Privacidad</a>
           <a href="#" className="hover:text-primary">Términos de Uso</a>
