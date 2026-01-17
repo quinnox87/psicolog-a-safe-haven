@@ -37,6 +37,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
 import Store from './pages/Store'; // Import Store page
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import Terms from './pages/Terms';
 
 import { AuthProvider } from './context/AuthContext';
 
@@ -57,6 +58,7 @@ const App: React.FC = () => {
               <Route path="/tienda" element={<Store />} />
               <Route path="/area-privada" element={<PrivateArea />} />
               <Route path="/politica-privacidad" element={<PrivacyPolicy />} />
+              <Route path="/terminos" element={<Terms />} />
             </Routes>
             <CookieBanner />
             <BookingModal />

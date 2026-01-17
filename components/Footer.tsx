@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
@@ -52,8 +53,8 @@ const Footer: React.FC = () => {
           &copy; {new Date().getFullYear()} Psicología Joaquín Pavón. Todos los derechos reservados.
         </p>
         <div className="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-text-muted">
-          <a href="#" className="hover:text-primary">Política de Privacidad</a>
-          <a href="#" className="hover:text-primary">Términos de Uso</a>
+          <Link to="/politica-privacidad" className="hover:text-primary">Política de Privacidad</Link>
+          <Link to="/terminos" className="hover:text-primary">Términos de Uso</Link>
           <a href="#" className="hover:text-primary">Accesibilidad</a>
         </div>
       </div>
