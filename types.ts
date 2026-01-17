@@ -91,3 +91,11 @@ export interface PublicationItem {
   doi?: string; // Optional DOI field
   downloadUrl?: string; // Placeholder for PDF upload
 }
+
+export interface QuestionnaireItem {
+  id: string;
+  title: string;
+  description: string;
+  url: string;
+  category: string;
+}

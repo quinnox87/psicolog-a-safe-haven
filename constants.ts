@@ -379,3 +379,27 @@ export const PUBLICATIONS: PublicationItem[] = [
     url: 'https://www.researchgate.net/profile/Joaquin-Perez-11'
   }
 ];
+
+export const ONLINE_QUESTIONNAIRES: QuestionnaireItem[] = [
+  {
+    id: '1',
+    title: 'Cuestionario de Ansiedad (GAD-7)',
+    description: 'Evalúa la frecuencia e intensidad de los síntomas de ansiedad en las últimas 2 semanas.',
+    url: 'https://patient.info/doctor/generalized-anxiety-disorder-assessment-gad-7',
+    category: 'Ansiedad'
+  },
+  {
+    id: '2',
+    title: 'Cuestionario de Depresión (PHQ-9)',
+    description: 'Herramienta estándar para el cribado de la depresión y la medición de su severidad.',
+    url: 'https://patient.info/doctor/patient-health-questionnaire-phq-9',
+    category: 'Estado de Ánimo'
+  },
+  {
+    id: '3',
+    title: 'Escala de Estrés Percibido (PSS)',
+    description: 'Mide el grado en que las situaciones de la vida se evalúan como estresantes.',
+    url: 'https://www.mindgarden.com/132-perceived-stress-scale',
+    category: 'Estrés'
+  }
+];

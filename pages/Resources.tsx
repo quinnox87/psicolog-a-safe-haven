@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { RESOURCES } from '../constants';
+import { RESOURCES, ONLINE_QUESTIONNAIRES } from '../constants';
 import ResourceCard from '../components/ResourceCard';
 import { useBooking } from '../context/BookingContext';
 
@@ -64,8 +64,8 @@ const Resources: React.FC = () => {
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
                     className={`flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium transition-all ${activeCategory === cat
-                        ? 'bg-primary text-white shadow-md'
-                        : 'text-text-dark hover:bg-white hover:shadow-sm'
+                      ? 'bg-primary text-white shadow-md'
+                      : 'text-text-dark hover:bg-white hover:shadow-sm'
                       }`}
                   >
                     <span>{cat}</span>
@@ -94,6 +94,39 @@ const Resources: React.FC = () => {
 
           {/* Grid - Modularized with ResourceCard */}
           <div className="flex-1">
+            {/* Questionnaires Section */}
+            <div className="mb-16">
+              <h2 className="text-xl font-bold text-text-dark mb-6 flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary">quiz</span>
+                Cuestionarios de Auto-Evaluación
+              </h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {ONLINE_QUESTIONNAIRES.map((item) => (
+                  <a
+                    key={item.id}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white p-6 rounded-2xl border border-[#edefec] hover:border-primary/30 transition-all hover:shadow-lg group flex flex-col"
+                  >
+                    <div className="flex justify-between items-start mb-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                          <span className="material-symbols-outlined">assignment</span>
+                        </div>
+                        <span className="text-xs font-bold uppercase tracking-wider text-gray-400">{item.category}</span>
+                      </div>
+                      <span className="material-symbols-outlined text-gray-300 group-hover:text-primary transition-colors">open_in_new</span>
+                    </div>
+
+                    <h3 className="text-lg font-bold text-text-dark mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
+                    <p className="text-sm text-text-muted leading-relaxed mb-4 flex-grow">{item.description}</p>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+
             <div className="flex items-center justify-between mb-8">
               <p className="text-sm font-medium text-text-muted">Mostrando {filteredResources.length} recursos</p>
             </div>
