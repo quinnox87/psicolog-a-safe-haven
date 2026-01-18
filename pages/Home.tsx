@@ -51,6 +51,7 @@ const Home: React.FC = () => {
                   { name: 'Instagram', url: 'https://instagram.com' },
                   { name: 'Facebook', url: 'https://facebook.com' },
                   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/joaquinpavonperez/' },
+                  { name: 'TikTok', url: 'https://tiktok.com' },
                   { name: 'iVoox', url: 'https://ivoox.com' },
                 ].map((social) => (
                   <a

@@ -228,12 +228,16 @@ export const MOCK_SESSIONS: PatientSession[] = [
   }
 ];
 
+
 export const STORE_ITEMS: StoreItem[] = [
   // Categoría: Formación Especializada
   {
     id: '1',
     title: 'Curso Experto: tDCS en Rehabilitación de Afasia',
     description: 'Aprende los fundamentos y protocolos prácticos para aplicar tDCS en pacientes con trastornos del lenguaje.',
+    fullDescription: 'Este curso intensivo está diseñado para neuropsicólogos y logopedas que desean integrar la Estimulación Eléctrica Transcraneal por Corriente Directa (tDCS) en sus intervenciones de afasia. Cubrimos desde los mecanismos neurofisiológicos básicos hasta la colocación precisa de electrodos y el diseño de protocolos individualizados basados en la última evidencia científica.',
+    features: ['Duración: 20 horas', 'Modalidad: Online (Asíncrono)', 'Certificado Acreditado', 'Acceso de por vida a actualizaciones'],
+    benefits: ['Potencia la recuperación del lenguaje combinando tDCS con logopedia.', 'Aprende protocolos de seguridad y manejo de equipos.', 'Acceso a casos clínicos reales y resolución de dudas.'],
     price: 19.90,
     imageUrl: 'https://images.unsplash.com/photo-1576091160550-217358c7c814?auto=format&fit=crop&q=80&w=1000',
     category: 'Formación Especializada',
@@ -245,6 +249,9 @@ export const STORE_ITEMS: StoreItem[] = [
     id: '2',
     title: 'Formación: Realidad Virtual en Daño Cerebral (DCA)',
     description: 'Formación completa sobre sistemas inmersivos vs semi-inmersivos y su aplicación clínica en DCA.',
+    fullDescription: 'Explora el potencial de la Realidad Virtual (RV) como herramienta terapéutica en la neurorrehabilitación. Analizamos las diferencias críticas entre sistemas inmersivos y no inmersivos, revisamos el software comercial y de investigación disponible, y te enseñamos a seleccionar la mejor opción para cada perfil de paciente (ictus, TCE, etc.).',
+    features: ['Duración: 15 horas', 'Guía de Hardware y Software', 'Protocolos de seguridad (Cybersickness)', 'Plantillas de consentimiento informado'],
+    benefits: ['Aumenta la motivación y adherencia al tratamiento.', 'Permite trabajar AVDs en entornos ecológicos seguros.', 'Base empírica sólida para justificar su uso clínico.'],
     price: 19.90,
     imageUrl: 'https://images.unsplash.com/photo-1622979135225-d2ba269fb1ac?auto=format&fit=crop&q=80&w=1000',
     category: 'Formación Especializada',
@@ -257,6 +264,9 @@ export const STORE_ITEMS: StoreItem[] = [
     id: '3',
     title: 'Protocolo Clínico: Evaluación de Heminegligencia',
     description: 'Batería de pruebas y plantilla de corrección automatizada para la detección precisa de negligencia.',
+    fullDescription: 'Un kit completo para la evaluación sensible de la heminegligencia visuoespacial. Incluye versiones digitalizadas de pruebas clásicas y tareas ecológicas, junto con una hoja de cálculo automatizada que facilita la corrección y la interpretación de los resultados, ahorrando tiempo valioso en la redacción de informes.',
+    features: ['Formato: PDF + Excel', 'Baremos actualizados', 'Instrucciones de administración detalladas', 'Hoja de corrección automática'],
+    benefits: ['Detección más precisa de negligencia leve.', 'Ahorro de tiempo en corrección e interpretación.', 'Presentación profesional de resultados en informes.'],
     price: 2.99,
     imageUrl: 'https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&q=80&w=1000',
     category: 'Materiales (Digitales)',
@@ -268,6 +278,9 @@ export const STORE_ITEMS: StoreItem[] = [
     id: '4',
     title: 'Guía Técnica: Implementación de Neurotecnología',
     description: 'Manual paso a paso para integrar VR y tDCS: seguridad, dosimetría y aspectos legales.',
+    fullDescription: 'Esta guía práctica es el recurso que me hubiera gustado tener al empezar. Condensa años de experiencia técnica y legal en un manual directo. Aprende a configurar tu clínica para la neurotecnología, gestiona los consentimientos informados correctamente y domina los aspectos de seguridad eléctrica y biológica para proteger a tus pacientes.',
+    features: ['Formato: eBook (PDF)', '45 Páginas', 'Checklists de seguridad', 'Modelos de documentos legales (España)'],
+    benefits: ['Seguridad jurídica y clínica garantizada.', 'Evita errores costosos en la compra de equipos.', 'Protocolos listos para usar desde el primer día.'],
     price: 2.99,
     imageUrl: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=1000',
     category: 'Materiales (Digitales)',
@@ -395,6 +408,14 @@ export const ONLINE_QUESTIONNAIRES: QuestionnaireItem[] = [
     description: 'Mide el grado en que las situaciones de la vida se evalúan como estresantes.',
     url: 'https://www.mindgarden.com/132-perceived-stress-scale',
     category: 'Estrés'
+  },
+  {
+    id: '4',
+    title: 'Evaluación de Memoria (Cribado) [NUEVO]',
+
+    description: 'Test interactivo para diferenciar olvidos benignos de señales de alerta. Incluye informe visual inmediato.',
+    url: '/resources/cuestionario-cognitivo',
+    category: 'Memoria y Atención'
   }
 ];
 

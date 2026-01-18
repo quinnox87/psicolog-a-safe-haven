@@ -36,8 +36,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 };
 
 import Store from './pages/Store'; // Import Store page
+import ProductDetail from './pages/ProductDetail';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Terms from './pages/Terms';
+import CognitiveQuestionnaire from './pages/CognitiveQuestionnaire';
 
 import { AuthProvider } from './context/AuthContext';
 
@@ -56,7 +58,9 @@ const App: React.FC = () => {
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:id" element={<BlogPost />} />
               <Route path="/tienda" element={<Store />} />
+              <Route path="/tienda/:id" element={<ProductDetail />} />
               <Route path="/area-privada" element={<PrivateArea />} />
+              <Route path="/resources/cuestionario-cognitivo" element={<CognitiveQuestionnaire />} />
               <Route path="/politica-privacidad" element={<PrivacyPolicy />} />
               <Route path="/terminos" element={<Terms />} />
             </Routes>

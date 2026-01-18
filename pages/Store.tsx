@@ -133,8 +133,8 @@ const Store: React.FC = () => {
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             {materialItems.map((item) => (
-                                <div key={item.id} className="bg-white rounded-2xl p-6 border border-[#edefec] hover:border-primary/30 transition-all hover:shadow-lg flex flex-col md:flex-row gap-6 items-start">
-                                    <div className="w-full md:w-48 aspect-[4/3] rounded-xl overflow-hidden bg-gray-100 shrink-0 relative group">
+                                <Link to={`/tienda/${item.id}`} key={item.id} className="bg-white rounded-2xl p-6 border border-[#edefec] hover:border-primary/30 transition-all hover:shadow-lg flex flex-col md:flex-row gap-6 items-start group cursor-pointer">
+                                    <div className="w-full md:w-48 aspect-[4/3] rounded-xl overflow-hidden bg-gray-100 shrink-0 relative">
                                         <img
                                             src={item.imageUrl}
                                             alt={item.imageAlt || item.title}
@@ -149,23 +149,20 @@ const Store: React.FC = () => {
                                                 </span>
                                             ))}
                                         </div>
-                                        <h3 className="text-xl font-bold text-text-dark mb-2 leading-snug">
+                                        <h3 className="text-xl font-bold text-text-dark mb-2 leading-snug group-hover:text-primary transition-colors">
                                             {item.title}
                                         </h3>
-                                        <p className="text-sm text-text-muted leading-relaxed mb-4">
+                                        <p className="text-sm text-text-muted leading-relaxed mb-4 line-clamp-2">
                                             {item.description}
                                         </p>
                                         <div className="flex items-center justify-between mt-auto">
                                             <span className="text-lg font-bold text-primary">{item.price.toFixed(2)}€</span>
-                                            <button
-                                                onClick={() => handlePurchaseClick(item)}
-                                                className="text-text-dark font-bold text-sm hover:text-primary underline decoration-2 underline-offset-4 transition-colors"
-                                            >
-                                                {item.ctaLabel || 'Comprar'}
-                                            </button>
+                                            <span className="text-text-dark font-bold text-sm underline decoration-2 underline-offset-4 group-hover:text-primary transition-colors">
+                                                Ver Detalles
+                                            </span>
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
                             ))}
                         </div>
                     </div>

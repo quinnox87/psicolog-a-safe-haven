@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { RESOURCES, ONLINE_QUESTIONNAIRES } from '../constants';
 import ResourceCard from '../components/ResourceCard';
 import { useBooking } from '../context/BookingContext';
@@ -10,6 +11,8 @@ const Resources: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('Todos los Recursos');
   const [searchQuery, setSearchQuery] = useState('');
   const { openModal } = useBooking();
+  console.log('Online Questionnaires Data:', ONLINE_QUESTIONNAIRES);
+
 
   // Categories for materials
   const categories = ['Todos los Recursos', 'Manejo de la Ansiedad', 'TDAH y Concentración', 'Higiene del Sueño', 'Neurodivergencia'];
@@ -102,27 +105,32 @@ const Resources: React.FC = () => {
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {ONLINE_QUESTIONNAIRES.map((item) => (
-                <a
-                  key={item.id}
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white p-6 rounded-2xl border border-[#edefec] hover:border-primary/50 hover:shadow-lg transition-all group flex flex-col h-full"
-                >
-                  <div className="flex justify-between items-start mb-4">
-                    <span className="px-3 py-1 rounded-full bg-gray-100 text-xs font-bold text-text-muted uppercase tracking-wider group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
-                      {item.category}
-                    </span>
-                    <span className="material-symbols-outlined text-gray-300 group-hover:text-primary">open_in_new</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-text-dark mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
-                  <p className="text-sm text-text-muted leading-relaxed mb-6 flex-grow">{item.description}</p>
-                  <div className="text-center w-full py-2 rounded-lg border border-gray-200 text-text-muted text-sm font-bold group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all">
-                    Iniciar Test
-                  </div>
-                </a>
-              ))}
+              {ONLINE_QUESTIONNAIRES.map((item) => {
+                const isInternal = item.url.startsWith('/');
+                const Wrapper = isInternal ? Link : 'a';
+                const props = isInternal
+                  ? { to: item.url, className: "bg-white p-6 rounded-2xl border border-[#edefec] hover:border-primary/50 hover:shadow-lg transition-all group flex flex-col h-full" }
+                  : { href: item.url, target: "_blank", rel: "noopener noreferrer", className: "bg-white p-6 rounded-2xl border border-[#edefec] hover:border-primary/50 hover:shadow-lg transition-all group flex flex-col h-full" };
+
+                return (
+                  // @ts-ignore
+                  <Wrapper key={item.id} {...props}>
+                    <div className="flex justify-between items-start mb-4">
+                      <span className="px-3 py-1 rounded-full bg-gray-100 text-xs font-bold text-text-muted uppercase tracking-wider group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+                        {item.category}
+                      </span>
+                      <span className="material-symbols-outlined text-gray-300 group-hover:text-primary">
+                        {isInternal ? 'arrow_forward' : 'open_in_new'}
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-bold text-text-dark mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
+                    <p className="text-sm text-text-muted leading-relaxed mb-6 flex-grow">{item.description}</p>
+                    <div className="text-center w-full py-2 rounded-lg border border-gray-200 text-text-muted text-sm font-bold group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all">
+                      Iniciar Test
+                    </div>
+                  </Wrapper>
+                );
+              })}
             </div>
           </div>
         )}

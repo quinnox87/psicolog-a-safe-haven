@@ -78,8 +78,11 @@ export interface StoreItem {
   tags?: string[];
   ctaLabel?: string;
   imageAlt?: string; // SEO optimization
-  // In a real app, this might link to a checkout flow
-  purchaseUrl?: string;
+  // Extended details for Product Page
+  fullDescription?: string;
+  features?: string[]; // Ficha Técnica
+  benefits?: string[]; // Evidencia/Beneficios
+  purchaseUrl?: string; // In a real app, this might link to a checkout flow
 }
 
 export interface PublicationItem {
