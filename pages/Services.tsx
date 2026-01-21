@@ -53,7 +53,7 @@ const Services: React.FC = () => {
           <div className="inline-block p-4 rounded-full bg-terracotta/20 mb-4 animate-pulse">
             <span className="material-symbols-outlined text-terracotta text-3xl">spa</span>
           </div>
-          <h3 className="text-2xl font-bold text-text-dark">Filosofía de Psicología Joaquín Pavón</h3>
+          <h3 className="text-2xl font-bold text-text-dark">Filosofía de Psicología Joaquín Pabon</h3>
           <p className="text-text-muted leading-loose italic text-xl">
             "Sanar no se trata solo de corregir déficits; se trata de nutrir tus fortalezas existentes en un espacio donde te sientas verdaderamente escuchado y seguro. Nuestra práctica se basa en la creencia de que todos merecen un ambiente tranquilo para reconectarse con su yo cognitivo y emocional."
           </p>

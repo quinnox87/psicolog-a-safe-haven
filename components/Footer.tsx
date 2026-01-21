@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
 
       <div className="max-w-7xl mx-auto pt-12 mt-12 border-t border-[#e0e2df] flex flex-col md:flex-row justify-between items-center gap-6">
         <p className="text-sm text-text-muted">
-          &copy; {new Date().getFullYear()} Psicología Joaquín Pavón. Todos los derechos reservados.
+          &copy; {new Date().getFullYear()} Psicología Joaquín Pabon. Todos los derechos reservados.
         </p>
         <div className="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-text-muted">
           <Link to="/politica-privacidad" className="hover:text-primary">Política de Privacidad</Link>

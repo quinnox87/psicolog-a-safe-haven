@@ -27,7 +27,7 @@ const Terms: React.FC = () => {
                 <section className="mb-8">
                     <h2 className="text-2xl font-bold text-text-dark mb-4">3. Propiedad Intelectual</h2>
                     <p>
-                        Todo el contenido publicado y puesto a disposición en este sitio es propiedad de Joaquín Pavón Pérez.
+                        Todo el contenido publicado y puesto a disposición en este sitio es propiedad de Joaquín Pabon.
                         Esto incluye, pero no se limita a imágenes, textos, logotipos, documentos, archivos descargables y todo lo que contribuye a la composición de nuestro sitio.
                     </p>
                 </section>
@@ -35,7 +35,7 @@ const Terms: React.FC = () => {
                 <section className="mb-8">
                     <h2 className="text-2xl font-bold text-text-dark mb-4">4. Limitación de Responsabilidad</h2>
                     <p>
-                        Joaquín Pavón Pérez no será responsable de ninguna acción, reclamación, pérdida, daño, responsabilidad y gasto que sufra como resultado del uso de este sitio.
+                        Joaquín Pabon no será responsable de ninguna acción, reclamación, pérdida, daño, responsabilidad y gasto que sufra como resultado del uso de este sitio.
                     </p>
                 </section>
             </div>

@@ -34,7 +34,7 @@ const Home: React.FC = () => {
         >
           <div className="relative z-10 px-6 md:px-16 max-w-3xl text-white py-10 md:py-0">
             <span className="inline-block py-1 px-3 rounded-full bg-white/20 backdrop-blur-md text-xs font-bold uppercase tracking-widest mb-4 md:mb-6 border border-white/30">
-              Psicología Joaquín Pavón
+              Psicología Joaquín Pabon
             </span>
             <h1 className="text-3xl md:text-6xl font-bold leading-tight mb-4 md:mb-6 tracking-tight drop-shadow-sm">
               Neuropsicólogo Clínico en Granada <br /> <span className="text-xl md:text-4xl block mt-2 font-normal text-gray-100">Rehabilitación de Daño Cerebral y Terapia Basada en Evidencia</span>

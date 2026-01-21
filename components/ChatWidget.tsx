@@ -15,7 +15,7 @@ const ChatWidget: React.FC = () => {
         {
             id: 'welcome',
             role: 'bot',
-            text: 'Hola, soy el asistente virtual de la consulta de Joaquín Pavón. Estoy aquí para informarte sobre nuestros servicios de neuropsicología y ayudarte a gestionar tu cita. ¿En qué puedo ayudarte hoy?',
+            text: 'Hola, soy el asistente virtual de la consulta de Joaquín Pabon. Estoy aquí para informarte sobre nuestros servicios de neuropsicología y ayudarte a gestionar tu cita. ¿En qué puedo ayudarte hoy?',
             timestamp: new Date()
         }
     ]);

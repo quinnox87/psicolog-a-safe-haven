@@ -13,7 +13,7 @@ const Experience: React.FC = () => {
       <section className="bg-primary/5 py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Trayectoria y Publicaciones</span>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-text-dark mb-6">Joaquín Pavón Pérez</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-text-dark mb-6">Joaquín Pabon</h1>
           <p className="text-lg text-text-muted leading-relaxed max-w-2xl mx-auto mb-8">
             Neuropsicólogo Clínico | Especialista en DCA, Realidad Virtual y Neuromodulación
           </p>

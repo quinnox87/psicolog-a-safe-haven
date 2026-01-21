@@ -15,7 +15,7 @@ const PrivacyPolicy: React.FC = () => {
                             De conformidad con lo dispuesto en el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), le informamos que los datos personales facilitados serán tratados por:
                         </p>
                         <ul className="list-disc pl-6 mt-2 space-y-1">
-                            <li><strong>Titular:</strong> Joaquín Pavón Pérez</li>
+                            <li><strong>Titular:</strong> Joaquín Pabon</li>
                             <li><strong>Actividad:</strong> Neuropsicología Clínica y Formación</li>
                             <li><strong>Domicilio:</strong> Granada, España</li>
                             <li><strong>Contacto:</strong> contacto@joaquinpavonperez.com</li>
