@@ -102,8 +102,8 @@ const Experience: React.FC = () => {
         {/* Download CV */}
         <div className="flex justify-center pt-8">
           <a
-            href="/CV_Joaquin_Pavon.pdf"
-            download="CV_Joaquin_Pavon.pdf"
+            href="/CV_Joaquin_Pabon.pdf"
+            download="CV_Joaquin_Pabon.pdf"
             className="flex items-center gap-3 bg-text-dark text-white px-8 py-4 rounded-xl font-bold hover:bg-black transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 group"
           >
             <span className="material-symbols-outlined group-hover:animate-bounce">download</span>
