@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { MOCK_SESSIONS, MOCK_REPORTS, MOCK_PATIENT_MATERIALS } from '../constants';
 import { useAuth } from '../context/AuthContext';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const PrivateArea: React.FC = () => {
     const { user, login, logout, isLoading } = useAuth();
 
     // Consent states
     const [acceptedTerms, setAcceptedTerms] = useState(false);
-    const [acceptedNewsletter, setAcceptedNewsletter] = useState(false);
     const [loginError, setLoginError] = useState('');
 
     // Notebook State
@@ -50,17 +50,14 @@ const PrivateArea: React.FC = () => {
     };
 
     const handleDownload = (fileName: string, type: string) => {
-        // In a real app, this would use the downloadUrl.
-        // For now, we simulate a secure download start.
         alert(`Iniciando descarga segura de: ${fileName} (${type})\n\nEste archivo está cifrado para tu uso personal.`);
     };
 
     const handlePreview = (file: { title: string; type: string; downloadUrl: string }) => {
-        // For mock purposes, if url is '#', we use a corresponding placeholder
         let url = file.downloadUrl;
         if (url === '#' || !url) {
             if (file.type === 'PDF' || file.type === 'Evaluación' || file.type === 'Seguimiento') {
-                url = '/area-privada/modelo-informe.pdf'; // Use a local PDF for demo
+                url = '/area-privada/modelo-informe.pdf';
             } else if (file.type === 'Audio') {
                 url = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
             } else if (file.type === 'Image') {
@@ -72,322 +69,343 @@ const PrivateArea: React.FC = () => {
 
     if (!user) {
         return (
-            <div className="min-h-screen bg-background-light flex items-center justify-center px-6 py-20 animate-fade-in">
-                <div className="bg-white p-10 rounded-2xl border border-[#edefec] shadow-xl w-full max-w-md relative overflow-hidden">
-                    <div className="text-center mb-8 relative z-10">
-                        <span className="material-symbols-outlined text-primary text-5xl mb-4">lock_person</span>
-                        <h1 className="text-2xl font-bold text-text-dark">Área de Pacientes</h1>
-                        <p className="text-text-muted text-sm mt-2">Acceso seguro a tu historial y recursos clínicos.</p>
+            <div className="min-h-screen bg-[#f8f9f8] flex items-center justify-center px-6 py-20 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full -mr-64 -mt-64 blur-3xl animate-pulse"></div>
+                <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-terracotta/5 rounded-full -ml-32 -mb-32 blur-3xl"></div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="bg-white p-10 md:p-12 rounded-[40px] border border-[#edefec] shadow-2xl w-full max-w-md relative z-10 transition-all duration-500 hover:shadow-primary/5"
+                >
+                    <div className="text-center mb-10">
+                        <div className="w-20 h-20 bg-primary/10 rounded-3xl flex items-center justify-center text-primary mx-auto mb-6 shadow-sm">
+                            <span className="material-symbols-outlined text-4xl">lock_open</span>
+                        </div>
+                        <h1 className="text-3xl font-bold text-text-dark font-display tracking-tight">Acceso Privado</h1>
+                        <p className="text-text-muted text-base mt-3">Gestiona tu proceso terapéutico de forma <span className="text-primary font-bold">segura y confidencial</span>.</p>
                     </div>
 
-                    <div className="space-y-6 relative z-10">
+                    <div className="space-y-8">
                         <button
                             onClick={handleLogin}
                             disabled={!acceptedTerms || isLoading}
-                            className={`w-full py-4 rounded-xl font-bold transition-all shadow-md flex items-center justify-center gap-3 ${!acceptedTerms
-                                ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                                : 'bg-primary text-white hover:bg-primary-dark shadow-primary/20 hover:shadow-primary/40'
+                            className={`w-full py-5 rounded-2xl font-bold transition-all flex items-center justify-center gap-4 group relative overflow-hidden ${!acceptedTerms
+                                ? 'bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-100'
+                                : 'bg-text-dark text-white hover:bg-black shadow-xl active:scale-95'
                                 }`}
                         >
                             {isLoading ? (
-                                <span>Cargando...</span>
+                                <span className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
                             ) : (
                                 <>
-                                    <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5" />
-                                    <span>Iniciar Sesión con Google</span>
+                                    <div className="bg-white p-1 rounded-full group-hover:scale-110 transition-transform">
+                                        <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5 transition-transform" />
+                                    </div>
+                                    <span className="font-display tracking-wide">Acceder con Google</span>
                                 </>
                             )}
                         </button>
 
-                        {loginError && (
-                            <div className="p-3 bg-red-50 text-red-600 text-xs rounded-lg font-bold text-center">
-                                {loginError}
-                            </div>
-                        )}
+                        <AnimatePresence>
+                            {loginError && (
+                                <motion.div
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: 'auto' }}
+                                    exit={{ opacity: 0, height: 0 }}
+                                    className="p-4 bg-red-50 text-red-600 text-sm rounded-2xl font-bold text-center border border-red-100"
+                                >
+                                    {loginError}
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
 
-                        <div className="space-y-4 pt-2">
-                            <label className="flex items-start gap-3 text-sm text-text-muted cursor-pointer group">
+                        <div className="pt-2">
+                            <label className="flex items-start gap-4 text-sm text-text-muted cursor-pointer group p-2 hover:bg-gray-50 rounded-xl transition-colors">
                                 <div className="relative flex items-center mt-0.5">
                                     <input
                                         type="checkbox"
                                         checked={acceptedTerms}
                                         onChange={(e) => setAcceptedTerms(e.target.checked)}
-                                        className="peer h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary/20 cursor-pointer appearance-none border checked:bg-primary transition-all"
+                                        className="peer h-5 w-5 rounded-lg border-gray-300 text-primary focus:ring-primary/20 cursor-pointer appearance-none border checked:bg-primary transition-all"
                                     />
-                                    <span className="material-symbols-outlined text-white text-[10px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-0 peer-checked:opacity-100">check</span>
+                                    <span className="material-symbols-outlined text-white text-[12px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-0 peer-checked:opacity-100 font-bold">check</span>
                                 </div>
-                                <span className="leading-tight group-hover:text-text-dark transition-colors">
-                                    He leído y acepto la <Link to="/politica-privacidad" target="_blank" className="font-bold underline decoration-primary/30 underline-offset-2 hover:decoration-primary text-primary">Política de Privacidad</Link> y el tratamiento datos de salud.
+                                <span className="leading-relaxed group-hover:text-text-dark transition-colors">
+                                    Confirmo que he leído y acepto la <Link to="/politica-privacidad" target="_blank" className="font-bold underline decoration-primary/30 underline-offset-4 hover:decoration-primary text-primary transition-all">Política de Privacidad</Link> y el tratamiento de mis datos clínicos.
                                 </span>
                             </label>
                         </div>
                     </div>
 
-                    {/* Decorative background */}
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-2xl"></div>
-                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-terracotta/10 rounded-full -ml-12 -mb-12 blur-2xl"></div>
-                </div>
+                    <div className="mt-12 text-center">
+                        <p className="text-[10px] text-gray-300 uppercase tracking-[0.2em] font-bold">Conexión Segura SSL 256-bit</p>
+                    </div>
+                </motion.div>
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-[#fcfcfb] animate-fade-in relative">
-            <header className="bg-white border-b border-[#edefec] py-4 px-6 sticky top-0 z-20 shadow-sm">
+        <div className="min-h-screen bg-[#fcfcfb] animate-fade-in relative pb-20">
+            <header className="bg-white/80 backdrop-blur-lg border-b border-[#edefec] py-5 px-6 sticky top-0 z-20 shadow-sm transition-all duration-300">
                 <div className="max-w-7xl mx-auto flex justify-between items-center">
                     <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">
+                        <div className="w-12 h-12 rounded-2xl bg-primary text-white flex items-center justify-center font-display font-bold shadow-lg shadow-primary/20 transition-transform hover:scale-105 uppercase">
                             {user.name.charAt(0)}
                         </div>
                         <div>
-                            <h1 className="text-lg font-bold text-text-dark">Hola, {user.name.split(' ')[0]}</h1>
-                            <p className="text-text-muted text-xs">Paciente verificado</p>
+                            <h1 className="text-xl font-bold text-text-dark font-display leading-tight tracking-tight">Bienvenido, {user.name.split(' ')[0]}</h1>
+                            <div className="flex items-center gap-2">
+                                <span className="relative flex h-2 w-2">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                </span>
+                                <p className="text-text-muted text-[10px] font-bold uppercase tracking-widest">Canal de Paciente Cifrado</p>
+                            </div>
                         </div>
                     </div>
-                    <button onClick={logout} className="text-xs font-bold text-gray-400 hover:text-red-500 flex items-center gap-2 transition-colors px-4 py-2 hover:bg-red-50 rounded-lg">
-                        <span className="material-symbols-outlined text-lg">logout</span>
-                        <span className="hidden sm:inline">Cerrar Sesión</span>
+                    <button onClick={logout} className="text-sm font-bold text-text-muted hover:text-red-500 flex items-center gap-2 transition-all px-4 py-2 hover:bg-red-50 rounded-xl group font-display">
+                        <span className="material-symbols-outlined text-lg group-hover:rotate-180 transition-transform">logout</span>
+                        <span className="hidden sm:inline">Finalizar Sesión</span>
                     </button>
                 </div>
             </header>
 
-            <main className="max-w-7xl mx-auto px-6 py-8">
-
-                {/* Security Disclaimer */}
-                <div className="mb-8 p-4 bg-blue-50 border border-blue-100 rounded-xl flex items-start gap-3">
-                    <span className="material-symbols-outlined text-blue-600 shrink-0">lock</span>
-                    <p className="text-xs text-blue-800 leading-relaxed">
-                        <strong>Entorno Seguro:</strong> Todos los documentos y notas en esta sección están cifrados y son estrictamente confidenciales.
-                    </p>
+            <main className="max-w-7xl mx-auto px-6 py-12">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+                    <div className="bg-white p-8 rounded-[32px] border border-[#edefec] shadow-sm flex items-center gap-5 group hover:border-primary/20 transition-all card-hover">
+                        <div className="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center transition-colors group-hover:bg-blue-600 group-hover:text-white shadow-sm">
+                            <span className="material-symbols-outlined text-3xl">event</span>
+                        </div>
+                        <div>
+                            <p className="text-[10px] font-bold text-text-muted uppercase tracking-widest mb-1">Próxima Cita</p>
+                            <h3 className="text-xl font-bold text-text-dark font-display tracking-wide">28 Ene, 16:30</h3>
+                        </div>
+                    </div>
+                    <div className="bg-white p-8 rounded-[32px] border border-[#edefec] shadow-sm flex items-center gap-5 group hover:border-primary/20 transition-all card-hover">
+                        <div className="w-14 h-14 rounded-2xl bg-green-50 text-green-600 flex items-center justify-center transition-colors group-hover:bg-green-600 group-hover:text-white shadow-sm">
+                            <span className="material-symbols-outlined text-3xl">description</span>
+                        </div>
+                        <div>
+                            <p className="text-[10px] font-bold text-text-muted uppercase tracking-widest mb-1">Informes Listos</p>
+                            <h3 className="text-xl font-bold text-text-dark font-display tracking-wide">2 Pendientes</h3>
+                        </div>
+                    </div>
+                    <div className="bg-white p-8 rounded-[32px] border border-[#edefec] shadow-sm flex items-center gap-5 group hover:border-primary/20 transition-all card-hover">
+                        <div className="w-14 h-14 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center transition-colors group-hover:bg-purple-600 group-hover:text-white shadow-sm">
+                            <span className="material-symbols-outlined text-3xl">fitness_center</span>
+                        </div>
+                        <div>
+                            <p className="text-[10px] font-bold text-text-muted uppercase tracking-widest mb-1">Materiales Hoy</p>
+                            <h3 className="text-xl font-bold text-text-dark font-display tracking-wide">4 Ejercicios</h3>
+                        </div>
+                    </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-
-                    {/* MODULE 1: SESSION NOTES */}
-                    <section className="bg-white p-6 rounded-2xl border border-[#edefec] shadow-sm hover:shadow-md transition-shadow">
-                        <div className="flex items-center justify-between mb-6">
-                            <h2 className="text-lg font-bold text-text-dark flex items-center gap-2">
-                                <span className="material-symbols-outlined text-primary">history_edu</span>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+                    <section className="bg-white p-8 md:p-10 rounded-[40px] border border-[#edefec] shadow-sm card-hover">
+                        <div className="flex items-center justify-between mb-8">
+                            <h2 className="text-2xl font-bold text-text-dark flex items-center gap-4 font-display">
+                                <span className="material-symbols-outlined text-primary p-3 bg-primary/5 rounded-2xl">history_edu</span>
                                 Historial de Sesiones
                             </h2>
-                            <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-lg">{MOCK_SESSIONS.length} Sesiones</span>
+                            <span className="text-[10px] font-bold text-primary bg-primary/10 px-4 py-2 rounded-full uppercase tracking-[0.1em]">{MOCK_SESSIONS.length} Registros</span>
                         </div>
-                        <div className="space-y-4 max-h-[300px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-200">
+                        <div className="space-y-5 max-h-[500px] overflow-y-auto pr-4 custom-scrollbar">
                             {MOCK_SESSIONS.map((session) => (
-                                <div key={session.id} className="p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-primary/30 transition-colors group">
-                                    <div className="flex justify-between items-start mb-2">
-                                        <span className="text-xs font-bold text-gray-500 flex items-center gap-1">
-                                            <span className="material-symbols-outlined text-[14px]">calendar_today</span>
+                                <div key={session.id} className="p-6 rounded-3xl bg-[#fcfcfb] border border-[#edefec] hover:border-primary/20 transition-all group/item shadow-sm hover:shadow-md">
+                                    <div className="flex justify-between items-start mb-4">
+                                        <span className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.15em] flex items-center gap-2 bg-white px-3 py-1.5 rounded-xl border border-gray-100 shadow-sm">
+                                            <span className="material-symbols-outlined text-[16px]">calendar_today</span>
                                             {session.date}
                                         </span>
                                         <div className="flex gap-2">
                                             <button
                                                 onClick={() => handlePreview({ title: session.summaryTitle, type: 'Evaluación', downloadUrl: session.downloadUrl })}
-                                                className="text-xs text-blue-600 font-bold hover:underline flex items-center gap-1 bg-blue-50 px-2 py-1 rounded-lg"
+                                                className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all shadow-sm group-hover/item:scale-105"
+                                                title="Ver Online"
                                             >
-                                                <span className="material-symbols-outlined text-[14px]">visibility</span>
-                                                Ver
+                                                <span className="material-symbols-outlined text-[20px]">visibility</span>
                                             </button>
                                             <button
                                                 onClick={() => handleDownload(session.summaryTitle, 'Resumen')}
-                                                className="text-xs text-primary font-bold hover:underline flex items-center gap-1 bg-primary/5 px-2 py-1 rounded-lg"
+                                                className="w-10 h-10 rounded-xl bg-primary/5 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all shadow-sm group-hover/item:scale-105"
+                                                title="Descargar PDF"
                                             >
-                                                <span className="material-symbols-outlined text-[14px]">download</span>
-                                                Descargar
+                                                <span className="material-symbols-outlined text-[20px]">download</span>
                                             </button>
                                         </div>
                                     </div>
-                                    <h3 className="font-bold text-text-dark text-sm mb-1 cursor-pointer hover:text-primary transition-colors" onClick={() => handlePreview({ title: session.summaryTitle, type: 'Evaluación', downloadUrl: session.downloadUrl })}>{session.summaryTitle}</h3>
-                                    <p className="text-xs text-text-muted leading-relaxed line-clamp-2">{session.doctorNotes}</p>
+                                    <h3 className="font-bold text-text-dark text-lg mb-2 group-hover/item:text-primary transition-colors cursor-pointer font-display tracking-tight" onClick={() => handlePreview({ title: session.summaryTitle, type: 'Evaluación', downloadUrl: session.downloadUrl })}>
+                                        {session.summaryTitle}
+                                    </h3>
+                                    <p className="text-sm text-text-muted leading-relaxed line-clamp-2 italic opacity-80">"{session.doctorNotes}"</p>
                                 </div>
                             ))}
                         </div>
                     </section>
 
-                    {/* MODULE 2: CLINICAL REPORTS */}
-                    <section className="bg-white p-6 rounded-2xl border border-[#edefec] shadow-sm hover:shadow-md transition-shadow">
-                        <div className="flex items-center justify-between mb-6">
-                            <h2 className="text-lg font-bold text-text-dark flex items-center gap-2">
-                                <span className="material-symbols-outlined text-terracotta">description</span>
+                    <section className="bg-white p-8 md:p-10 rounded-[40px] border border-[#edefec] shadow-sm card-hover">
+                        <div className="flex items-center justify-between mb-8">
+                            <h2 className="text-2xl font-bold text-text-dark flex items-center gap-4 font-display">
+                                <span className="material-symbols-outlined text-terracotta p-3 bg-terracotta/5 rounded-2xl">description</span>
                                 Informes Clínicos
                             </h2>
-                            {MOCK_REPORTS.length === 0 && <span className="text-xs bg-gray-100 text-gray-400 px-2 py-1 rounded-lg">No disponibles</span>}
+                            {MOCK_REPORTS.length > 0 && <span className="text-[10px] font-bold text-terracotta bg-terracotta/10 px-4 py-2 rounded-full uppercase tracking-[0.1em]">Seguros</span>}
                         </div>
 
                         {MOCK_REPORTS.length > 0 ? (
-                            <div className="space-y-3">
+                            <div className="space-y-5">
                                 {MOCK_REPORTS.map((report) => (
-                                    <div key={report.id} className="flex items-center justify-between p-3 rounded-xl border border-gray-100 bg-white hover:bg-gray-50 transition-colors group cursor-pointer" onClick={() => handlePreview(report)}>
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 rounded-lg bg-terracotta/10 flex items-center justify-center text-terracotta">
-                                                <span className="material-symbols-outlined">article</span>
+                                    <div key={report.id} className="flex items-center justify-between p-5 rounded-3xl border border-gray-100 bg-[#f9faf9] hover:bg-white hover:border-terracotta/30 transition-all group cursor-pointer shadow-sm hover:shadow-xl" onClick={() => handlePreview(report)}>
+                                        <div className="flex items-center gap-5">
+                                            <div className="w-14 h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-terracotta shadow-sm transition-transform group-hover:rotate-3 group-hover:scale-110">
+                                                <span className="material-symbols-outlined text-3xl">article</span>
                                             </div>
                                             <div>
-                                                <h3 className="text-sm font-bold text-text-dark group-hover:text-primary transition-colors">{report.title}</h3>
-                                                <p className="text-xs text-gray-400">{report.type} • {report.date}</p>
+                                                <h3 className="text-lg font-bold text-text-dark group-hover:text-primary transition-colors font-display tracking-wide">{report.title}</h3>
+                                                <div className="flex items-center gap-3 mt-1">
+                                                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{report.type}</span>
+                                                    <span className="text-gray-200">|</span>
+                                                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{report.date}</span>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div className="flex items-center gap-2">
-                                            <button
-                                                onClick={(e) => { e.stopPropagation(); handlePreview(report); }}
-                                                className="px-3 py-1.5 rounded-lg bg-blue-50 text-blue-600 font-bold text-xs flex items-center gap-1 hover:bg-blue-100 transition-colors"
-                                            >
-                                                <span className="material-symbols-outlined text-[16px]">visibility</span>
-                                                Ver
-                                            </button>
-                                            <button
-                                                onClick={(e) => { e.stopPropagation(); handleDownload(report.title, 'Informe'); }}
-                                                className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all"
-                                                title="Descargar"
-                                            >
-                                                <span className="material-symbols-outlined text-sm">download</span>
-                                            </button>
-                                        </div>
+                                        <button
+                                            onClick={(e) => { e.stopPropagation(); handleDownload(report.title, 'Informe'); }}
+                                            className="w-12 h-12 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm"
+                                            title="Descargar"
+                                        >
+                                            <span className="material-symbols-outlined text-2xl">download</span>
+                                        </button>
                                     </div>
                                 ))}
                             </div>
                         ) : (
-                            <div className="text-center py-8">
-                                <p className="text-sm text-text-muted italic">No hay informes disponibles para descargar en este momento.</p>
+                            <div className="text-center py-20 bg-gray-50/50 rounded-[32px] border border-dashed border-gray-200">
+                                <span className="material-symbols-outlined text-gray-200 text-6xl mb-4">folder_off</span>
+                                <p className="text-sm text-text-muted italic max-w-[240px] mx-auto">Tu historial de informes está vacío por el momento.</p>
                             </div>
                         )}
                     </section>
 
-                    {/* MODULE 3: REHABILITATION MATERIALS */}
-                    <section className="bg-white p-6 rounded-2xl border border-[#edefec] shadow-sm hover:shadow-md transition-shadow">
-                        <h2 className="text-lg font-bold text-text-dark flex items-center gap-2 mb-6">
-                            <span className="material-symbols-outlined text-orange-500">folder_special</span>
-                            Materiales de Rehabilitación
-                        </h2>
-                        <div className="grid grid-cols-1 gap-3">
+                    <section className="bg-white p-8 md:p-10 rounded-[40px] border border-[#edefec] shadow-sm card-hover">
+                        <div className="flex justify-between items-center mb-8">
+                            <h2 className="text-2xl font-bold text-text-dark flex items-center gap-4 font-display">
+                                <span className="material-symbols-outlined text-orange-500 p-3 bg-orange-50 rounded-2xl">folder_special</span>
+                                Pauta de Rehabilitación
+                            </h2>
+                            <span className="relative flex h-3 w-3">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
+                            </span>
+                        </div>
+                        <div className="grid grid-cols-1 gap-5">
                             {MOCK_PATIENT_MATERIALS.map((material) => (
-                                <div key={material.id} className="flex gap-4 p-4 rounded-xl bg-orange-50/50 border border-orange-100 hover:border-orange-300 transition-colors cursor-pointer group" onClick={() => handlePreview(material)}>
-                                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${material.type === 'PDF' ? 'bg-red-50 text-red-500' :
+                                <div key={material.id} className="flex gap-6 p-6 rounded-[32px] bg-white border border-gray-100 hover:border-orange-200 transition-all cursor-pointer group shadow-sm hover:shadow-2xl hover:-translate-y-1" onClick={() => handlePreview(material)}>
+                                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 shadow-sm transition-transform group-hover:scale-110 ${material.type === 'PDF' ? 'bg-red-50 text-red-500' :
                                         material.type === 'Audio' ? 'bg-purple-50 text-purple-500' : 'bg-blue-50 text-blue-500'
                                         }`}>
-                                        <span className="material-symbols-outlined text-2xl">
+                                        <span className="material-symbols-outlined text-3xl">
                                             {material.type === 'PDF' ? 'picture_as_pdf' : material.type === 'Audio' ? 'headphones' : 'play_circle'}
                                         </span>
                                     </div>
                                     <div className="flex-grow">
-                                        <h3 className="text-sm font-bold text-text-dark mb-1 group-hover:text-primary transition-colors">{material.title}</h3>
-                                        <p className="text-xs text-text-muted mb-2">{material.description}</p>
-                                        <div className="flex items-center gap-2">
-                                            <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">{material.type}</span>
-                                            <span className="text-[10px] text-gray-300">•</span>
-                                            <span className="text-[10px] text-gray-400">Asignado: {material.assignedDate}</span>
+                                        <h3 className="text-lg font-bold text-text-dark mb-1 group-hover:text-primary transition-colors font-display tracking-wide">{material.title}</h3>
+                                        <p className="text-sm text-text-muted mb-4 leading-relaxed line-clamp-2">{material.description}</p>
+                                        <div className="flex items-center gap-4">
+                                            <span className="text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/5 px-3 py-1 rounded-lg border border-primary/10">{material.type}</span>
+                                            <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Asignado: {material.assignedDate}</span>
                                         </div>
-                                    </div>
-                                    <div className="flex flex-col gap-2 shrink-0 self-center">
-                                        <button
-                                            onClick={(e) => { e.stopPropagation(); handlePreview(material); }}
-                                            className="px-3 py-1.5 rounded-lg bg-blue-50 text-blue-600 font-bold text-xs flex items-center gap-1 hover:bg-blue-100 transition-colors w-full justify-center"
-                                        >
-                                            <span className="material-symbols-outlined text-[16px]">
-                                                {material.type === 'Audio' || material.type === 'Video' ? 'play_arrow' : 'visibility'}
-                                            </span>
-                                            {material.type === 'Audio' ? 'Oír' : 'Ver'}
-                                        </button>
-                                        <button
-                                            onClick={(e) => { e.stopPropagation(); handleDownload(material.title, material.type); }}
-                                            className="w-full h-8 rounded-lg border border-gray-200 flex items-center justify-center text-gray-400 hover:border-primary hover:text-primary transition-colors"
-                                            title="Descargar"
-                                        >
-                                            <span className="material-symbols-outlined text-sm">download</span>
-                                        </button>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </section>
 
-                    {/* MODULE 4: PATIENT NOTEBOOK */}
-                    <section className="bg-white p-6 rounded-2xl border border-[#edefec] shadow-sm hover:shadow-md transition-shadow">
-                        <div className="flex items-center justify-between mb-4">
-                            <h2 className="text-lg font-bold text-text-dark flex items-center gap-2">
-                                <span className="material-symbols-outlined text-blue-500">edit_note</span>
-                                Cuaderno del Paciente
+                    <section className="bg-white p-8 md:p-10 rounded-[40px] border border-[#edefec] shadow-sm card-hover relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-50/50 rounded-full -mr-16 -mt-16 blur-2xl"></div>
+                        <div className="flex items-center justify-between mb-1">
+                            <h2 className="text-2xl font-bold text-text-dark flex items-center gap-4 font-display">
+                                <span className="material-symbols-outlined text-blue-500 p-3 bg-blue-50 rounded-2xl">edit_note</span>
+                                Notas para la Sesión
                             </h2>
                             {showSaveSuccess && (
-                                <span className="text-xs font-bold text-green-600 flex items-center gap-1 animate-fade-in">
+                                <span className="text-[10px] font-bold text-green-600 flex items-center gap-2 animate-fade-in bg-green-50 px-3 py-1.5 rounded-full">
                                     <span className="material-symbols-outlined text-sm">check_circle</span>
                                     Guardado
                                 </span>
                             )}
                         </div>
-                        <p className="text-xs text-text-muted mb-4">
-                            Anota aquí tus dudas, dificultades o temas que te gustaría tratar en la próxima sesión.
+                        <p className="text-sm text-text-muted mb-8 italic opacity-70">
+                            Anota tus inquietudes para tratarlas en nuestra próxima cita.
                         </p>
                         <textarea
-                            className="w-full h-40 p-4 rounded-xl border border-gray-200 bg-yellow-50/30 focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-sm resize-none"
-                            placeholder="Ej: Esta semana me he sentido más ansioso por las tardes..."
+                            className="w-full h-48 p-6 rounded-[24px] border border-gray-100 bg-[#f9faf9] focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none transition-all text-sm resize-none shadow-inner leading-relaxed"
+                            placeholder="Ej: He notado dificultades con la memoria de trabajo esta semana..."
                             value={notebookContent}
                             onChange={(e) => setNotebookContent(e.target.value)}
                         ></textarea>
-                        <div className="flex justify-end mt-4">
+                        <div className="flex justify-end mt-6">
                             <button
                                 onClick={handleSaveNotebook}
                                 disabled={isSaving || !notebookContent.trim()}
-                                className="bg-primary text-white px-6 py-2 rounded-lg text-sm font-bold hover:bg-primary-dark transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 shadow-sm"
+                                className="bg-text-dark text-white px-8 py-4 rounded-2xl text-sm font-bold hover:bg-black transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-3 shadow-xl active:scale-95"
                             >
                                 {isSaving ? (
-                                    <>
-                                        <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-                                        Guardando...
-                                    </>
+                                    <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
                                 ) : (
                                     <>
-                                        <span className="material-symbols-outlined text-lg">save</span>
-                                        Guardar Notas
+                                        <span className="material-symbols-outlined">send</span>
+                                        Sincronizar Notas
                                     </>
                                 )}
                             </button>
                         </div>
                     </section>
-
                 </div>
             </main>
 
-            {/* PREVIEW MODAL */}
             {previewFile && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
-                    <div className="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl relative">
-                        {/* Modal Header */}
-                        <div className="flex items-center justify-between p-4 border-b border-gray-100 bg-gray-50/50">
-                            <div className="flex items-center gap-3">
-                                <span className="material-symbols-outlined text-primary">
-                                    {previewFile.type === 'Audio' ? 'headphones' : previewFile.type === 'Image' ? 'image' : 'description'}
-                                </span>
-                                <h3 className="font-bold text-text-dark">{previewFile.title}</h3>
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
+                    <div className="bg-white rounded-[40px] w-full max-w-5xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl relative">
+                        <div className="flex items-center justify-between p-6 border-b border-gray-100 bg-gray-50/50">
+                            <div className="flex items-center gap-4">
+                                <div className="p-3 bg-white rounded-2xl shadow-sm">
+                                    <span className="material-symbols-outlined text-primary text-2xl">
+                                        {previewFile.type === 'Audio' ? 'headphones' : previewFile.type === 'Image' ? 'image' : 'description'}
+                                    </span>
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-text-dark text-lg font-display tracking-wide">{previewFile.title}</h3>
+                                    <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Visor Seguro Cifrado</p>
+                                </div>
                             </div>
                             <button
                                 onClick={() => setPreviewFile(null)}
-                                className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-red-50 hover:text-red-500 hover:border-red-100 transition-all"
+                                className="w-12 h-12 rounded-2xl bg-white border border-gray-200 flex items-center justify-center text-gray-400 hover:bg-red-50 hover:text-red-500 hover:border-red-100 transition-all shadow-sm"
                             >
-                                <span className="material-symbols-outlined text-lg">close</span>
+                                <span className="material-symbols-outlined text-2xl">close</span>
                             </button>
                         </div>
 
-                        {/* Modal Content */}
-                        <div className="flex-1 bg-gray-100 p-2 overflow-auto flex items-center justify-center min-h-[400px]">
+                        <div className="flex-1 bg-gray-100 p-6 overflow-auto flex items-center justify-center min-h-[500px]">
                             {(previewFile.type === 'PDF' || previewFile.type === 'Evaluación' || previewFile.type === 'Seguimiento') && (
-                                <iframe src={previewFile.url} className="w-full h-full min-h-[600px] rounded-lg bg-white shadow-inner" title={previewFile.title}></iframe>
+                                <iframe src={previewFile.url} className="w-full h-full min-h-[600px] rounded-[24px] bg-white shadow-2xl" title={previewFile.title}></iframe>
                             )}
                             {previewFile.type === 'Audio' && (
-                                <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-center">
-                                    <div className="w-24 h-24 mx-auto bg-purple-50 rounded-full flex items-center justify-center text-purple-500 mb-6">
-                                        <span className="material-symbols-outlined text-6xl">graphic_eq</span>
+                                <div className="w-full max-w-lg bg-white p-12 rounded-[40px] shadow-2xl border border-gray-100 text-center">
+                                    <div className="w-32 h-32 mx-auto bg-purple-50 rounded-full flex items-center justify-center text-purple-600 mb-8 shadow-inner">
+                                        <span className="material-symbols-outlined text-7xl animate-pulse">graphic_eq</span>
                                     </div>
-                                    <h4 className="text-xl font-bold text-text-dark mb-2">{previewFile.title}</h4>
-                                    <p className="text-sm text-text-muted mb-8">Reproducción segura de archivo de audio</p>
-                                    <audio controls src={previewFile.url} className="w-full" />
+                                    <h4 className="text-2xl font-bold text-text-dark mb-3 font-display">{previewFile.title}</h4>
+                                    <p className="text-sm text-text-muted mb-10 max-w-xs mx-auto">Estas escuchando un archivo protegido de tu historial clínica.</p>
+                                    <audio controls src={previewFile.url} className="w-full h-14" />
                                 </div>
                             )}
                             {previewFile.type === 'Image' && (
-                                <img src={previewFile.url} alt={previewFile.title} className="max-w-full max-h-full rounded-lg shadow-lg" />
-                            )}
-                            {previewFile.type === 'Video' && (
-                                <video controls src={previewFile.url} className="max-w-full max-h-full rounded-lg shadow-lg" />
+                                <img src={previewFile.url} alt={previewFile.title} className="max-w-full max-h-full rounded-2xl shadow-2xl border-4 border-white" />
                             )}
                         </div>
                     </div>
@@ -398,4 +416,3 @@ const PrivateArea: React.FC = () => {
 };
 
 export default PrivateArea;
-
