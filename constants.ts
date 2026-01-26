@@ -18,6 +18,15 @@ export const RESOURCES: ManualResource[] = [
     pages: 2,
     image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1000",
     downloadUrl: "/area-privada/modelo-informe.pdf"
+  },
+  {
+    id: "7",
+    title: "Pautas Higiene del Sueño",
+    category: "Salud Física y Mental",
+    size: "0.1 MB",
+    pages: 1,
+    image: "https://images.unsplash.com/photo-1541480601022-2308c0f02487?auto=format&fit=crop&q=80&w=1000",
+    downloadUrl: "/docs/pautas-higiene-sueno.docx"
   }
 ];
 
