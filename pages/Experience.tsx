@@ -10,10 +10,10 @@ const Experience: React.FC = () => {
   return (
     <div className="animate-fade-in min-h-screen pb-20">
       {/* Header Section */}
-      <section className="bg-primary/5 py-20 px-6">
+      <section className="bg-primary/5 py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Trayectoria y Publicaciones</span>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-text-dark mb-6">Joaquín Pabon</h1>
+          <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block font-display">Trayectoria y Publicaciones</span>
+          <h1 className="text-4xl md:text-6xl font-extrabold text-text-dark mb-6 font-display">Joaquín Pabon</h1>
           <p className="text-lg text-text-muted leading-relaxed max-w-2xl mx-auto mb-8">
             Neuropsicólogo Clínico | Especialista en DCA, Realidad Virtual y Neuromodulación
           </p>
@@ -31,8 +31,8 @@ const Experience: React.FC = () => {
 
         {/* 1. Trayectoria Cronológica */}
         <section>
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-[#edefec] mb-12">
-            <h2 className="text-2xl font-bold text-text-dark mb-8 flex items-center gap-3">
+          <div className="bg-white p-10 rounded-3xl shadow-sm border border-[#edefec] mb-12 card-hover">
+            <h2 className="text-2xl md:text-3xl font-bold text-text-dark mb-8 flex items-center gap-3 font-display">
               <span className="material-symbols-outlined text-primary">history</span>
               Experiencia en Rehabilitación de Daño Cerebral Adquirido (DCA)
             </h2>
@@ -41,10 +41,10 @@ const Experience: React.FC = () => {
         </section>
 
         {/* 2. Investigación y Publicaciones */}
-        <section className="bg-[#f8f9f8] p-8 rounded-2xl border border-primary/10">
+        <section className="bg-[#f8f9f8] p-10 rounded-3xl border border-primary/10 card-hover">
           <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
             <div>
-              <h2 className="text-2xl font-bold text-text-dark mb-2 flex items-center gap-3">
+              <h2 className="text-2xl md:text-3xl font-bold text-text-dark mb-2 flex items-center gap-3 font-display">
                 <span className="material-symbols-outlined text-primary">science</span>
                 Investigación en tDCS y Realidad Virtual
               </h2>
@@ -68,9 +68,9 @@ const Experience: React.FC = () => {
         </section>
 
         {/* 3. Competencias Técnicas */}
-        <section className="bg-primary text-white p-8 rounded-2xl shadow-lg relative overflow-hidden">
+        <section className="bg-primary text-white p-10 rounded-3xl shadow-lg relative overflow-hidden card-hover">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-16 -mt-16 blur-2xl"></div>
-          <h2 className="text-2xl font-bold mb-8 relative z-10 flex items-center gap-3">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 relative z-10 flex items-center gap-3 font-display">
             <span className="material-symbols-outlined">psychology</span>
             Competencias Técnicas Especializadas
           </h2>

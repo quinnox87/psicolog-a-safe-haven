@@ -9,7 +9,7 @@ const Services: React.FC = () => {
   const { openModal } = useBooking();
   return (
     <div className="animate-fade-in services-page">
-      <section className="intro-section px-6 py-16 md:py-24 max-w-7xl mx-auto">
+      <section className="intro-section py-20 px-6 max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
           <div className="flex-1 space-y-6">
             <motion.div
@@ -17,14 +17,14 @@ const Services: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-terracotta">Nuestro Enfoque</span>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-terracotta font-display">Nuestro Enfoque</span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-text-dark"
+              className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-text-dark font-display"
             >
               Encuentra Tu <span className="text-primary italic">Refugio Seguro</span>
             </motion.h1>
@@ -65,7 +65,7 @@ const Services: React.FC = () => {
       </section>
 
       {/* Services Grid - Data Binding with Constants */}
-      <section className="services-grid px-6 py-12 bg-white/50 border-y border-[#edefec]">
+      <section className="services-grid section-spacing bg-white/50 border-y border-[#edefec]">
         <div className="max-w-7xl mx-auto">
           <Reveal>
             <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
@@ -90,7 +90,7 @@ const Services: React.FC = () => {
           <div className="inline-block p-4 rounded-full bg-terracotta/20 mb-4 animate-pulse">
             <span className="material-symbols-outlined text-terracotta text-3xl">spa</span>
           </div>
-          <h3 className="text-2xl font-bold text-text-dark">Filosofía de Psicología Joaquín Pabon</h3>
+          <h3 className="text-2xl font-bold text-text-dark font-display">Filosofía de Psicología Joaquín Pabon</h3>
           <p className="text-text-muted leading-loose italic text-xl">
             "Sanar no se trata solo de corregir déficits; se trata de nutrir tus fortalezas existentes en un espacio donde te sientas verdaderamente escuchado y seguro. Nuestra práctica se basa en la creencia de que todos merecen un ambiente tranquilo para reconectarse con su yo cognitivo y emocional."
           </p>

@@ -58,7 +58,7 @@ const Header: React.FC = () => {
           </Link>
           <button
             onClick={openModal}
-            className="flex items-center justify-center rounded-xl h-11 px-6 bg-primary text-white text-sm font-bold tracking-wide hover:bg-primary-dark transition-all shadow-sm hover:shadow-md"
+            className="flex items-center justify-center rounded-xl h-11 px-6 bg-primary text-white text-sm font-bold tracking-wide hover:bg-primary-dark transition-all shadow-sm hover:shadow-md active:scale-95 font-display"
           >
             Pedir Cita
           </button>

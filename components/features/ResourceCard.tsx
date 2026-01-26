@@ -15,8 +15,8 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource, compact = false }
 
   if (compact) {
     return (
-      <Link to="/resources" className="resource-card resource-card--compact group cursor-pointer block">
-        <div className="aspect-[3/4] bg-white rounded-xl border border-[#daded8] mb-4 p-6 flex flex-col justify-between shadow-sm transition-transform group-hover:-translate-y-2 group-hover:shadow-md">
+      <Link to="/resources" className="resource-card resource-card--compact group cursor-pointer block card-hover">
+        <div className="aspect-[3/4] bg-white rounded-3xl border border-[#daded8] mb-4 p-6 flex flex-col justify-between shadow-sm">
           <div className="w-full h-2/3 bg-background-light rounded-lg overflow-hidden relative">
             <img
               src={resource.image}
@@ -43,7 +43,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource, compact = false }
   }
 
   return (
-    <div className="resource-card bg-white rounded-2xl overflow-hidden flex flex-col group border border-[#edefec] shadow-sm hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-300">
+    <div className="resource-card bg-white rounded-3xl overflow-hidden flex flex-col group border border-[#edefec] card-hover">
       <div className="relative h-48 overflow-hidden bg-gray-100">
         <img
           src={resource.image}

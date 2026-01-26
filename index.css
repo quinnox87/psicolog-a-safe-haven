@@ -1,7 +1,8 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 @theme {
-    --font-display: "Manrope", "sans-serif";
+    --font-display: "Outfit", "sans-serif";
     --font-sans: "Manrope", "sans-serif";
 
     --color-primary: #3A5A40;
@@ -24,6 +25,18 @@
 @layer utilities {
     .material-symbols-outlined {
         font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .section-spacing {
+        @apply py-16 md:py-32 px-6 max-w-7xl mx-auto;
+    }
+
+    .premium-transition {
+        @apply transition-all duration-500 ease-[cubic-bezier(0.23, 1, 0.32, 1)];
+    }
+
+    .card-hover {
+        @apply premium-transition hover:-translate-y-2 hover:shadow-2xl active:scale-[0.98];
     }
 
     /* Hide scrollbar for clean horizontal scrolling */

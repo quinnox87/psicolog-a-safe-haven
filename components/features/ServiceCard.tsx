@@ -11,9 +11,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, variant = 'preview' 
 
   return (
     <div
-      className={`service-card bg-white rounded-2xl border border-[#e5e7eb] shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300 ${isPreview
-          ? 'p-10 flex flex-col md:flex-row gap-8 items-start hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)]'
-          : 'p-8 md:p-12 flex flex-col hover:shadow-lg h-full'
+      className={`service-card bg-white rounded-3xl border border-[#e5e7eb] card-hover ${isPreview
+        ? 'p-10 flex flex-col md:flex-row gap-8 items-start'
+        : 'p-8 md:p-12 flex flex-col h-full'
         }`}
     >
       <div

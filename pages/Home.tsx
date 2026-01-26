@@ -50,9 +50,9 @@ const Home: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="text-3xl md:text-6xl font-bold leading-tight mb-4 md:mb-6 tracking-tight drop-shadow-sm"
+              className="text-3xl md:text-6xl font-bold leading-tight mb-4 md:mb-6 tracking-tight drop-shadow-sm font-display"
             >
-              Neuropsicólogo Clínico en Granada <br /> <span className="text-xl md:text-4xl block mt-2 font-normal text-gray-100">Rehabilitación de Daño Cerebral y Terapia Basada en Evidencia</span>
+              Neuropsicólogo Clínico en Granada <br /> <span className="text-xl md:text-4xl block mt-2 font-normal text-gray-100 font-display">Rehabilitación de Daño Cerebral y Terapia Basada en Evidencia</span>
             </motion.h1>
 
             <motion.p
@@ -98,10 +98,10 @@ const Home: React.FC = () => {
 
 
       {/* Specialties Preview */}
-      <section className="specialties-section py-12 md:py-20 px-4 md:px-6 max-w-7xl mx-auto">
+      <section className="specialties-section section-spacing">
         <div className="flex flex-col items-center text-center mb-10 md:mb-16">
-          <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-3">Servicios Especializados</span>
-          <h2 className="text-2xl md:text-4xl font-bold text-text-dark tracking-tight">Especialista en DCA y Neuropsicología</h2>
+          <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-3 font-display">Servicios Especializados</span>
+          <h2 className="text-2xl md:text-5xl font-bold text-text-dark tracking-tight font-display">Especialista en DCA y Neuropsicología</h2>
           <div className="w-12 h-1 bg-primary/30 mt-4 rounded-full"></div>
         </div>
 
@@ -123,12 +123,12 @@ const Home: React.FC = () => {
       </section>
 
       {/* Interactive Q&A Carousel Section */}
-      <section className="qa-section py-12 md:py-20 px-4 md:px-6 bg-[#f4f6f4] border-y border-[#edefec]">
+      <section className="qa-section py-20 px-6 bg-[#f4f6f4] border-y border-[#edefec]">
         <Reveal>
           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
             <div className="lg:w-1/3">
-              <span className="text-accent-blue font-bold tracking-[0.2em] uppercase text-xs mb-3 block">Entendiendo el Proceso</span>
-              <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-text-dark mb-4 md:mb-6">Preguntas Frecuentes</h2>
+              <span className="text-accent-blue font-bold tracking-[0.2em] uppercase text-xs mb-3 block font-display">Entendiendo el Proceso</span>
+              <h2 className="text-2xl md:text-5xl font-bold tracking-tight text-text-dark mb-4 md:mb-6 font-display">Preguntas Frecuentes</h2>
               <p className="text-text-muted leading-relaxed mb-6 md:mb-8 text-sm md:text-base">
                 Es normal tener dudas antes de comenzar terapia o una evaluación neuropsicológica. Desliza para encontrar respuestas a las inquietudes más comunes de mis pacientes.
               </p>
@@ -148,11 +148,11 @@ const Home: React.FC = () => {
       <BookingSection />
 
       {/* Featured Resources */}
-      <section className="featured-resources py-12 md:py-20 px-4 md:px-6 max-w-7xl mx-auto text-center">
+      <section className="featured-resources section-spacing text-center">
         <Reveal>
           <div className="flex flex-col items-center mb-10 md:mb-16">
-            <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-3">Recursos</span>
-            <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-text-dark">Manuales de Apoyo</h2>
+            <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-3 font-display">Recursos</span>
+            <h2 className="text-2xl md:text-5xl font-bold tracking-tight text-text-dark font-display">Manuales de Apoyo</h2>
             <p className="mt-3 md:mt-4 text-text-muted text-sm md:text-base">Guías descargables gratuitas para tu viaje cognitivo y emocional.</p>
           </div>
 
@@ -179,12 +179,12 @@ const Home: React.FC = () => {
       </section>
 
       {/* Featured Store Items */}
-      <section className="featured-store py-12 md:py-20 px-4 md:px-6 bg-[#f9faf9] border-y border-[#edefec]">
+      <section className="featured-store py-20 px-6 bg-[#f9faf9] border-y border-[#edefec]">
         <div className="max-w-7xl mx-auto">
           <Reveal>
             <div className="flex flex-col items-center text-center mb-10 md:mb-16">
-              <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-3">Tienda Online</span>
-              <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-text-dark">Formación y Materiales</h2>
+              <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-3 font-display">Tienda Online</span>
+              <h2 className="text-2xl md:text-5xl font-bold tracking-tight text-text-dark font-display">Formación y Materiales</h2>
               <p className="mt-3 md:mt-4 text-text-muted text-sm md:text-base">Recursos especializados para profesionales y pacientes.</p>
             </div>
 

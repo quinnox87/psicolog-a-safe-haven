@@ -9,7 +9,7 @@ interface StoreCardProps {
 
 const StoreCard: React.FC<StoreCardProps> = ({ item, onPurchase, compact = false }) => {
     return (
-        <div className={`group bg-white rounded-2xl overflow-hidden border border-[#edefec] hover:border-primary/30 transition-all hover:shadow-xl flex flex-col h-full ${compact ? 'text-sm' : ''}`}>
+        <div className={`group bg-white rounded-3xl overflow-hidden border border-[#edefec] card-hover flex flex-col h-full ${compact ? 'text-sm' : ''}`}>
             <div className="aspect-[16/9] overflow-hidden bg-gray-100 relative">
                 <img
                     src={item.imageUrl}
