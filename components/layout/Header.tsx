@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useBooking } from '../context/BookingContext';
+import { useBooking } from '../../context/BookingContext';
 
 const Header: React.FC = () => {
   const location = useLocation();
@@ -24,7 +24,7 @@ const Header: React.FC = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
           <div className="flex items-center justify-center transition-transform group-hover:scale-110">
-            <img src="/logo.png" alt="Logo Psicología Joaquín Pabon" className="h-10 w-10 object-contain" />
+            <img src="/assets/images/logo.png" alt="Logo Psicología Joaquín Pabon" className="h-10 w-10 object-contain" />
           </div>
           <h2 className="text-text-dark text-xl font-bold tracking-tight">
             Psicología <span className="font-light">Joaquín Pabon</span>

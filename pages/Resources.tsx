@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { RESOURCES, ONLINE_QUESTIONNAIRES, INTERACTIVE_RESOURCES } from '../constants';
-import ResourceCard from '../components/ResourceCard';
+import ResourceCard from '../components/features/ResourceCard';
 import { useBooking } from '../context/BookingContext';
 
 type ViewMode = 'landing' | 'questionnaires' | 'materials' | 'interactive';

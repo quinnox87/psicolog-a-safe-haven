@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ChatWidget from './ChatWidget';
+import ChatWidget from '../features/ChatWidget';
 
 const FloatingContact: React.FC = () => {
     const [showOptions, setShowOptions] = useState(false);

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { PublicationItem } from '../types';
+import { PublicationItem } from '../../types';
 
 interface ResearchCarouselProps {
     items: PublicationItem[];

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PublicationItem } from '../types';
+import { PublicationItem } from '../../types';
 
 interface ResearchGridProps {
     items: PublicationItem[];

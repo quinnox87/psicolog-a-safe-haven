@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SERVICES, QA_ITEMS, RESOURCES, STORE_ITEMS, STORE_ACTIVE } from '../constants';
-import ServiceCard from '../components/ServiceCard';
-import ResourceCard from '../components/ResourceCard';
-import StoreCard from '../components/StoreCard';
-import PaymentModal from '../components/PaymentModal';
-import QACarousel from '../components/QACarousel';
-import BookingSection from '../components/BookingSection';
-import ContactForm from '../components/ContactForm';
+import ServiceCard from '../components/features/ServiceCard';
+import ResourceCard from '../components/features/ResourceCard';
+import StoreCard from '../components/features/StoreCard';
+import PaymentModal from '../components/ui/PaymentModal';
+import QACarousel from '../components/features/QACarousel';
+import BookingSection from '../components/features/BookingSection';
+import ContactForm from '../components/features/ContactForm';
 import { useBooking } from '../context/BookingContext';
 import { StoreItem } from '../types';
-import Reveal from '../components/Reveal';
+import Reveal from '../components/ui/Reveal';
 import { motion } from 'framer-motion';
 
 const Home: React.FC = () => {

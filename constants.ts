@@ -8,7 +8,7 @@ export const RESOURCES: ManualResource[] = [
     size: "1.5 MB",
     pages: 3,
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBmkWxyI6Xc1vD9JsBV3N9KqYam2qhDPFoNgQ7IpzdhgnsNPZRXZ5pLvlHyDInCQxn2DVPJfDnz3Pqfx3GMzFNTlNnLZluWwEvcWRFBtDnA-PJc8wGh21Z5gLjrU4jhl40S57tVwU-SP2ybSnWkbifJMYr3mf6xw27bMhQkW2nPvdOSP7cF15o2-bnF6EEUJoUFHy1soiighZjbT2rTv5HvKz7Nlu3fJcUVq2vxJ9B_0lrh2bRY3EPl-MzE50X5wIv7bZ5QrY33RMc",
-    downloadUrl: "/tienda/descargables/guia-bupropion-fumar.pdf"
+    downloadUrl: "/assets/docs/guia-bupropion-fumar.pdf"
   },
   {
     id: "6",
@@ -17,7 +17,7 @@ export const RESOURCES: ManualResource[] = [
     size: "0.5 MB",
     pages: 2,
     image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1000",
-    downloadUrl: "/area-privada/modelo-informe.pdf"
+    downloadUrl: "/assets/docs/modelo-informe.pdf"
   },
   {
     id: "7",

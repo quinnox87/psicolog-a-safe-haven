@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useBooking } from '../context/BookingContext';
+import { useBooking } from '../../context/BookingContext';
 
 const BookingModal: React.FC = () => {
     const { isModalOpen, closeModal } = useBooking();

@@ -1,5 +1,5 @@
 import React from 'react';
-import { QAItem } from '../types';
+import { QAItem } from '../../types';
 
 interface QAListProps {
   items: QAItem[];
@@ -9,8 +9,8 @@ const QAList: React.FC<QAListProps> = ({ items }) => {
   return (
     <div className="qa-list grid md:grid-cols-3 gap-6">
       {items.map((qa) => (
-        <div 
-          key={qa.id} 
+        <div
+          key={qa.id}
           className="qa-card bg-background-light p-8 rounded-xl border border-transparent hover:border-primary/20 transition-all"
         >
           <div className="qa-card__category inline-block px-3 py-1 rounded-full bg-accent-blue/10 text-accent-blue text-[10px] font-bold uppercase tracking-wider mb-6">

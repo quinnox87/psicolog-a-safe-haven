@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useBooking } from '../context/BookingContext';
+import { useBooking } from '../../context/BookingContext';
 
 interface Message {
     id: string;
@@ -10,7 +10,7 @@ interface Message {
 
 const ChatWidget: React.FC = () => {
     const { openModal } = useBooking();
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
     const [messages, setMessages] = useState<Message[]>([
         {
             id: 'welcome',

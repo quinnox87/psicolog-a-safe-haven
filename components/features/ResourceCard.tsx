@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ManualResource } from '../types';
+import { ManualResource } from '../../types';
 
 interface ResourceCardProps {
   resource: ManualResource;

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PODCAST_ITEMS } from '../constants';
 import { useBooking } from '../context/BookingContext';
-import AudioPlayer from '../components/AudioPlayer';
+import AudioPlayer from '../components/features/AudioPlayer';
 import { BlogPost } from '../types';
 
 const Blog: React.FC = () => {

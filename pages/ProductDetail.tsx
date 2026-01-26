@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { STORE_ITEMS } from '../constants';
-import PaymentModal from '../components/PaymentModal';
+import PaymentModal from '../components/ui/PaymentModal';
 
 const ProductDetail: React.FC = () => {
     const { id } = useParams<{ id: string }>();

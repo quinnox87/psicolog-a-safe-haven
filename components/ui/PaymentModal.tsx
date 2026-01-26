@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StoreItem } from '../types';
+import { StoreItem } from '../../types';
 
 interface PaymentModalProps {
     isOpen: boolean;

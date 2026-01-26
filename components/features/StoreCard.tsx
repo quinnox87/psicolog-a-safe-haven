@@ -1,5 +1,5 @@
 import React from 'react';
-import { StoreItem } from '../types';
+import { StoreItem } from '../../types';
 
 interface StoreCardProps {
     item: StoreItem;

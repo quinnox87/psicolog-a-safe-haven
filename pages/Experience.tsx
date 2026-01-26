@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { EXPERIENCE_TIMELINE, PUBLICATIONS } from '../constants';
-import ResearchGrid from '../components/ResearchGrid';
-import Timeline from '../components/Timeline';
+import ResearchGrid from '../components/features/ResearchGrid';
+import Timeline from '../components/features/Timeline';
 import { useBooking } from '../context/BookingContext';
 
 const Experience: React.FC = () => {
@@ -102,7 +102,7 @@ const Experience: React.FC = () => {
         {/* Download CV */}
         <div className="flex justify-center pt-8">
           <a
-            href="/CV_Joaquin_Pabon.pdf"
+            href="/assets/docs/CV_Joaquin_Pabon.pdf"
             download="CV_Joaquin_Pabon.pdf"
             className="flex items-center gap-3 bg-text-dark text-white px-8 py-4 rounded-xl font-bold hover:bg-black transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 group"
           >

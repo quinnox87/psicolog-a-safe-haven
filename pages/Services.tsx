@@ -1,8 +1,8 @@
 import React from 'react';
 import { SERVICES } from '../constants';
-import ServiceCard from '../components/ServiceCard';
+import ServiceCard from '../components/features/ServiceCard';
 import { useBooking } from '../context/BookingContext';
-import Reveal from '../components/Reveal';
+import Reveal from '../components/ui/Reveal';
 import { motion } from 'framer-motion';
 
 const Services: React.FC = () => {

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
 import Home from './pages/Home';
 import Services from './pages/Services';
 import Resources from './pages/Resources';
@@ -9,10 +9,10 @@ import Experience from './pages/Experience';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import PrivateArea from './pages/PrivateArea';
-import CookieBanner from './components/CookieBanner';
+import CookieBanner from './components/layout/CookieBanner';
 import { BookingProvider } from './context/BookingContext';
-import BookingModal from './components/BookingModal';
-import FloatingContact from './components/FloatingContact';
+import BookingModal from './components/ui/BookingModal';
+import FloatingContact from './components/layout/FloatingContact';
 
 import Store from './pages/Store';
 import ProductDetail from './pages/ProductDetail';

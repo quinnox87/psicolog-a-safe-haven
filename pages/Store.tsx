@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { STORE_ITEMS, STORE_ACTIVE } from '../constants';
 import { useBooking } from '../context/BookingContext';
-import PaymentModal from '../components/PaymentModal';
-import StoreCard from '../components/StoreCard';
+import PaymentModal from '../components/ui/PaymentModal';
+import StoreCard from '../components/features/StoreCard';
 import { StoreItem } from '../types';
-import Reveal from '../components/Reveal';
+import Reveal from '../components/ui/Reveal';
 import { motion } from 'framer-motion';
 
 type ViewMode = 'landing' | 'training' | 'materials';
