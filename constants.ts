@@ -343,35 +343,13 @@ export const PUBLICATIONS: PublicationItem[] = [
 export const ONLINE_QUESTIONNAIRES: QuestionnaireItem[] = [
   {
     id: '1',
-    title: 'Cuestionario de Ansiedad (GAD-7)',
-    description: 'Evalúa la frecuencia e intensidad de los síntomas de ansiedad en las últimas 2 semanas.',
-    url: 'https://patient.info/doctor/generalized-anxiety-disorder-assessment-gad-7',
-    category: 'Ansiedad'
-  },
-  {
-    id: '2',
-    title: 'Cuestionario de Depresión (PHQ-9)',
-    description: 'Herramienta estándar para el cribado de la depresión y la medición de su severidad.',
-    url: 'https://patient.info/doctor/patient-health-questionnaire-phq-9',
-    category: 'Estado de Ánimo'
-  },
-  {
-    id: '3',
-    title: 'Escala de Estrés Percibido (PSS)',
-    description: 'Mide el grado en que las situaciones de la vida se evalúan como estresantes.',
-    url: 'https://www.mindgarden.com/132-perceived-stress-scale',
-    category: 'Estrés'
-  },
-  {
-    id: '4',
     title: 'Evaluación de Memoria (Cribado) [NUEVO]',
-
     description: 'Test interactivo para diferenciar olvidos benignos de señales de alerta. Incluye informe visual inmediato.',
     url: '/resources/cuestionario-cognitivo',
     category: 'Memoria y Atención'
   },
   {
-    id: '5',
+    id: '2',
     title: 'Evaluación de la Participación (PART-O)',
     description: 'Protocolo de Participación Objetiva para evaluar la integración en la comunidad tras Daño Cerebral.',
     url: 'https://forestgreen-louse-133305.hostingersite.com/',
