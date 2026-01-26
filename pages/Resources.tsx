@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { RESOURCES, ONLINE_QUESTIONNAIRES } from '../constants';
+import { RESOURCES, ONLINE_QUESTIONNAIRES, INTERACTIVE_RESOURCES } from '../constants';
 import ResourceCard from '../components/ResourceCard';
 import { useBooking } from '../context/BookingContext';
 
-type ViewMode = 'landing' | 'questionnaires' | 'materials';
+type ViewMode = 'landing' | 'questionnaires' | 'materials' | 'interactive';
 
 const Resources: React.FC = () => {
   const [viewMode, setViewMode] = useState<ViewMode>('landing');
@@ -48,21 +48,21 @@ const Resources: React.FC = () => {
       <main className="max-w-7xl mx-auto px-6 py-12 min-h-[500px]">
         {/* LANDING VIEW (SELECTOR) */}
         {viewMode === 'landing' && (
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto animate-slide-up">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto animate-slide-up">
             {/* Option A: Questionnaires */}
             <button
               onClick={() => setViewMode('questionnaires')}
-              className="group bg-white p-10 rounded-3xl border border-[#edefec] shadow-sm hover:shadow-xl hover:border-primary/30 transition-all text-left relative overflow-hidden"
+              className="group bg-white p-8 rounded-3xl border border-[#edefec] shadow-sm hover:shadow-xl hover:border-primary/30 transition-all text-left relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
-              <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                <span className="material-symbols-outlined text-4xl">quiz</span>
+              <div className="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -mr-6 -mt-6 transition-transform group-hover:scale-110"></div>
+              <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                <span className="material-symbols-outlined text-3xl">quiz</span>
               </div>
-              <h2 className="text-2xl font-bold text-text-dark mb-3 group-hover:text-primary transition-colors">Cuestionarios Online</h2>
-              <p className="text-text-muted leading-relaxed">
-                Evaluación interactiva de funciones ejecutivas, memoria, ansiedad y estado de ánimo. Resultados inmediatos orientativos.
+              <h2 className="text-xl font-bold text-text-dark mb-3 group-hover:text-primary transition-colors">Cuestionarios Online</h2>
+              <p className="text-sm text-text-muted leading-relaxed">
+                Evaluación interactiva de funciones ejecutivas, memoria, ansiedad y estado de ánimo.
               </p>
-              <div className="mt-8 flex items-center gap-2 text-primary font-bold text-sm">
+              <div className="mt-6 flex items-center gap-2 text-primary font-bold text-xs">
                 <span>Acceder a las pruebas</span>
                 <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </div>
@@ -71,18 +71,37 @@ const Resources: React.FC = () => {
             {/* Option B: Materials */}
             <button
               onClick={() => setViewMode('materials')}
-              className="group bg-white p-10 rounded-3xl border border-[#edefec] shadow-sm hover:shadow-xl hover:border-primary/30 transition-all text-left relative overflow-hidden"
+              className="group bg-white p-8 rounded-3xl border border-[#edefec] shadow-sm hover:shadow-xl hover:border-primary/30 transition-all text-left relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-terracotta/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
-              <div className="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-600 mb-6 group-hover:bg-orange-600 group-hover:text-white transition-colors">
-                <span className="material-symbols-outlined text-4xl">folder_open</span>
+              <div className="absolute top-0 right-0 w-24 h-24 bg-terracotta/5 rounded-bl-full -mr-6 -mt-6 transition-transform group-hover:scale-110"></div>
+              <div className="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-600 mb-6 group-hover:bg-orange-600 group-hover:text-white transition-colors">
+                <span className="material-symbols-outlined text-3xl">folder_open</span>
               </div>
-              <h2 className="text-2xl font-bold text-text-dark mb-3 group-hover:text-primary transition-colors">Materiales y Guías</h2>
-              <p className="text-text-muted leading-relaxed">
-                Repositorio de documentos PDF, protocolos de intervención en DCA y manuales de accesibilidad cognitiva.
+              <h2 className="text-xl font-bold text-text-dark mb-3 group-hover:text-primary transition-colors">Materiales y Guías</h2>
+              <p className="text-sm text-text-muted leading-relaxed">
+                Repositorio de documentos PDF, protocolos de intervención en DCA y manuales técnicos.
               </p>
-              <div className="mt-8 flex items-center gap-2 text-primary font-bold text-sm">
+              <div className="mt-6 flex items-center gap-2 text-primary font-bold text-xs">
                 <span>Explorar biblioteca</span>
+                <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </div>
+            </button>
+
+            {/* Option C: Interactive Tools */}
+            <button
+              onClick={() => setViewMode('interactive')}
+              className="group bg-white p-8 rounded-3xl border border-[#edefec] shadow-sm hover:shadow-xl hover:border-primary/30 transition-all text-left relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-green-50 rounded-bl-full -mr-6 -mt-6 transition-transform group-hover:scale-110"></div>
+              <div className="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center text-green-600 mb-6 group-hover:bg-green-600 group-hover:text-white transition-colors">
+                <span className="material-symbols-outlined text-3xl">interactive_space</span>
+              </div>
+              <h2 className="text-xl font-bold text-text-dark mb-3 group-hover:text-primary transition-colors">Herramientas Interactivas</h2>
+              <p className="text-sm text-text-muted leading-relaxed">
+                Analizadores funcionales y motores de mapeo avanzado de evidencia clínica.
+              </p>
+              <div className="mt-6 flex items-center gap-2 text-primary font-bold text-xs">
+                <span>Ver herramientas</span>
                 <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </div>
             </button>
@@ -131,6 +150,48 @@ const Resources: React.FC = () => {
                   </Wrapper>
                 );
               })}
+            </div>
+          </div>
+        )}
+        {/* INTERACTIVE TOOLS VIEW */}
+        {viewMode === 'interactive' && (
+          <div className="animate-fade-in">
+            <button onClick={handleBack} className="flex items-center gap-2 text-text-muted hover:text-primary mb-8 font-bold text-sm transition-colors">
+              <span className="material-symbols-outlined">arrow_back</span>
+              Atrás
+            </button>
+
+            <h2 className="text-2xl font-bold text-text-dark mb-8 flex items-center gap-3">
+              <span className="w-10 h-10 rounded-full bg-green-50 text-green-600 flex items-center justify-center">
+                <span className="material-symbols-outlined">interactive_space</span>
+              </span>
+              Herramientas e Interactivos
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {INTERACTIVE_RESOURCES.map((item) => (
+                <a
+                  key={item.id}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white p-6 rounded-2xl border border-[#edefec] hover:border-primary/50 hover:shadow-lg transition-all group flex flex-col h-full"
+                >
+                  <div className="flex justify-between items-start mb-4">
+                    <span className="px-3 py-1 rounded-full bg-gray-100 text-xs font-bold text-text-muted uppercase tracking-wider group-hover:bg-green-50 group-hover:text-green-600 transition-colors">
+                      {item.category}
+                    </span>
+                    <span className="material-symbols-outlined text-gray-300 group-hover:text-primary">
+                      open_in_new
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-bold text-text-dark mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
+                  <p className="text-sm text-text-muted leading-relaxed mb-6 flex-grow">{item.description}</p>
+                  <div className="text-center w-full py-2 rounded-lg border border-gray-200 text-text-muted text-sm font-bold group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all">
+                    Abrir Herramienta
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
         )}

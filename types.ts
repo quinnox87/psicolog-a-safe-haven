@@ -120,3 +120,10 @@ export interface PatientMaterial {
   downloadUrl: string;
   assignedDate: string;
 }
+export interface InteractiveResource {
+  id: string;
+  title: string;
+  description: string;
+  url: string;
+  category: string;
+}

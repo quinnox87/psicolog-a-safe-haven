@@ -1,4 +1,4 @@
-import { ManualResource, ServiceItem, QAItem, ExperienceItem, BlogPost, PatientSession, PodcastItem, StoreItem, PublicationItem, TimelineItem, QuestionnaireItem } from "./types";
+import { ManualResource, ServiceItem, QAItem, ExperienceItem, BlogPost, PatientSession, PodcastItem, StoreItem, PublicationItem, TimelineItem, QuestionnaireItem, InteractiveResource } from "./types";
 
 export const RESOURCES: ManualResource[] = [
   {
@@ -434,6 +434,17 @@ export const ONLINE_QUESTIONNAIRES: QuestionnaireItem[] = [
     category: 'Participación y Comunidad'
   }
 ];
+
+export const INTERACTIVE_RESOURCES: InteractiveResource[] = [
+  {
+    id: '1',
+    title: 'psicoTHERA Analysis',
+    description: 'Analizador funcional interactivo para explorar evidencia clínica basada en procesos, trastornos y tratamientos.',
+    url: 'https://orangered-hornet-406219.hostingersite.com/',
+    category: 'Análisis Funcional'
+  }
+];
+
 
 export const MOCK_REPORTS: import("./types").ClinicalReport[] = [
   {
