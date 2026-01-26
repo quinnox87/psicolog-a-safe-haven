@@ -13,6 +13,23 @@ type ViewMode = 'landing' | 'training' | 'materials';
 const Store: React.FC = () => {
     const { openModal } = useBooking();
     const [viewMode, setViewMode] = useState<ViewMode>('landing');
+    const [email, setEmail] = useState('');
+    const [isSubscribed, setIsSubscribed] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleSubscribe = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!email.trim()) return;
+
+        setIsSubmitting(true);
+        // Simulación de envío
+        setTimeout(() => {
+            console.log("Suscripción para lanzamiento de tienda:", email);
+            setIsSubmitting(false);
+            setIsSubscribed(true);
+            setEmail('');
+        }, 1200);
+    };
 
     if (!STORE_ACTIVE) {
         return (
@@ -34,42 +51,79 @@ const Store: React.FC = () => {
                             Estamos preparando <br /> algo <span className="text-primary italic">especial</span>
                         </h1>
 
-                        <p className="text-lg md:text-xl text-text-muted leading-relaxed max-w-2xl mx-auto mb-12">
+                        <p className="text-lg md:text-xl text-text-muted leading-relaxed max-w-2xl mx-auto mb-12 text-center">
                             Mi catálogo de formación especializada y materiales clínicos digitales estará disponible muy pronto.
                             Estamos puliendo los últimos detalles para ofrecerte la mejor experiencia basada en evidencia.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <button
-                                onClick={openModal}
-                                className="bg-primary text-white px-8 py-4 rounded-2xl font-bold hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center gap-2"
-                            >
-                                <span className="material-symbols-outlined">notifications</span>
-                                Avísame al lanzar
-                            </button>
-                            <Link
-                                to="/"
-                                className="text-text-dark font-bold px-8 py-4 hover:bg-gray-50 rounded-2xl transition-all"
-                            >
-                                Volver al Inicio
-                            </Link>
+                        <div className="max-w-md mx-auto">
+                            {!isSubscribed ? (
+                                <form onSubmit={handleSubscribe} className="space-y-4">
+                                    <div className="flex flex-col sm:flex-row gap-2">
+                                        <input
+                                            type="email"
+                                            placeholder="Introduce tu email"
+                                            required
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            className="flex-1 px-6 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-text-dark"
+                                        />
+                                        <button
+                                            type="submit"
+                                            disabled={isSubmitting}
+                                            className="bg-primary text-white px-8 py-4 rounded-2xl font-bold hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed whitespace-nowrap"
+                                        >
+                                            {isSubmitting ? (
+                                                <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                                            ) : (
+                                                <span className="material-symbols-outlined">notifications</span>
+                                            )}
+                                            Avísame cuando esté disponible
+                                        </button>
+                                    </div>
+                                    <p className="text-[10px] text-text-muted uppercase tracking-widest font-bold opacity-60">
+                                        * Prometemos no enviarte spam, solo el aviso de lanzamiento.
+                                    </p>
+                                </form>
+                            ) : (
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    className="bg-primary/5 border border-primary/10 p-6 rounded-3xl"
+                                >
+                                    <div className="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <span className="material-symbols-outlined">check</span>
+                                    </div>
+                                    <h3 className="text-xl font-bold text-text-dark mb-2">¡Suscrito con éxito!</h3>
+                                    <p className="text-text-muted text-sm">Te avisaremos personalmente en cuanto la tienda abra sus puertas.</p>
+                                </motion.div>
+                            )}
+
+                            <div className="mt-8">
+                                <Link
+                                    to="/"
+                                    className="text-text-dark font-bold px-8 py-4 hover:bg-gray-50 rounded-2xl transition-all inline-block"
+                                >
+                                    Volver al Inicio
+                                </Link>
+                            </div>
                         </div>
 
                         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 opacity-40">
                             <div className="flex flex-col items-center gap-2">
-                                <span className="material-symbols-outlined text-3xl">school</span>
+                                <span className="material-symbols-outlined text-3xl text-center mx-auto">school</span>
                                 <span className="text-[10px] font-bold uppercase tracking-widest">Cursos</span>
                             </div>
                             <div className="flex flex-col items-center gap-2">
-                                <span className="material-symbols-outlined text-3xl">description</span>
+                                <span className="material-symbols-outlined text-3xl text-center mx-auto">description</span>
                                 <span className="text-[10px] font-bold uppercase tracking-widest">Protocolos</span>
                             </div>
                             <div className="flex flex-col items-center gap-2">
-                                <span className="material-symbols-outlined text-3xl">videocam</span>
+                                <span className="material-symbols-outlined text-3xl text-center mx-auto">videocam</span>
                                 <span className="text-[10px] font-bold uppercase tracking-widest">Webinars</span>
                             </div>
                             <div className="flex flex-col items-center gap-2">
-                                <span className="material-symbols-outlined text-3xl">history_edu</span>
+                                <span className="material-symbols-outlined text-3xl text-center mx-auto">history_edu</span>
                                 <span className="text-[10px] font-bold uppercase tracking-widest">Guías</span>
                             </div>
                         </div>
