@@ -40,6 +40,7 @@ import ProductDetail from './pages/ProductDetail';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Terms from './pages/Terms';
 import CognitiveQuestionnaire from './pages/CognitiveQuestionnaire';
+import NotFound from './pages/NotFound';
 
 import { AuthProvider } from './context/AuthContext';
 
@@ -63,6 +64,7 @@ const App: React.FC = () => {
               <Route path="/resources/cuestionario-cognitivo" element={<CognitiveQuestionnaire />} />
               <Route path="/politica-privacidad" element={<PrivacyPolicy />} />
               <Route path="/terminos" element={<Terms />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
             <CookieBanner />
             <BookingModal />
