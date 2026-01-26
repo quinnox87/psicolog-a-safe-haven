@@ -179,6 +179,8 @@ export const MOCK_SESSIONS: PatientSession[] = [
   }
 ];
 
+// Configuration flags
+export const STORE_ACTIVE = false; // Set to true to enable the store functionality
 
 export const STORE_ITEMS: StoreItem[] = [
   // Categoría: Formación Especializada

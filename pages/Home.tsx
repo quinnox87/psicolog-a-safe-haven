@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { SERVICES, QA_ITEMS, RESOURCES, STORE_ITEMS } from '../constants';
+import { SERVICES, QA_ITEMS, RESOURCES, STORE_ITEMS, STORE_ACTIVE } from '../constants';
 import ServiceCard from '../components/ServiceCard';
 import ResourceCard from '../components/ResourceCard';
 import StoreCard from '../components/StoreCard';
@@ -180,25 +180,42 @@ const Home: React.FC = () => {
       {/* Featured Store Items */}
       <section className="featured-store py-12 md:py-20 px-4 md:px-6 bg-[#f9faf9] border-y border-[#edefec]">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col items-center text-center mb-10 md:mb-16">
-            <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-3">Tienda Online</span>
-            <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-text-dark">Formación y Materiales</h2>
-            <p className="mt-3 md:mt-4 text-text-muted text-sm md:text-base">Recursos especializados para profesionales y pacientes.</p>
-          </div>
+          <Reveal>
+            <div className="flex flex-col items-center text-center mb-10 md:mb-16">
+              <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-3">Tienda Online</span>
+              <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-text-dark">Formación y Materiales</h2>
+              <p className="mt-3 md:mt-4 text-text-muted text-sm md:text-base">Recursos especializados para profesionales y pacientes.</p>
+            </div>
 
-          <div className="flex overflow-x-auto pb-8 gap-4 md:gap-8 snap-x snap-mandatory px-4 -mx-4 md:mx-0 md:px-0 scrollbar-hide">
-            {STORE_ITEMS.slice(0, 4).map((item) => (
-              <div key={item.id} className="min-w-[85%] md:min-w-[350px] snap-center h-full">
-                <StoreCard item={item} onPurchase={handlePurchaseClick} compact={true} />
+            {STORE_ACTIVE ? (
+              <>
+                <div className="flex overflow-x-auto pb-8 gap-4 md:gap-8 snap-x snap-mandatory px-4 -mx-4 md:mx-0 md:px-0 scrollbar-hide">
+                  {STORE_ITEMS.slice(0, 4).map((item) => (
+                    <div key={item.id} className="min-w-[85%] md:min-w-[350px] snap-center h-full">
+                      <StoreCard item={item} onPurchase={handlePurchaseClick} compact={true} />
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8 md:mt-12 text-center">
+                  <Link to="/tienda" className="inline-flex items-center gap-2 text-sm font-bold text-text-dark border-b-2 border-primary pb-0.5 hover:text-primary transition-colors">
+                    Ir a la Tienda <span className="material-symbols-outlined text-sm">store</span>
+                  </Link>
+                </div>
+              </>
+            ) : (
+              <div className="bg-white p-12 rounded-3xl border border-dashed border-primary/20 text-center max-w-2xl mx-auto shadow-sm">
+                <div className="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center text-primary mx-auto mb-6">
+                  <span className="material-symbols-outlined text-3xl">hourglass_empty</span>
+                </div>
+                <h3 className="text-xl font-bold text-text-dark mb-4 text-center mx-auto">Próximamente Disponible</h3>
+                <p className="text-text-muted mb-8 text-center mx-auto">Estamos trabajando en una selección exclusiva de materiales y cursos. Muy pronto podrás adquirirlos aquí.</p>
+                <Link to="/tienda" className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl font-bold hover:bg-primary-dark transition-all">
+                  Saber más
+                </Link>
               </div>
-            ))}
-          </div>
-
-          <div className="mt-8 md:mt-12 text-center">
-            <Link to="/tienda" className="inline-flex items-center gap-2 text-sm font-bold text-text-dark border-b-2 border-primary pb-0.5 hover:text-primary transition-colors">
-              Ir a la Tienda <span className="material-symbols-outlined text-sm">store</span>
-            </Link>
-          </div>
+            )}
+          </Reveal>
         </div>
       </section>
 

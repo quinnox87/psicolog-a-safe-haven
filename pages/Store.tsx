@@ -1,16 +1,83 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { STORE_ITEMS } from '../constants';
+import { STORE_ITEMS, STORE_ACTIVE } from '../constants';
 import { useBooking } from '../context/BookingContext';
 import PaymentModal from '../components/PaymentModal';
 import StoreCard from '../components/StoreCard';
 import { StoreItem } from '../types';
+import Reveal from '../components/Reveal';
+import { motion } from 'framer-motion';
 
 type ViewMode = 'landing' | 'training' | 'materials';
 
 const Store: React.FC = () => {
     const { openModal } = useBooking();
     const [viewMode, setViewMode] = useState<ViewMode>('landing');
+
+    if (!STORE_ACTIVE) {
+        return (
+            <div className="animate-fade-in min-h-[80vh] bg-background-light flex items-center justify-center p-6">
+                <Reveal>
+                    <div className="bg-white p-12 md:p-20 rounded-[40px] shadow-2xl border border-primary/10 max-w-4xl w-full text-center relative overflow-hidden">
+                        {/* Decorative background element */}
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-bl-full -mr-20 -mt-20"></div>
+
+                        <div className="w-24 h-24 bg-primary/10 rounded-3xl flex items-center justify-center text-primary mx-auto mb-8">
+                            <span className="material-symbols-outlined text-5xl">storefront</span>
+                        </div>
+
+                        <span className="inline-block py-1 px-4 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+                            Próximamente
+                        </span>
+
+                        <h1 className="text-4xl md:text-6xl font-black text-text-dark mb-6 tracking-tight">
+                            Estamos preparando <br /> algo <span className="text-primary italic">especial</span>
+                        </h1>
+
+                        <p className="text-lg md:text-xl text-text-muted leading-relaxed max-w-2xl mx-auto mb-12">
+                            Mi catálogo de formación especializada y materiales clínicos digitales estará disponible muy pronto.
+                            Estamos puliendo los últimos detalles para ofrecerte la mejor experiencia basada en evidencia.
+                        </p>
+
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                            <button
+                                onClick={openModal}
+                                className="bg-primary text-white px-8 py-4 rounded-2xl font-bold hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center gap-2"
+                            >
+                                <span className="material-symbols-outlined">notifications</span>
+                                Avísame al lanzar
+                            </button>
+                            <Link
+                                to="/"
+                                className="text-text-dark font-bold px-8 py-4 hover:bg-gray-50 rounded-2xl transition-all"
+                            >
+                                Volver al Inicio
+                            </Link>
+                        </div>
+
+                        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 opacity-40">
+                            <div className="flex flex-col items-center gap-2">
+                                <span className="material-symbols-outlined text-3xl">school</span>
+                                <span className="text-[10px] font-bold uppercase tracking-widest">Cursos</span>
+                            </div>
+                            <div className="flex flex-col items-center gap-2">
+                                <span className="material-symbols-outlined text-3xl">description</span>
+                                <span className="text-[10px] font-bold uppercase tracking-widest">Protocolos</span>
+                            </div>
+                            <div className="flex flex-col items-center gap-2">
+                                <span className="material-symbols-outlined text-3xl">videocam</span>
+                                <span className="text-[10px] font-bold uppercase tracking-widest">Webinars</span>
+                            </div>
+                            <div className="flex flex-col items-center gap-2">
+                                <span className="material-symbols-outlined text-3xl">history_edu</span>
+                                <span className="text-[10px] font-bold uppercase tracking-widest">Guías</span>
+                            </div>
+                        </div>
+                    </div>
+                </Reveal>
+            </div>
+        );
+    }
     const trainingItems = STORE_ITEMS.filter(item => item.category === 'Formación Especializada');
     const materialItems = STORE_ITEMS.filter(item => item.category === 'Materiales (Digitales)');
 
