@@ -70,17 +70,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Institutional Trust Bar */}
-      <section className="bg-white/50 border-y border-gray-100 py-8 md:py-12">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-text-muted/60 mb-8">
-            Colaboraciones y Formación en Instituciones de Prestigio
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-            <img src="/instituciones.png" alt="Instituciones Colaboradoras" className="h-16 md:h-24 w-auto object-contain" />
-          </div>
-        </div>
-      </section>
+
 
       {/* Specialties Preview */}
       <section className="specialties-section py-12 md:py-20 px-4 md:px-6 max-w-7xl mx-auto">
