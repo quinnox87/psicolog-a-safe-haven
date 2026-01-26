@@ -416,6 +416,13 @@ export const ONLINE_QUESTIONNAIRES: QuestionnaireItem[] = [
     description: 'Test interactivo para diferenciar olvidos benignos de señales de alerta. Incluye informe visual inmediato.',
     url: '/resources/cuestionario-cognitivo',
     category: 'Memoria y Atención'
+  },
+  {
+    id: '5',
+    title: 'Evaluación de la Participación (PART-O)',
+    description: 'Protocolo de Participación Objetiva para evaluar la integración en la comunidad tras Daño Cerebral.',
+    url: 'https://forestgreen-louse-133305.hostingersite.com/',
+    category: 'Participación y Comunidad'
   }
 ];
 
