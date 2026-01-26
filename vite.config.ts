@@ -11,9 +11,7 @@ export default defineConfig(({ mode }) => {
       host: '0.0.0.0',
     },
     build: {
-      rollupOptions: {
-        input: 'index.dev.html' // Source entry point
-      }
+
     },
     plugins: [react()],
     define: {
