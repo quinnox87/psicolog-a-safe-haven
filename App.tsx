@@ -12,7 +12,16 @@ import PrivateArea from './pages/PrivateArea';
 import CookieBanner from './components/CookieBanner';
 import { BookingProvider } from './context/BookingContext';
 import BookingModal from './components/BookingModal';
-import ChatWidget from './components/ChatWidget';
+import FloatingContact from './components/FloatingContact';
+
+import Store from './pages/Store';
+import ProductDetail from './pages/ProductDetail';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Terms from './pages/Terms';
+import CognitiveQuestionnaire from './pages/CognitiveQuestionnaire';
+import NotFound from './pages/NotFound';
+
+import { AuthProvider } from './context/AuthContext';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -34,15 +43,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     </div>
   );
 };
-
-import Store from './pages/Store'; // Import Store page
-import ProductDetail from './pages/ProductDetail';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import Terms from './pages/Terms';
-import CognitiveQuestionnaire from './pages/CognitiveQuestionnaire';
-import NotFound from './pages/NotFound';
-
-import { AuthProvider } from './context/AuthContext';
 
 const App: React.FC = () => {
   return (
@@ -68,7 +68,7 @@ const App: React.FC = () => {
             </Routes>
             <CookieBanner />
             <BookingModal />
-            <ChatWidget />
+            <FloatingContact />
           </Layout>
         </BookingProvider>
       </AuthProvider>

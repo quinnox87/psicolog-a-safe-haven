@@ -1,13 +1,29 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BLOG_POSTS, PODCAST_ITEMS } from '../constants';
+import { PODCAST_ITEMS } from '../constants';
 import { useBooking } from '../context/BookingContext';
 import AudioPlayer from '../components/AudioPlayer';
+import { BlogPost } from '../types';
 
 const Blog: React.FC = () => {
     const { openModal } = useBooking();
     const [viewMode, setViewMode] = useState<'landing' | 'articles' | 'multimedia'>('landing');
     const [playingId, setPlayingId] = useState<string | null>(null);
+    const [posts, setPosts] = useState<BlogPost[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    React.useEffect(() => {
+        fetch('/data/blog-posts.json')
+            .then(res => res.json())
+            .then(data => {
+                setPosts(data);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Error loading blog posts:", err);
+                setLoading(false);
+            });
+    }, []);
 
     const handlePlay = (id: string) => {
         setPlayingId(playingId === id ? null : id);
@@ -189,7 +205,12 @@ const Blog: React.FC = () => {
                             </h2>
 
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                {BLOG_POSTS.map((post) => (
+                                {loading ? (
+                                    <div className="col-span-full text-center py-20">
+                                        <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full mx-auto mb-4"></div>
+                                        <p className="text-text-muted">Cargando artículos...</p>
+                                    </div>
+                                ) : posts.map((post) => (
                                     <Link to={`/blog/${post.id}`} key={post.id} className="bg-white rounded-2xl overflow-hidden border border-[#edefec] shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer block">
                                         <div className="h-56 overflow-hidden relative">
                                             <img

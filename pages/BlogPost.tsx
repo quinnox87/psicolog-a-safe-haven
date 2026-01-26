@@ -1,23 +1,45 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { BLOG_POSTS } from '../constants';
+import { BlogPost as BlogPostType } from '../types';
 
 const BlogPost: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
-    const post = BLOG_POSTS.find(p => p.id === id);
+    const [post, setPost] = React.useState<BlogPostType | null>(null);
+    const [loading, setLoading] = React.useState(true);
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
+        fetch('/data/blog-posts.json')
+            .then(res => res.json())
+            .then(data => {
+                const found = data.find((p: BlogPostType) => p.id === id);
+                setPost(found || null);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Error loading blog post:", err);
+                setLoading(false);
+            });
+    }, [id]);
+
+    if (loading) {
+        return (
+            <div className="min-h-screen flex flex-col items-center justify-center p-6">
+                <div className="animate-spin w-12 h-12 border-4 border-primary border-t-transparent rounded-full mb-4"></div>
+                <p className="text-text-muted font-bold">Cargando artículo...</p>
+            </div>
+        );
+    }
 
     if (!post) {
         return (
             <div className="min-h-screen flex flex-col items-center justify-center p-6 text-center">
-                <h2 className="text-2xl font-bold text-text-dark mb-4">Artículo no encontrado</h2>
+                <h2 className="text-3xl font-bold text-text-dark mb-4 tracking-tight">Artículo no encontrado</h2>
+                <p className="text-text-muted mb-8 max-w-sm">Lo sentimos, el artículo que buscas no existe o ha sido movido.</p>
                 <button
                     onClick={() => navigate('/blog')}
-                    className="text-primary font-bold hover:underline"
+                    className="bg-primary text-white px-8 py-3 rounded-xl font-bold hover:bg-primary-dark transition-all shadow-lg"
                 >
                     Volver al Blog
                 </button>

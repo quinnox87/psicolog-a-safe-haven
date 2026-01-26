@@ -100,21 +100,9 @@ const ChatWidget: React.FC = () => {
 
     return (
         <>
-            <button
-                onClick={() => setIsOpen(!isOpen)}
-                className={`fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full flex items-center justify-center transition-all hover:scale-105 shadow-[0_8px_20px_rgba(58,90,64,0.3)] hover:shadow-[0_12px_24px_rgba(58,90,64,0.4)] ${isOpen ? 'bg-gray-800 rotate-90' : 'bg-transparent rotate-0'
-                    }`}
-            >
-                {isOpen ? (
-                    <span className="material-symbols-outlined text-white text-3xl">close</span>
-                ) : (
-                    <img src="/assets/images/neuron_button.svg" alt="Chat" className="w-full h-full object-contain drop-shadow-sm" />
-                )}
-            </button>
-
-            {/* Chat Window */}
+            {/* Chat Window - Positioned relative to the parent context now */}
             {isOpen && (
-                <div className="fixed bottom-24 right-4 md:right-6 z-50 w-[calc(100vw-2rem)] max-w-[350px] bg-white rounded-2xl shadow-2xl border border-gray-100 flex flex-col max-h-[500px] animate-slide-up overflow-hidden">
+                <div className="absolute bottom-20 right-0 z-50 w-[calc(100vw-2rem)] max-w-[320px] bg-white rounded-2xl shadow-2xl border border-gray-100 flex flex-col h-[450px] animate-slide-up overflow-hidden">
                     {/* Header */}
                     <div className="bg-primary p-4 flex items-center gap-3 shadow-sm">
                         <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center border border-white/30">

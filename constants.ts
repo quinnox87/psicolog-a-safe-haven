@@ -153,65 +153,7 @@ export const PODCAST_ITEMS: PodcastItem[] = [
   }
 ];
 
-export const BLOG_POSTS: BlogPost[] = [
-  {
-    id: "1",
-    title: "¿Qué es la Reserva Cognitiva y cómo aumentarla?",
-    excerpt: "Descubre cómo tus hábitos diarios pueden proteger tu cerebro del envejecimiento prematuro.",
-    date: "12 Oct 2023",
-    readTime: "5 min lectura",
-    imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuCjiXY7-NomIkaclrcyeAhJaxS7D0v4ppCPDcYDZsXSgqO9vtAANfCoGdjB4XBRJy1wh2DbKboZmqvbah_N6T80s1wbbStwXjXXlJa9kPyl2dHKqG7gVYeYvq_rQ43OaMkcIzxkgh9aIr6tYhvrnGPxOKBzn7K7JcpHfnWepp8nUhkO5gRwqJOE77tMLhkldTekuRXG3AUdch0b-dLa5TElkKU96qHEFzwmzbWeh3VlE0fvbs_kLkhJKbm9OV1nmoiekIZoJDxZbK4",
-    category: "Neurociencia",
-    content: `
-      <p>La <strong>reserva cognitiva</strong> es la capacidad del cerebro para improvisar y encontrar formas alternativas de realizar un trabajo. Es como una cuenta de ahorros mental que nos protege frente al deterioro cognitivo.</p>
-      <h2>¿Cómo funciona?</h2>
-      <p>Imagina que tu cerebro es una red de carreteras. Si una carretera se bloquea, puedes usar otras rutas para llegar a tu destino. Cuantas más rutas alternativas tengas (mayor reserva cognitiva), menos notarás el bloqueo.</p>
-      <h3>Estrategias para aumentarla</h3>
-      <ul>
-        <li><strong>Aprender cosas nuevas:</strong> Idiomas, instrumentos musicales, hobbies.</li>
-        <li><strong>Leer habitualmente:</strong> Mantiene la mente activa y mejora la conectividad.</li>
-        <li><strong>Relaciones sociales:</strong> Interactuar con otros estimula múltiples áreas cerebrales.</li>
-      </ul>
-      <p>Nunca es tarde para empezar a construir tu reserva cognitiva. Pequeños cambios diarios pueden tener un gran impacto a largo plazo.</p>
-    `
-  },
-  {
-    id: "2",
-    title: "Ansiedad vs Estrés: Claves para diferenciarlos",
-    excerpt: "Aunque a menudo se usan indistintamente, entender sus diferencias es el primer paso para gestionarlos.",
-    date: "28 Sep 2023",
-    readTime: "4 min lectura",
-    imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuBmkWxyI6Xc1vD9JsBV3N9KqYam2qhDPFoNgQ7IpzdhgnsNPZRXZ5pLvlHyDInCQxn2DVPJfDnz3Pqfx3GMzFNTlNnLZluWwEvcWRFBtDnA-PJc8wGh21Z5gLjrU4jhl40S57tVwU-SP2ybSnWkbifJMYr3mf6xw27bMhQkW2nPvdOSP7cF15o2-bnF6EEUJoUFHy1soiighZjbT2rTv5HvKz7Nlu3fJcUVq2vxJ9B_0lrh2bRY3EPl-MzE50X5wIv7bZ5QrY33RMc",
-    category: "Salud Mental",
-    content: `
-      <p>A menudo usamos las palabras "estrés" y "ansiedad" como sinónimos, pero son experiencias distintas, aunque relacionadas.</p>
-      <h2>El Estrés: Una respuesta a una amenaza externa</h2>
-      <p>El estrés es típicamente causado por un desencadenante externo. Puede ser a corto plazo (una fecha límite de trabajo) o a largo plazo (dificultades financieras). Las personas bajo estrés experimentan síntomas mentales y físicos como irritabilidad, enojo, fatiga, dolor muscular, problemas digestivos y dificultad para dormir.</p>
-      <h2>La Ansiedad: Una reacción interna</h2>
-      <p>La ansiedad se define por preocupaciones persistentes y excesivas que no desaparecen incluso en ausencia de un factor estresante. Los síntomas son muy similares a los del estrés: insomnio, dificultad para concentrarse, fatiga, tensión muscular e irritabilidad.</p>
-      <h3>¿Cómo diferenciarlos?</h3>
-      <p>Si la sensación desaparece una vez que la situación externa se resuelve, probablemente era estrés. Si la sensación persiste sin una causa clara, podría ser ansiedad.</p>
-    `
-  },
-  {
-    id: "3",
-    title: "Estrategias para mejorar la atención en adultos",
-    excerpt: "Técnicas prácticas para mantener el foco en un mundo lleno de distracciones digitales.",
-    date: "15 Sep 2023",
-    readTime: "6 min lectura",
-    imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuAZ61G6Sfx2lBQkUKwVth465YsrpYHaECvcC4Saje2k8Os2oTa0YvWXtVrrPNFnRWh-Gz3O14ZJovjEp60EDYltF7zACMidCkWfodtvxDvWbqQzD7DKyULJG614pmxQFsX2C3eVZy8XYejx8vkMFOP7wVpSKuE9lKgZkSJ-W8rYNALdTN351NAp444ZA_QDOCSWtGgWEcymiEK5BsCICKauyxNBKShDDx3QYvUaZrIvYHmQdpjKBkm97Aw61oFxEcBUqfpy8f-wPX8",
-    category: "TDAH",
-    content: `
-      <p>En la era digital, mantener la atención sostenida es un desafío para todos, no solo para quienes tienen TDAH.</p>
-      <h2>Técnica Pomodoro</h2>
-      <p>Trabaja en bloques de 25 minutos seguidos de 5 minutos de descanso. Esto ayuda a mantener la mente fresca y enfocada.</p>
-      <h2>Control del Entorno</h2>
-      <p>Elimina las distracciones visuales y auditivas. Usa auriculares con cancelación de ruido o música instrumental suave si trabajas en entornos ruidosos.</p>
-      <h2>Mindfulness</h2>
-      <p>Practicar mindfulness te entrena para volver al momento presente cuando tu mente divaga. Es como "hacer pesas" con tu atención.</p>
-    `
-  }
-];
+export const BLOG_POSTS: BlogPost[] = []; // Managed via /public/data/blog-posts.json
 
 export const MOCK_SESSIONS: PatientSession[] = [
   {
