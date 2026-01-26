@@ -22,7 +22,7 @@ export const RESOURCES: ManualResource[] = [
   {
     id: "7",
     title: "Pautas Higiene del Sueño",
-    category: "Salud Física y Mental",
+    category: "Higiene del Sueño",
     size: "0.1 MB",
     pages: 1,
     image: "https://images.unsplash.com/photo-1541480601022-2308c0f02487?auto=format&fit=crop&q=80&w=1000",
