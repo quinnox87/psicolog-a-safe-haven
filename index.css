@@ -32,11 +32,11 @@
     }
 
     .premium-transition {
-        @apply transition-all duration-500 ease-[cubic-bezier(0.23, 1, 0.32, 1)];
+        transition: all 500ms ease-out;
     }
 
     .card-hover {
-        @apply premium-transition hover:-translate-y-2 hover:shadow-2xl active:scale-[0.98];
+        @apply transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl active:scale-[0.98];
     }
 
     /* Hide scrollbar for clean horizontal scrolling */

@@ -4,6 +4,7 @@ import { PODCAST_ITEMS } from '../constants';
 import { useBooking } from '../context/BookingContext';
 import AudioPlayer from '../components/features/AudioPlayer';
 import { BlogPost } from '../types';
+import { BlogSkeleton } from '../components/ui/Skeleton';
 
 const Blog: React.FC = () => {
     const { openModal } = useBooking();
@@ -206,10 +207,11 @@ const Blog: React.FC = () => {
 
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {loading ? (
-                                    <div className="col-span-full text-center py-20">
-                                        <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full mx-auto mb-4"></div>
-                                        <p className="text-text-muted">Cargando artículos...</p>
-                                    </div>
+                                    <>
+                                        <BlogSkeleton />
+                                        <BlogSkeleton />
+                                        <BlogSkeleton />
+                                    </>
                                 ) : posts.map((post) => (
                                     <Link to={`/blog/${post.id}`} key={post.id} className="bg-white rounded-2xl overflow-hidden border border-[#edefec] shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer block">
                                         <div className="h-56 overflow-hidden relative">

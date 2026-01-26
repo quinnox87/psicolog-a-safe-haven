@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { STORE_ITEMS, STORE_ACTIVE } from '../constants';
 import { useBooking } from '../context/BookingContext';
 import PaymentModal from '../components/ui/PaymentModal';
 import StoreCard from '../components/features/StoreCard';
 import { StoreItem } from '../types';
+import { ProductSkeleton } from '../components/ui/Skeleton';
 import Reveal from '../components/ui/Reveal';
 import { motion } from 'framer-motion';
 
@@ -13,6 +14,15 @@ type ViewMode = 'landing' | 'training' | 'materials';
 const Store: React.FC = () => {
     const { openModal } = useBooking();
     const [viewMode, setViewMode] = useState<ViewMode>('landing');
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        if (viewMode !== 'landing') {
+            setLoading(true);
+            const timer = setTimeout(() => setLoading(false), 800);
+            return () => clearTimeout(timer);
+        }
+    }, [viewMode]);
     const [email, setEmail] = useState('');
     const [isSubscribed, setIsSubscribed] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -229,7 +239,12 @@ const Store: React.FC = () => {
                             Formación Especializada
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            {trainingItems.map((item) => (
+                            {loading ? (
+                                <>
+                                    <ProductSkeleton />
+                                    <ProductSkeleton />
+                                </>
+                            ) : trainingItems.map((item) => (
                                 <div key={item.id} className="h-full">
                                     <StoreCard item={item} onPurchase={handlePurchaseClick} />
                                 </div>
@@ -253,8 +268,13 @@ const Store: React.FC = () => {
                             Materiales (Digitales)
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            {materialItems.map((item) => (
-                                <Link to={`/tienda/${item.id}`} key={item.id} className="bg-white rounded-2xl p-6 border border-[#edefec] hover:border-primary/30 transition-all hover:shadow-lg flex flex-col md:flex-row gap-6 items-start group cursor-pointer">
+                            {loading ? (
+                                <>
+                                    <ProductSkeleton />
+                                    <ProductSkeleton />
+                                </>
+                            ) : materialItems.map((item) => (
+                                <Link to={`/tienda/${item.id}`} key={item.id} className="bg-white rounded-3xl p-6 border border-[#edefec] card-hover flex flex-col md:flex-row gap-6 items-start group cursor-pointer">
                                     <div className="w-full md:w-48 aspect-[4/3] rounded-xl overflow-hidden bg-gray-100 shrink-0 relative">
                                         <img
                                             src={item.imageUrl}
@@ -270,14 +290,14 @@ const Store: React.FC = () => {
                                                 </span>
                                             ))}
                                         </div>
-                                        <h3 className="text-xl font-bold text-text-dark mb-2 leading-snug group-hover:text-primary transition-colors">
+                                        <h3 className="text-xl font-bold text-text-dark mb-2 leading-snug group-hover:text-primary transition-colors font-display">
                                             {item.title}
                                         </h3>
                                         <p className="text-sm text-text-muted leading-relaxed mb-4 line-clamp-2">
                                             {item.description}
                                         </p>
                                         <div className="flex items-center justify-between mt-auto">
-                                            <span className="text-lg font-bold text-primary">{item.price.toFixed(2)}€</span>
+                                            <span className="text-lg font-bold text-primary font-display">{item.price.toFixed(2)}€</span>
                                             <span className="text-text-dark font-bold text-sm underline decoration-2 underline-offset-4 group-hover:text-primary transition-colors">
                                                 Ver Detalles
                                             </span>

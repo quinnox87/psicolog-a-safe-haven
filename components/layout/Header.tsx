@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useBooking } from '../../context/BookingContext';
 
 const Header: React.FC = () => {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { openModal } = useBooking();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -19,8 +28,11 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="fixed top-0 z-50 w-full bg-background-light/90 backdrop-blur-md border-b border-[#edefec]">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <header className={`fixed top-0 z-50 w-full transition-all duration-500 ${isScrolled
+        ? 'bg-background-light/95 backdrop-blur-lg shadow-md py-2 border-b border-[#edefec]'
+        : 'bg-background-light/0 py-4 border-b border-transparent'
+      }`}>
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 transition-all duration-500">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
           <div className="flex items-center justify-center transition-transform group-hover:scale-110">

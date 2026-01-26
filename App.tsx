@@ -44,6 +44,43 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   );
 };
 
+import { motion, AnimatePresence } from 'framer-motion';
+
+const AnimatedRoutes = () => {
+  const location = useLocation();
+  const RoutesAny = Routes as any;
+  return (
+    <AnimatePresence mode="wait">
+      <RoutesAny location={location} key={location.pathname}>
+        <Route path="/" element={<PageTransition key="home"><Home /></PageTransition>} />
+        <Route path="/services" element={<PageTransition key="services"><Services /></PageTransition>} />
+        <Route path="/resources" element={<PageTransition key="resources"><Resources /></PageTransition>} />
+        <Route path="/experiencia" element={<PageTransition key="experience"><Experience /></PageTransition>} />
+        <Route path="/blog" element={<PageTransition key="blog"><Blog /></PageTransition>} />
+        <Route path="/blog/:id" element={<PageTransition key="blog-post"><BlogPost /></PageTransition>} />
+        <Route path="/tienda" element={<PageTransition key="store"><Store /></PageTransition>} />
+        <Route path="/tienda/:id" element={<PageTransition key="product"><ProductDetail /></PageTransition>} />
+        <Route path="/area-privada" element={<PageTransition key="private"><PrivateArea /></PageTransition>} />
+        <Route path="/resources/cuestionario-cognitivo" element={<PageTransition key="quiz"><CognitiveQuestionnaire /></PageTransition>} />
+        <Route path="/politica-privacidad" element={<PageTransition key="privacy"><PrivacyPolicy /></PageTransition>} />
+        <Route path="/terminos" element={<PageTransition key="terms"><Terms /></PageTransition>} />
+        <Route path="*" element={<PageTransition key="not-found"><NotFound /></PageTransition>} />
+      </RoutesAny>
+    </AnimatePresence>
+  );
+};
+
+const PageTransition: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -10 }}
+    transition={{ duration: 0.3, ease: "easeInOut" }}
+  >
+    {children}
+  </motion.div>
+);
+
 const App: React.FC = () => {
   return (
     <Router>
@@ -51,21 +88,7 @@ const App: React.FC = () => {
       <AuthProvider>
         <BookingProvider>
           <Layout>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/resources" element={<Resources />} />
-              <Route path="/experiencia" element={<Experience />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:id" element={<BlogPost />} />
-              <Route path="/tienda" element={<Store />} />
-              <Route path="/tienda/:id" element={<ProductDetail />} />
-              <Route path="/area-privada" element={<PrivateArea />} />
-              <Route path="/resources/cuestionario-cognitivo" element={<CognitiveQuestionnaire />} />
-              <Route path="/politica-privacidad" element={<PrivacyPolicy />} />
-              <Route path="/terminos" element={<Terms />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <AnimatedRoutes />
             <CookieBanner />
             <BookingModal />
             <FloatingContact />
