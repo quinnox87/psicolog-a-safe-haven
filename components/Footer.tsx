@@ -8,9 +8,9 @@ const Footer: React.FC = () => {
 
         {/* Brand Column */}
         <div className="col-span-1 md:col-span-2">
-          <div className="flex items-center gap-2 mb-6">
-            <span className="material-symbols-outlined text-primary text-3xl">spa</span>
-            <h2 className="text-xl font-bold tracking-tight text-text-dark">Safe Haven Psychology</h2>
+          <div className="flex items-center gap-3 mb-6">
+            <img src="/logo.png" alt="Logo" className="h-10 w-10 object-contain" />
+            <h2 className="text-xl font-bold tracking-tight text-text-dark">Psicología Joaquín Pabon</h2>
           </div>
           <p className="text-text-muted max-w-sm mb-6 leading-relaxed">
             Dedicados a proporcionar un entorno compasivo y basado en la investigación para la salud cognitiva y emocional.
