@@ -2,6 +2,8 @@ import React from 'react';
 import { SERVICES } from '../constants';
 import ServiceCard from '../components/ServiceCard';
 import { useBooking } from '../context/BookingContext';
+import Reveal from '../components/Reveal';
+import { motion } from 'framer-motion';
 
 const Services: React.FC = () => {
   const { openModal } = useBooking();
@@ -10,20 +12,45 @@ const Services: React.FC = () => {
       <section className="intro-section px-6 py-16 md:py-24 max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
           <div className="flex-1 space-y-6">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-terracotta">Nuestro Enfoque</span>
-            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-text-dark">
-              Encuentra Tu <span className="text-primary italic">Refugio Seguro</span>
-            </h1>
-            <p className="text-lg leading-relaxed text-text-muted max-w-xl">
-              Servicios de Neuropsicología y Psicología de la Salud compasivos y adaptados a tu bienestar cognitivo y emocional único. Creemos en la atención basada en la evidencia entregada en un espacio tranquilo y sin prejuicios.
-            </p>
-            <button
-              onClick={openModal}
-              className="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2 w-fit"
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
             >
-              <span className="material-symbols-outlined">calendar_month</span>
-              Programa tu sesión
-            </button>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-terracotta">Nuestro Enfoque</span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-text-dark"
+            >
+              Encuentra Tu <span className="text-primary italic">Refugio Seguro</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="text-lg leading-relaxed text-text-muted max-w-xl"
+            >
+              Servicios de Neuropsicología y Psicología de la Salud compasivos y adaptados a tu bienestar cognitivo y emocional único. Creemos en la atención basada en la evidencia entregada en un espacio tranquilo y sin prejuicios.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <button
+                onClick={openModal}
+                className="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2 w-fit"
+              >
+                <span className="material-symbols-outlined">calendar_month</span>
+                Programa tu sesión
+              </button>
+            </motion.div>
           </div>
           <div className="flex-1 w-full">
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-2xl">
@@ -40,11 +67,21 @@ const Services: React.FC = () => {
       {/* Services Grid - Data Binding with Constants */}
       <section className="services-grid px-6 py-12 bg-white/50 border-y border-[#edefec]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
-            {SERVICES.map((service) => (
-              <ServiceCard key={service.id} service={service} variant="detail" />
-            ))}
-          </div>
+          <Reveal>
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
+              {SERVICES.map((service, idx) => (
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: idx * 0.15 }}
+                >
+                  <ServiceCard service={service} variant="detail" />
+                </motion.div>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
