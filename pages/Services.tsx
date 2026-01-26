@@ -57,7 +57,7 @@ const Services: React.FC = () => {
               <div className="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
               <div
                 className="w-full h-full bg-cover bg-center transition-transform hover:scale-105 duration-700"
-                style={{ backgroundImage: "url('/images/despacho.png')" }}
+                style={{ backgroundImage: "url('/assets/images/despacho.png')" }}
               ></div>
             </div>
           </div>
