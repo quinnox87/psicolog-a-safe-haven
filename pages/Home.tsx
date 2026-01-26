@@ -28,110 +28,68 @@ const Home: React.FC = () => {
     <div className="animate-fade-in home-page">
       {/* Hero Section */}
       {/* Hero Section - Redesigned for Premium Look */}
-      <section className="hero-section px-4 md:px-6 py-6 md:py-20 max-w-7xl mx-auto overflow-hidden">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-
-          {/* Text Content */}
-          <div className="flex-1 space-y-8 z-10 px-4">
+      <section className="hero-section px-4 md:px-6 py-6 md:py-12 max-w-7xl mx-auto">
+        <div
+          className="relative w-full rounded-2xl overflow-hidden min-h-[450px] md:min-h-[600px] flex items-center bg-cover bg-center shadow-lg"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/retrato.png")`
+          }}
+        >
+          <div className="relative z-10 px-6 md:px-16 max-w-3xl text-white py-10 md:py-0 text-left">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <span className="inline-block py-1.5 px-4 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest border border-primary/10 mb-4">
+              <span className="inline-block py-1 px-3 rounded-full bg-white/20 backdrop-blur-md text-xs font-bold uppercase tracking-widest mb-4 md:mb-6 border border-white/30">
                 Psicología Joaquín Pabon
               </span>
-              <h1 className="text-4xl md:text-6xl font-black leading-[1.1] text-text-dark tracking-tight">
-                Neuropsicólogo Clínico <br /> en <span className="text-primary italic">Granada</span>
-              </h1>
-              <h2 className="text-xl md:text-2xl font-medium text-text-muted mt-4 max-w-xl">
-                Rehabilitación de Daño Cerebral y <br className="hidden md:block" /> Terapia Basada en Evidencia
-              </h2>
             </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="text-3xl md:text-6xl font-bold leading-tight mb-4 md:mb-6 tracking-tight drop-shadow-sm"
+            >
+              Neuropsicólogo Clínico en Granada <br /> <span className="text-xl md:text-4xl block mt-2 font-normal text-gray-100">Rehabilitación de Daño Cerebral y Terapia Basada en Evidencia</span>
+            </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-lg md:text-xl text-text-muted/80 leading-relaxed max-w-2xl"
+              transition={{ duration: 0.7, delay: 0.6 }}
+              className="text-base md:text-xl font-light leading-relaxed mb-8 md:mb-10 opacity-95 text-gray-200 max-w-xl"
             >
               Más de 9 años de experiencia en la recuperación tras Ictus o TCE, y apoyo psicológico especializado. Tu bienestar en manos profesionales.
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="flex flex-col sm:flex-row items-center gap-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="mt-6 md:mt-10 pt-6 md:pt-8 border-t border-white/20 flex flex-col sm:flex-row items-start sm:items-center gap-4"
             >
-              <button
-                onClick={openModal}
-                className="w-full sm:w-auto bg-primary text-white px-10 py-4 rounded-2xl font-bold hover:bg-primary-dark transition-all shadow-[0_10px_30px_rgba(58,90,64,0.3)] hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2"
-              >
-                <span className="material-symbols-outlined">calendar_month</span>
-                Programa tu sesión
-              </button>
-
-              <div className="flex items-center gap-4">
-                <span className="text-[10px] font-black uppercase tracking-widest text-text-muted/60">Sígueme</span>
-                <div className="flex gap-2">
-                  {[
-                    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/joaquinpavonperez/', icon: 'link' },
-                    { name: 'Instagram', url: '#', icon: 'share' },
-                  ].map((social) => (
-                    <a
-                      key={social.name}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center text-text-muted hover:text-primary hover:bg-white hover:border-primary/20 transition-all group"
-                      title={social.name}
-                    >
-                      <span className="material-symbols-outlined text-lg group-hover:scale-110 transition-transform">{social.icon}</span>
-                    </a>
-                  ))}
-                </div>
+              <span className="text-sm font-medium opacity-80 uppercase tracking-widest text-xs">Sígueme en:</span>
+              <div className="flex gap-2 flex-wrap">
+                {[
+                  { name: 'Instagram', url: 'https://instagram.com' },
+                  { name: 'Facebook', url: 'https://facebook.com' },
+                  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/joaquinpavonperez/' },
+                  { name: 'TikTok', url: 'https://tiktok.com' },
+                  { name: 'iVoox', url: 'https://ivoox.com' },
+                ].map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white/10 hover:bg-white/20 text-white px-3 py-2 rounded-lg text-xs font-bold backdrop-blur-sm transition-all border border-white/10"
+                  >
+                    {social.name}
+                  </a>
+                ))}
               </div>
-            </motion.div>
-          </div>
-
-          {/* Portrait Image */}
-          <div className="flex-1 w-full lg:w-1/2 relative">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8, rotate: -2 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-              className="relative"
-            >
-              {/* Decorative background shapes */}
-              <div className="absolute -top-10 -right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
-              <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-terracotta/5 rounded-full blur-3xl"></div>
-
-              <div className="relative z-10 rounded-[40px] overflow-hidden shadow-2xl border-[12px] border-white max-w-md mx-auto aspect-[4/5]">
-                <img
-                  src="/assets/images/retrato.png"
-                  alt="Joaquín Pabón - Neuropsicólogo Clínico"
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-                />
-              </div>
-
-              {/* Info Card Badge */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1, duration: 0.8 }}
-                className="absolute bottom-10 -right-4 md:-right-10 z-20 bg-white p-6 rounded-3xl shadow-2xl border border-gray-100 max-w-[200px] hidden sm:block"
-              >
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                    <span className="material-symbols-outlined text-sm">verified</span>
-                  </div>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-text-dark">Colegiado</span>
-                </div>
-                <p className="text-xs text-text-muted font-medium leading-relaxed">
-                  Psicólogo General Sanitario con especialidad en Neuropsicología.
-                </p>
-              </motion.div>
             </motion.div>
           </div>
         </div>
