@@ -6,6 +6,7 @@ export interface ManualResource {
   pages: number;
   image: string;
   downloadUrl: string;
+  description?: string;
 }
 
 export interface ServiceItem {

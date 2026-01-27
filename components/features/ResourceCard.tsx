@@ -64,6 +64,11 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource, compact = false }
         <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors text-text-dark leading-tight">
           {resource.title}
         </h3>
+        {resource.description && (
+          <p className="text-sm text-text-muted leading-relaxed mb-4 italic">
+            {resource.description}
+          </p>
+        )}
         <div className="flex-grow"></div>
         <div className="mt-6 pt-6 border-t border-gray-100">
           <a
