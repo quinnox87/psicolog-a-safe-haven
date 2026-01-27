@@ -35,7 +35,7 @@ export const RESOURCES: ManualResource[] = [
     size: "2.4 MB",
     pages: 15,
     image: "https://images.unsplash.com/photo-1516534775068-ba3e7458af70?auto=format&fit=crop&q=80&w=1000",
-    downloadUrl: "assets/docs/guia-psicotecnicos.pdf"
+    downloadUrl: "docs/guia-psicotecnicos.pdf"
   }
 ];
 
