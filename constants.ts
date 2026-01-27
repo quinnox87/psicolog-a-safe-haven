@@ -11,15 +11,6 @@ export const RESOURCES: ManualResource[] = [
     downloadUrl: "assets/docs/guia-bupropion-fumar.pdf"
   },
   {
-    id: "6",
-    title: "Modelo de Informe Clínico",
-    category: "Informes y Documentación",
-    size: "0.5 MB",
-    pages: 2,
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1000",
-    downloadUrl: "assets/docs/modelo-informe.pdf"
-  },
-  {
     id: "7",
     title: "Pautas Higiene del Sueño",
     category: "Higiene del Sueño",
