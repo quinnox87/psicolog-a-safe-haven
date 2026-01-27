@@ -2,13 +2,23 @@ import { ManualResource, ServiceItem, QAItem, ExperienceItem, BlogPost, PatientS
 
 export const RESOURCES: ManualResource[] = [
   {
+    id: "9",
+    title: "Guía Terapia EMDR",
+    category: "Recursos Guías",
+    size: "0.1 MB",
+    pages: 2,
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1000",
+    downloadUrl: "/docs/guia-terapia-emdr.pdf",
+    description: "Introducción a la terapia EMDR (Desensibilización y Reprocesamiento por Movimientos Oculares) para el tratamiento del trauma."
+  },
+  {
     id: "5",
     title: "Guía Bupropion para Dejar de Fumar",
     category: "Salud Física y Mental",
     size: "1.5 MB",
     pages: 3,
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBmkWxyI6Xc1vD9JsBV3N9KqYam2qhDPFoNgQ7IpzdhgnsNPZRXZ5pLvlHyDInCQxn2DVPJfDnz3Pqfx3GMzFNTlNnLZluWwEvcWRFBtDnA-PJc8wGh21Z5gLjrU4jhl40S57tVwU-SP2ybSnWkbifJMYr3mf6xw27bMhQkW2nPvdOSP7cF15o2-bnF6EEUJoUFHy1soiighZjbT2rTv5HvKz7Nlu3fJcUVq2vxJ9B_0lrh2bRY3EPl-MzE50X5wIv7bZ5QrY33RMc",
-    downloadUrl: "assets/docs/guia-bupropion-fumar.pdf",
+    downloadUrl: "/assets/docs/guia-bupropion-fumar.pdf",
     description: "Información técnica y pautas de administración del Bupropión como apoyo farmacológico en la deshabituación tabáquica."
   },
   {
@@ -18,17 +28,17 @@ export const RESOURCES: ManualResource[] = [
     size: "0.1 MB",
     pages: 1,
     image: "https://images.unsplash.com/photo-1541480601022-2308c0f02487?auto=format&fit=crop&q=80&w=1000",
-    downloadUrl: "docs/pautas-higiene-sueno.docx",
+    downloadUrl: "/docs/pautas-higiene-sueno.docx",
     description: "Recomendaciones y hábitos saludables para mejorar la calidad del descanso y regular los ciclos del sueño."
   },
   {
     id: "8",
     title: "Guía de Pruebas Psicotécnicas",
-    category: "Psicotécnicos",
+    category: "Recursos Guías",
     size: "2.4 MB",
     pages: 15,
     image: "https://images.unsplash.com/photo-1516534775068-ba3e7458af70?auto=format&fit=crop&q=80&w=1000",
-    downloadUrl: "docs/guia-psicotecnicos.pdf",
+    downloadUrl: "/docs/guia-psicotecnicos.pdf",
     description: "Manual práctico con estrategias y ejercicios para afrontar con éxito las pruebas de aptitud en procesos de selección."
   }
 ];
@@ -402,7 +412,7 @@ export const MOCK_PATIENT_MATERIALS: import("./types").PatientMaterial[] = [
     title: 'Pautas de Higiene del Sueño',
     type: 'PDF',
     description: 'Guía práctica para mejorar la calidad del descanso.',
-    downloadUrl: '#',
+    downloadUrl: 'docs/pautas-higiene-sueno.docx',
     assignedDate: '01 Nov 2023'
   },
   {
@@ -412,5 +422,14 @@ export const MOCK_PATIENT_MATERIALS: import("./types").PatientMaterial[] = [
     description: 'Audio guía para crisis de ansiedad.',
     downloadUrl: '#',
     assignedDate: '28 Oct 2023'
+  },
+  {
+    id: 'm4',
+    title: 'Guía Terapia EMDR',
+    type: 'PDF',
+    description: 'Información sobre el proceso y beneficios de la terapia EMDR.',
+    downloadUrl: '/docs/guia-terapia-emdr.pdf',
+    assignedDate: '20 Ene 2024'
   }
 ];
+

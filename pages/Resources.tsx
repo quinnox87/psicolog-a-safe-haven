@@ -15,7 +15,7 @@ const Resources: React.FC = () => {
 
 
   // Categories for materials
-  const categories = ['Todos los Recursos', 'Psicotécnicos', 'Manejo de la Ansiedad', 'TDAH y Concentración', 'Higiene del Sueño', 'Neurodivergencia'];
+  const categories = ['Todos los Recursos', 'Recursos Guías', 'Manejo de la Ansiedad', 'TDAH y Concentración', 'Higiene del Sueño', 'Neurodivergencia', 'Terapia y Trauma'];
 
   const filteredResources = RESOURCES.filter((resource) => {
     const matchesCategory = activeCategory === 'Todos los Recursos' || resource.category === activeCategory;
@@ -48,65 +48,77 @@ const Resources: React.FC = () => {
       <main className="max-w-7xl mx-auto px-6 py-12 min-h-[500px]">
         {/* LANDING VIEW (SELECTOR) */}
         {viewMode === 'landing' && (
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto animate-slide-up">
-            {/* Option A: Questionnaires */}
-            <button
-              onClick={() => setViewMode('questionnaires')}
-              className="group bg-white p-8 rounded-3xl border border-[#edefec] shadow-sm hover:shadow-xl hover:border-primary/30 transition-all text-left relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -mr-6 -mt-6 transition-transform group-hover:scale-110"></div>
-              <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                <span className="material-symbols-outlined text-3xl">quiz</span>
-              </div>
-              <h2 className="text-xl font-bold text-text-dark mb-3 group-hover:text-primary transition-colors">Cuestionarios Online</h2>
-              <p className="text-sm text-text-muted leading-relaxed">
-                Evaluación interactiva de funciones ejecutivas, memoria, ansiedad y estado de ánimo.
-              </p>
-              <div className="mt-6 flex items-center gap-2 text-primary font-bold text-xs">
-                <span>Acceder a las pruebas</span>
-                <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
-              </div>
-            </button>
+          <>
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto animate-slide-up">
+              {/* Option A: Questionnaires */}
+              <button
+                onClick={() => setViewMode('questionnaires')}
+                className="group bg-white p-8 rounded-3xl border border-[#edefec] shadow-sm hover:shadow-xl hover:border-primary/30 transition-all text-left relative overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -mr-6 -mt-6 transition-transform group-hover:scale-110"></div>
+                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                  <span className="material-symbols-outlined text-3xl">quiz</span>
+                </div>
+                <h2 className="text-xl font-bold text-text-dark mb-3 group-hover:text-primary transition-colors">Cuestionarios Online</h2>
+                <p className="text-sm text-text-muted leading-relaxed">
+                  Evaluación interactiva de funciones ejecutivas, memoria, ansiedad y estado de ánimo.
+                </p>
+                <div className="mt-6 flex items-center gap-2 text-primary font-bold text-xs">
+                  <span>Acceder a las pruebas</span>
+                  <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </div>
+              </button>
 
-            {/* Option B: Materials */}
-            <button
-              onClick={() => setViewMode('materials')}
-              className="group bg-white p-8 rounded-3xl border border-[#edefec] shadow-sm hover:shadow-xl hover:border-primary/30 transition-all text-left relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-terracotta/5 rounded-bl-full -mr-6 -mt-6 transition-transform group-hover:scale-110"></div>
-              <div className="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-600 mb-6 group-hover:bg-orange-600 group-hover:text-white transition-colors">
-                <span className="material-symbols-outlined text-3xl">folder_open</span>
-              </div>
-              <h2 className="text-xl font-bold text-text-dark mb-3 group-hover:text-primary transition-colors">Materiales y Guías</h2>
-              <p className="text-sm text-text-muted leading-relaxed">
-                Repositorio de documentos PDF, protocolos de intervención, guías psicotécnicas y manuales técnicos.
-              </p>
-              <div className="mt-6 flex items-center gap-2 text-primary font-bold text-xs">
-                <span>Explorar biblioteca</span>
-                <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
-              </div>
-            </button>
+              {/* Option B: Materials */}
+              <button
+                onClick={() => setViewMode('materials')}
+                className="group bg-white p-8 rounded-3xl border border-[#edefec] shadow-sm hover:shadow-xl hover:border-primary/30 transition-all text-left relative overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 w-24 h-24 bg-terracotta/5 rounded-bl-full -mr-6 -mt-6 transition-transform group-hover:scale-110"></div>
+                <div className="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-600 mb-6 group-hover:bg-orange-600 group-hover:text-white transition-colors">
+                  <span className="material-symbols-outlined text-3xl">folder_open</span>
+                </div>
+                <h2 className="text-xl font-bold text-text-dark mb-3 group-hover:text-primary transition-colors">Recursos Guías</h2>
+                <p className="text-sm text-text-muted leading-relaxed">
+                  Repositorio de documentos PDF, protocolos de intervención, guías psicotécnicas y manuales técnicos.
+                </p>
+                <div className="mt-6 flex items-center gap-2 text-primary font-bold text-xs">
+                  <span>Explorar biblioteca</span>
+                  <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </div>
+              </button>
 
-            {/* Option C: Interactive Tools */}
-            <button
-              onClick={() => setViewMode('interactive')}
-              className="group bg-white p-8 rounded-3xl border border-[#edefec] shadow-sm hover:shadow-xl hover:border-primary/30 transition-all text-left relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-green-50 rounded-bl-full -mr-6 -mt-6 transition-transform group-hover:scale-110"></div>
-              <div className="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center text-green-600 mb-6 group-hover:bg-green-600 group-hover:text-white transition-colors">
-                <span className="material-symbols-outlined text-3xl">interactive_space</span>
+              {/* Option C: Interactive Tools */}
+              <button
+                onClick={() => setViewMode('interactive')}
+                className="group bg-white p-8 rounded-3xl border border-[#edefec] shadow-sm hover:shadow-xl hover:border-primary/30 transition-all text-left relative overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 w-24 h-24 bg-green-50 rounded-bl-full -mr-6 -mt-6 transition-transform group-hover:scale-110"></div>
+                <div className="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center text-green-600 mb-6 group-hover:bg-green-600 group-hover:text-white transition-colors">
+                  <span className="material-symbols-outlined text-3xl">interactive_space</span>
+                </div>
+                <h2 className="text-xl font-bold text-text-dark mb-3 group-hover:text-primary transition-colors">Herramientas Interactivas</h2>
+                <p className="text-sm text-text-muted leading-relaxed">
+                  Analizadores funcionales y motores de mapeo avanzado de evidencia clínica.
+                </p>
+                <div className="mt-6 flex items-center gap-2 text-primary font-bold text-xs">
+                  <span>Ver herramientas</span>
+                  <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </div>
+              </button>
+            </div>
+
+            <div className="mt-20 animate-slide-up" style={{ animationDelay: '200ms' }}>
+              <h3 className="text-center text-sm font-bold text-text-muted uppercase tracking-[0.2em] mb-10">Recursos de Acceso Rápido</h3>
+              <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                {RESOURCES.filter(r => r.id === '9' || r.id === '8').map(resource => (
+                  <ResourceCard key={resource.id} resource={resource} />
+                ))}
               </div>
-              <h2 className="text-xl font-bold text-text-dark mb-3 group-hover:text-primary transition-colors">Herramientas Interactivas</h2>
-              <p className="text-sm text-text-muted leading-relaxed">
-                Analizadores funcionales y motores de mapeo avanzado de evidencia clínica.
-              </p>
-              <div className="mt-6 flex items-center gap-2 text-primary font-bold text-xs">
-                <span>Ver herramientas</span>
-                <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
-              </div>
-            </button>
-          </div>
+            </div>
+          </>
         )}
+
 
         {/* QUESTIONNAIRES VIEW */}
         {viewMode === 'questionnaires' && (
@@ -284,7 +296,7 @@ const Resources: React.FC = () => {
           </button>
         </div>
       </section>
-    </div>
+    </div >
   );
 };
 
