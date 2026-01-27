@@ -27,6 +27,15 @@ export const RESOURCES: ManualResource[] = [
     pages: 1,
     image: "https://images.unsplash.com/photo-1541480601022-2308c0f02487?auto=format&fit=crop&q=80&w=1000",
     downloadUrl: "/docs/pautas-higiene-sueno.docx"
+  },
+  {
+    id: "8",
+    title: "Guía de Pruebas Psicotécnicas",
+    category: "Psicotécnicos",
+    size: "2.4 MB",
+    pages: 15,
+    image: "https://images.unsplash.com/photo-1516534775068-ba3e7458af70?auto=format&fit=crop&q=80&w=1000",
+    downloadUrl: "/assets/docs/guia-psicotecnicos.pdf"
   }
 ];
 

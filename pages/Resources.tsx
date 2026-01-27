@@ -15,7 +15,7 @@ const Resources: React.FC = () => {
 
 
   // Categories for materials
-  const categories = ['Todos los Recursos', 'Manejo de la Ansiedad', 'TDAH y Concentración', 'Higiene del Sueño', 'Neurodivergencia'];
+  const categories = ['Todos los Recursos', 'Psicotécnicos', 'Manejo de la Ansiedad', 'TDAH y Concentración', 'Higiene del Sueño', 'Neurodivergencia'];
 
   const filteredResources = RESOURCES.filter((resource) => {
     const matchesCategory = activeCategory === 'Todos los Recursos' || resource.category === activeCategory;
@@ -79,7 +79,7 @@ const Resources: React.FC = () => {
               </div>
               <h2 className="text-xl font-bold text-text-dark mb-3 group-hover:text-primary transition-colors">Materiales y Guías</h2>
               <p className="text-sm text-text-muted leading-relaxed">
-                Repositorio de documentos PDF, protocolos de intervención en DCA y manuales técnicos.
+                Repositorio de documentos PDF, protocolos de intervención, guías psicotécnicas y manuales técnicos.
               </p>
               <div className="mt-6 flex items-center gap-2 text-primary font-bold text-xs">
                 <span>Explorar biblioteca</span>
