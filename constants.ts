@@ -40,8 +40,133 @@ export const RESOURCES: ManualResource[] = [
     image: "https://images.unsplash.com/photo-1516534775068-ba3e7458af70?auto=format&fit=crop&q=80&w=1000",
     downloadUrl: "/docs/guia-psicotecnicos.pdf",
     description: "Manual práctico con estrategias y ejercicios para afrontar con éxito las pruebas de aptitud en procesos de selección."
+  },
+  {
+    id: "nice-guides",
+    title: "Guías NICE (Excelencia Clínica)",
+    category: "Recursos Guías",
+    size: "Colección",
+    pages: 0,
+    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=1000",
+    downloadUrl: "#nice-guides",
+    description: "Acceso a la colección completa de guías de práctica clínica del NICE (National Institute for Health and Care Excellence)."
   }
 ];
+
+export const NICE_GUIDES: ManualResource[] = [
+  {
+    id: "nice-1",
+    title: "Autism spectrum disorder in adults: diagnosis and management",
+    category: "NICE",
+    size: "0.2 MB",
+    pages: 45,
+    image: "https://images.unsplash.com/photo-1518173946687-a4c8a3b7752e?auto=format&fit=crop&q=80&w=300",
+    downloadUrl: "/docs/nice-guides/autism-spectrum-disorder-in-adults-diagnosis-and-management-pdf-35109567475909.pdf",
+    description: "NICE guideline [CG142]: diagnosis and management of autism spectrum disorder in adults."
+  },
+  {
+    id: "nice-2",
+    title: "Dementia: assessment, management and support",
+    category: "NICE",
+    size: "0.3 MB",
+    pages: 60,
+    image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&q=80&w=300",
+    downloadUrl: "/docs/nice-guides/dementia-assessment-management-and-support-for-people-living-with-dementia-and-their-carers-pdf-1837760199109.pdf",
+    description: "NICE guideline [NG97]: assessment, management and support for people living with dementia."
+  },
+  {
+    id: "nice-3",
+    title: "Depression in adults: treatment and management",
+    category: "NICE",
+    size: "0.5 MB",
+    pages: 80,
+    image: "https://images.unsplash.com/photo-1527137342181-19a8416bdfb1?auto=format&fit=crop&q=80&w=300",
+    downloadUrl: "/docs/nice-guides/depression-in-adults-treatment-and-management-pdf-66143832307909.pdf",
+    description: "NICE guideline [NG222]: treatment and management of depression in adults."
+  },
+  {
+    id: "nice-4",
+    title: "Stroke rehabilitation in adults",
+    category: "NICE",
+    size: "0.4 MB",
+    pages: 55,
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=300",
+    downloadUrl: "/docs/nice-guides/stroke-rehabilitation-in-adults-pdf-66143899492549.pdf",
+    description: "NICE guideline [CG162]: rehabilitation and support following stroke."
+  },
+  {
+    id: "nice-5",
+    title: "Head injury: assessment and early management",
+    category: "NICE",
+    size: "0.4 MB",
+    pages: 50,
+    image: "https://images.unsplash.com/photo-1516534775068-ba3e7458af70?auto=format&fit=crop&q=80&w=300",
+    downloadUrl: "/docs/nice-guides/head-injury-assessment-and-early-management-pdf-66143892774085.pdf",
+    description: "NICE guideline [NG232]: assessment and early management of head injury."
+  },
+  {
+    id: "nice-6",
+    title: "Rehabilitation after traumatic injury",
+    category: "NICE",
+    size: "0.7 MB",
+    pages: 90,
+    image: "https://images.unsplash.com/photo-1622979135225-d2ba269fb1ac?auto=format&fit=crop&q=80&w=300",
+    downloadUrl: "/docs/nice-guides/rehabilitation-after-traumatic-injury-pdf-66143770162117.pdf",
+    description: "NICE guideline [NG211]: rehabilitation after traumatic injury."
+  },
+  {
+    id: "nice-7",
+    title: "Cerebral palsy in adults",
+    category: "NICE",
+    size: "0.4 MB",
+    pages: 45,
+    image: "https://images.unsplash.com/photo-1576091160550-217358c7c814?auto=format&fit=crop&q=80&w=300",
+    downloadUrl: "/docs/nice-guides/cerebral-palsy-in-adults-pdf-66141606816709.pdf",
+    description: "NICE guideline [NG119]: cerebral palsy in adults."
+  },
+  {
+    id: "nice-8",
+    title: "Multiple sclerosis in adults: management",
+    category: "NICE",
+    size: "0.3 MB",
+    pages: 40,
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=300",
+    downloadUrl: "/docs/nice-guides/multiple-sclerosis-in-adults-management-pdf-66143828948677.pdf",
+    description: "NICE guideline [NG220]: diagnosis and management of multiple sclerosis in adults."
+  },
+  {
+    id: "nice-9",
+    title: "Obsessive-compulsive disorder and body dysmorphic disorder",
+    category: "NICE",
+    size: "0.2 MB",
+    pages: 35,
+    image: "https://images.unsplash.com/photo-1516534775068-ba3e7458af70?auto=format&fit=crop&q=80&w=300",
+    downloadUrl: "/docs/nice-guides/obsessivecompulsive-disorder-and-body-dysmorphic-disorder-treatment-pdf-975381519301.pdf",
+    description: "NICE guideline [CG31]: treatment of OCD and BDD."
+  },
+  {
+    id: "nice-10",
+    title: "Parkinson's disease in adults",
+    category: "NICE",
+    size: "0.2 MB",
+    pages: 30,
+    image: "https://images.unsplash.com/photo-1576091160550-217358c7c814?auto=format&fit=crop&q=80&w=300",
+    downloadUrl: "/docs/nice-guides/parkinsons-disease-in-adults-pdf-1837629189061.pdf",
+    description: "NICE guideline [NG71]: Parkinson's disease in adults."
+  },
+  {
+    id: "nice-11",
+    title: "Mental health problems in people with learning disabilities",
+    category: "NICE",
+    size: "0.2 MB",
+    pages: 38,
+    image: "https://images.unsplash.com/photo-1518173946687-a4c8a3b7752e?auto=format&fit=crop&q=80&w=300",
+    downloadUrl: "/docs/nice-guides/mental-health-problems-in-people-with-learning-disabilities-prevention-assessment-and-management-pdf-1837513295557.pdf",
+    description: "NICE guideline [NG54]: prevention, assessment and management of mental health problems in people with learning disabilities."
+  }
+];
+
+
 
 export const SERVICES: ServiceItem[] = [
   {

@@ -5,17 +5,24 @@ import { ManualResource } from '../../types';
 interface ResourceCardProps {
   resource: ManualResource;
   compact?: boolean;
+  onClick?: (e: React.MouseEvent) => void;
 }
 
-const ResourceCard: React.FC<ResourceCardProps> = ({ resource, compact = false }) => {
+const ResourceCard: React.FC<ResourceCardProps> = ({ resource, compact = false, onClick }) => {
   const handleDownload = (e: React.MouseEvent) => {
+    if (onClick) {
+      e.preventDefault();
+      onClick(e);
+      return;
+    }
     // TODO: INTEGRACIÓN BACKEND - Registrar evento de descarga para analíticas
     console.log(`Descargando recurso: ${resource.id}`);
   };
 
+
   if (compact) {
     return (
-      <Link to="/resources" className="resource-card resource-card--compact group cursor-pointer block card-hover">
+      <Link to="/resources" onClick={handleDownload} className="resource-card resource-card--compact group cursor-pointer block card-hover">
         <div className="aspect-[3/4] bg-white rounded-3xl border border-[#daded8] mb-4 p-6 flex flex-col justify-between shadow-sm">
           <div className="w-full h-2/3 bg-background-light rounded-lg overflow-hidden relative">
             <img

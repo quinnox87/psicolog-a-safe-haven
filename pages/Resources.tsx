@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { RESOURCES, ONLINE_QUESTIONNAIRES, INTERACTIVE_RESOURCES } from '../constants';
+import { RESOURCES, ONLINE_QUESTIONNAIRES, INTERACTIVE_RESOURCES, NICE_GUIDES } from '../constants';
 import ResourceCard from '../components/features/ResourceCard';
 import { useBooking } from '../context/BookingContext';
 
-type ViewMode = 'landing' | 'questionnaires' | 'materials' | 'interactive';
+type ViewMode = 'landing' | 'questionnaires' | 'materials' | 'interactive' | 'nice-guides';
 
 const Resources: React.FC = () => {
   const [viewMode, setViewMode] = useState<ViewMode>('landing');
   const [activeCategory, setActiveCategory] = useState('Todos los Recursos');
   const [searchQuery, setSearchQuery] = useState('');
   const { openModal } = useBooking();
-  console.log('Online Questionnaires Data:', ONLINE_QUESTIONNAIRES);
-
 
   // Categories for materials
   const categories = ['Todos los Recursos', 'Recursos Guías', 'Manejo de la Ansiedad', 'TDAH y Concentración', 'Higiene del Sueño', 'Neurodivergencia', 'Terapia y Trauma'];
@@ -23,15 +21,26 @@ const Resources: React.FC = () => {
     return matchesCategory && matchesSearch;
   });
 
+  const handleResourceClick = (resourceId: string) => {
+    if (resourceId === 'nice-guides') {
+      setViewMode('nice-guides');
+      window.scrollTo(0, 0);
+    }
+  };
+
   const handleBack = () => {
     setViewMode('landing');
     setSearchQuery('');
     setActiveCategory('Todos los Recursos');
   };
 
+  const filteredNiceGuides = NICE_GUIDES.filter(guide =>
+    guide.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    guide.description?.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="animate-fade-in min-h-screen bg-[#fcfcfb]">
-
       {/* Header Section */}
       <div className="bg-white border-b border-[#edefec] py-12 px-6">
         <div className="max-w-4xl mx-auto text-center">
@@ -111,8 +120,8 @@ const Resources: React.FC = () => {
             <div className="mt-20 animate-slide-up" style={{ animationDelay: '200ms' }}>
               <h3 className="text-center text-sm font-bold text-text-muted uppercase tracking-[0.2em] mb-10">Recursos de Acceso Rápido</h3>
               <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                {RESOURCES.filter(r => r.id === '9' || r.id === '8').map(resource => (
-                  <ResourceCard key={resource.id} resource={resource} />
+                {RESOURCES.filter(r => r.id === 'nice-guides' || r.id === '9').map(resource => (
+                  <ResourceCard key={resource.id} resource={resource} onClick={() => handleResourceClick(resource.id)} />
                 ))}
               </div>
             </div>
@@ -208,6 +217,56 @@ const Resources: React.FC = () => {
           </div>
         )}
 
+        {/* NICE GUIDES VIEW */}
+        {viewMode === 'nice-guides' && (
+          <div className="animate-fade-in">
+            <button onClick={() => setViewMode('landing')} className="flex items-center gap-2 text-text-muted hover:text-primary mb-8 font-bold text-sm transition-colors">
+              <span className="material-symbols-outlined">arrow_back</span>
+              Atrás
+            </button>
+
+            <div className="bg-primary/5 rounded-[40px] p-8 md:p-12 mb-12 border border-primary/10">
+              <div className="flex flex-col md:flex-row gap-8 items-center">
+                <div className="w-24 h-24 bg-white rounded-3xl flex items-center justify-center text-primary shadow-xl">
+                  <span className="material-symbols-outlined text-5xl">fact_check</span>
+                </div>
+                <div>
+                  <h2 className="text-3xl font-extrabold text-text-dark mb-3">Colección de Guías NICE</h2>
+                  <p className="text-lg text-text-muted max-w-2xl leading-relaxed">
+                    National Institute for Health and Care Excellence. Protocolos de excelencia clínica basados en la evidencia más reciente.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-8">
+              <div className="relative max-w-md">
+                <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+                <input
+                  type="text"
+                  placeholder="Filtrar guías NICE..."
+                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-sm"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredNiceGuides.map((guide) => (
+                <ResourceCard key={guide.id} resource={guide} />
+              ))}
+            </div>
+
+            {filteredNiceGuides.length === 0 && (
+              <div className="text-center py-20 bg-gray-50 rounded-3xl border border-dashed border-gray-200">
+                <span className="material-symbols-outlined text-4xl mb-3 text-gray-300">search_off</span>
+                <p className="text-text-muted font-medium">No se encontraron guías con ese nombre.</p>
+              </div>
+            )}
+          </div>
+        )}
+
         {/* MATERIALS VIEW */}
         {viewMode === 'materials' && (
           <div className="animate-fade-in">
@@ -263,7 +322,7 @@ const Resources: React.FC = () => {
                 {filteredResources.length > 0 ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {filteredResources.map((resource) => (
-                      <ResourceCard key={resource.id} resource={resource} />
+                      <ResourceCard key={resource.id} resource={resource} onClick={() => handleResourceClick(resource.id)} />
                     ))}
                   </div>
                 ) : (
