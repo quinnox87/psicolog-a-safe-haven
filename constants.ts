@@ -62,7 +62,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 45,
     image: "https://images.unsplash.com/photo-1518173946687-a4c8a3b7752e?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/autism-spectrum-disorder-in-adults-diagnosis-and-management-pdf-35109567475909.pdf",
-    description: "NICE guideline [CG142]: Comprehensive guide for the diagnosis and management of autism in adults."
+    description: "Guía NICE [CG142] (2012): Protocolos detallados para el diagnóstico y manejo del autismo en adultos."
   },
   {
     id: "nice-asd-under19-rec",
@@ -72,7 +72,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 52,
     image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/autism-spectrum-disorder-in-under-19s-recognition-referral-and-diagnosis-pdf-35109456621253.pdf",
-    description: "NICE guideline [CG128]: Clinical recognition and referral of children and young people on the autism spectrum."
+    description: "Guía NICE [CG128] (2011): Reconocimiento clínico y derivación de niños y jóvenes en el espectro autista."
   },
   {
     id: "nice-asd-under19-mgmt",
@@ -82,7 +82,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 48,
     image: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/autism-spectrum-disorder-in-under-19s-support-and-management-pdf-35109745515205.pdf",
-    description: "NICE guideline [CG170]: Support and management of children and young people on the autism spectrum."
+    description: "Guía NICE [CG170] (2013): Apoyo y manejo integral para niños y jóvenes en el espectro autista."
   },
   {
     id: "nice-brain-tumours",
@@ -92,7 +92,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 65,
     image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/brain-tumours-primary-and-brain-metastases-in-over-16s-pdf-1837763558341.pdf",
-    description: "NICE guideline [NG99]: Diagnostic and management protocols for brain tumours and clinical metastases."
+    description: "Guía NICE [NG99] (2018): Protocolos de diagnóstico y tratamiento para tumores cerebrales y metástasis."
   },
   {
     id: "nice-learning-dis-older",
@@ -102,7 +102,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 42,
     image: "https://images.unsplash.com/photo-1581579438747-1dc8c17bbce4?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/care-and-support-of-people-growing-older-with-learning-disabilities-pdf-1837758519493.pdf",
-    description: "NICE guideline [NG96]: Care and support of people growing older with learning disabilities."
+    description: "Guía NICE [NG96] (2018): Cuidados y apoyo especializado para personas mayores con dificultades de aprendizaje."
   },
   {
     id: "nice-cp-adults",
@@ -112,7 +112,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 45,
     image: "https://images.unsplash.com/photo-1576091160550-217358c7c814?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/cerebral-palsy-in-adults-pdf-66141606816709.pdf",
-    description: "NICE guideline [NG119]: Clinical management and social support for adults with cerebral palsy."
+    description: "Guía NICE [NG119] (2019): Manejo clínico y apoyo social para adultos con parálisis cerebral."
   },
   {
     id: "nice-challenging-behaviour",
@@ -122,7 +122,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 55,
     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/challenging-behaviour-and-learning-disabilities-prevention-and-interventions-for-people-with-learning-disabilities-whose-behaviour-challenges-pdf-1837266392005.pdf",
-    description: "NICE guideline [NG11]: Prevention and interventions for people with learning disabilities and challenging behaviour."
+    description: "Guía NICE [NG11] (2015): Prevención e intervención en conductas desafiantes y discapacidades de aprendizaje."
   },
   {
     id: "nice-dementia-mgmt",
@@ -132,7 +132,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 60,
     image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/dementia-assessment-management-and-support-for-people-living-with-dementia-and-their-carers-pdf-1837760199109.pdf",
-    description: "NICE guideline [NG97]: Modern assessment and support for people living with dementia and their carers."
+    description: "Guía NICE [NG97] (2018): Evaluación moderna y apoyo para personas con demencia y sus cuidadores."
   },
   {
     id: "nice-dementia-prevention",
@@ -142,7 +142,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 50,
     image: "https://images.unsplash.com/photo-1581579438783-6f8a05d14bc3?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/dementia-disability-and-frailty-in-later-life-midlife-approaches-to-delay-or-prevent-onset-pdf-1837274790085.pdf",
-    description: "NICE guideline [NG16]: Midlife approaches to delay or prevent the onset of dementia and frailty."
+    description: "Guía NICE [NG16] (2015): Enfoques preventivos para retrasar la aparición de la demencia y fragilidad."
   },
   {
     id: "nice-depression-adults",
@@ -152,7 +152,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 80,
     image: "https://images.unsplash.com/photo-1527137342181-19a8416bdfb1?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/depression-in-adults-treatment-and-management-pdf-66143832307909.pdf",
-    description: "NICE guideline [NG222]: The gold standard for recognition and treatment of depression in adults."
+    description: "Guía NICE [NG222] (2022): Estándar de oro para el reconocimiento y tratamiento de la depresión en adultos."
   },
   {
     id: "nice-depression-chronic",
@@ -162,7 +162,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 45,
     image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/depression-in-adults-with-a-chronic-physical-health-problem-recognition-and-management-pdf-975744316357.pdf",
-    description: "NICE guideline [CG91]: Management of depression in patients with concurrent physical illness."
+    description: "Guía NICE [CG91] (2009): Manejo de la depresión en pacientes con enfermedades físicas crónicas."
   },
   {
     id: "nice-preterm-followup",
@@ -172,7 +172,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 38,
     image: "https://images.unsplash.com/photo-1555252333-978fe3c788c8?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/developmental-followup-of-children-and-young-people-born-preterm-pdf-1837630868677.pdf",
-    description: "NICE guideline [NG72]: Long-term developmental follow-up for children born prematurely."
+    description: "Guía NICE [NG72] (2017): Seguimiento del desarrollo a largo plazo para niños nacidos prematuramente."
   },
   {
     id: "nice-epilepsies",
@@ -182,7 +182,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 110,
     image: "https://images.unsplash.com/photo-1516534775068-ba3e7458af70?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/epilepsies-in-children-young-people-and-adults-pdf-66143780239813.pdf",
-    description: "NICE guideline [NG217]: Diagnosis and management of epilepsies across all age groups."
+    description: "Guía NICE [NG217] (2022): Diagnóstico y manejo de las epilepsias en todos los grupos de edad."
   },
   {
     id: "nice-head-injury",
@@ -192,7 +192,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 50,
     image: "https://images.unsplash.com/photo-1516534775068-ba3e7458af70?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/head-injury-assessment-and-early-management-pdf-66143892774085.pdf",
-    description: "NICE guideline [NG232]: Crucial protocols for the initial assessment of head trauma."
+    description: "Guía NICE [NG232] (2023): Protocolos críticos para la evaluación inicial y manejo de traumatismos craneales."
   },
   {
     id: "nice-learning-dis-service",
@@ -202,7 +202,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 55,
     image: "https://images.unsplash.com/photo-1454165833019-d8b77ed55c3a?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/learning-disabilities-and-behaviour-that-challenges-service-design-and-delivery-pdf-1837753480645.pdf",
-    description: "NICE guideline [NG93]: Best practices for designing services for people with learning disabilities."
+    description: "Guía NICE [NG93] (2018): Mejores prácticas para el diseño de servicios para personas con discapacidad intelectual."
   },
   {
     id: "nice-mh-learning-dis",
@@ -212,7 +212,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 40,
     image: "https://images.unsplash.com/photo-1518173946687-a4c8a3b7752e?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/mental-health-problems-in-people-with-learning-disabilities-prevention-assessment-and-management-pdf-1837513295557.pdf",
-    description: "NICE guideline [NG54]: Prevention, assessment and management of mental health issues in this population."
+    description: "Guía NICE [NG54] (2016): Prevención y manejo de problemas de salud mental en población con discapacidad intelectual."
   },
   {
     id: "nice-ms-mgmt",
@@ -222,7 +222,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 40,
     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/multiple-sclerosis-in-adults-management-pdf-66143828948677.pdf",
-    description: "NICE guideline [NG220]: Comprehensive management strategies for adults with Multiple Sclerosis."
+    description: "Guía NICE [NG220] (2022): Estrategias integrales de manejo para adultos con Esclerosis Múltiple."
   },
   {
     id: "nice-ocd-bdd",
@@ -232,7 +232,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 35,
     image: "https://images.unsplash.com/photo-1513258496099-48168024adb0?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/obsessivecompulsive-disorder-and-body-dysmorphic-disorder-treatment-pdf-975381519301.pdf",
-    description: "NICE guideline [CG31]: Clinical treatment protocols for OCD and BDD."
+    description: "Guía NICE [CG31] (2005): Protocolos de tratamiento clínico para el TOC y el Trastorno Dismórfico Corporal."
   },
   {
     id: "nice-parkinsons",
@@ -242,7 +242,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 30,
     image: "https://images.unsplash.com/photo-1576091160550-217358c7c814?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/parkinsons-disease-in-adults-pdf-1837629189061.pdf",
-    description: "NICE guideline [NG71]: Evidence-based management of Parkinson's disease."
+    description: "Guía NICE [NG71] (2017): Manejo basado en evidencia de la enfermedad de Parkinson en adultos."
   },
   {
     id: "nice-rehab-trauma",
@@ -252,7 +252,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 95,
     image: "https://images.unsplash.com/photo-1622979135225-d2ba269fb1ac?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/rehabilitation-after-traumatic-injury-pdf-66143770162117.pdf",
-    description: "NICE guideline [NG211]: Protocols for rehabilitation and recovery after major trauma."
+    description: "Guía NICE [NG211] (2022): Protocolos para la rehabilitación y recuperación después de lesiones traumáticas graves."
   },
   {
     id: "nice-wellbeing-early",
@@ -262,7 +262,7 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 45,
     image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/social-and-emotional-wellbeing-early-years-pdf-1996351221445.pdf",
-    description: "NICE guideline [PH40]: Promoting social and emotional wellbeing in the early years."
+    description: "Guía NICE [PH40] (2012): Promoción del bienestar socioemocional en los primeros años de vida."
   },
   {
     id: "nice-stroke-rehab",
@@ -272,9 +272,10 @@ export const NICE_GUIDES: ManualResource[] = [
     pages: 55,
     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=300",
     downloadUrl: "/docs/nice-guides/stroke-rehabilitation-in-adults-pdf-66143899492549.pdf",
-    description: "NICE guideline [CG162]: Core guidelines for stroke recovery and neurological rehabilitation."
+    description: "Guía NICE [CG162] (2013): Directrices fundamentales para la recuperación tras un ictus y rehabilitación neurológica."
   }
 ];
+
 
 
 
