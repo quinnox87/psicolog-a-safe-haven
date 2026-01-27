@@ -62,7 +62,10 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource, compact = false, 
           Recurso PDF
         </div>
       </div>
-      <div className="p-6 flex flex-col flex-1">
+      <div
+        className="p-6 flex flex-col flex-1 cursor-pointer"
+        onClick={handleDownload}
+      >
         <div className="mb-4">
           <span className="text-[10px] font-bold uppercase tracking-wider text-accent-blue bg-accent-blue/10 px-2 py-1 rounded-md">
             {resource.category}
@@ -80,14 +83,16 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource, compact = false, 
         <div className="mt-6 pt-6 border-t border-gray-100">
           <a
             href={resource.downloadUrl}
-            download
-            target="_blank"
+            download={!resource.downloadUrl.startsWith('#')}
+            target={resource.downloadUrl.startsWith('#') ? undefined : "_blank"}
             rel="noopener noreferrer"
             onClick={handleDownload}
             className="w-full py-3 bg-[#f4f6f4] text-primary-dark rounded-xl font-bold text-sm flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-white transition-all duration-300"
           >
-            <span className="material-symbols-outlined text-lg">download</span>
-            Descargar Guía
+            <span className="material-symbols-outlined text-lg">
+              {resource.downloadUrl.startsWith('#') ? 'folder_open' : 'download'}
+            </span>
+            {resource.downloadUrl.startsWith('#') ? 'Explorar Colección' : 'Descargar Guía'}
           </a>
         </div>
       </div>
