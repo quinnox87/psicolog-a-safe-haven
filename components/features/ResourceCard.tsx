@@ -52,7 +52,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource, compact = false }
           loading="lazy"
         />
         <div className="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1.5 rounded-lg text-[10px] font-bold tracking-widest text-primary uppercase shadow-sm">
-          PDF • {resource.pages} Páginas
+          Recurso PDF
         </div>
       </div>
       <div className="p-6 flex flex-col flex-1">
